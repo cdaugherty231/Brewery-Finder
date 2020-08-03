@@ -12,7 +12,7 @@
       <input type="text-area" name="history" placeholder="Description" />
       </div>
       <div>
-        <input type="img" name="photos">
+        <input type="img" name="photos" placeholder="Add Photos Here">
       </div>
       <button>Enter</button>
     </form>
@@ -25,7 +25,7 @@ import UserService from "@/services/UserService.js";
 export default {
   methods: {
     addNewBrewery(name) {
-      UserService.addNewBrewery(username);
+      UserService.addNewBrewery(name);
     },
   },
 };
