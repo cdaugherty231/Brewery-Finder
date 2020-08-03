@@ -8,6 +8,10 @@ export default {
 
   getAllUsers() {
     return axios.get('/users');
+  },
+  
+  addNewBrewery(name) {
+    return axios.push('/home');
   }
 
 };
