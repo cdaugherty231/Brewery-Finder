@@ -3,18 +3,18 @@
     <form class="findUser">
       <div>
       <input type="text" name="name" placeholder="Brewery Name" />
-      <input type="text" name="Days-Hours of Operation" placeholder="Days/Hours of Opertions" />
-      <input type="text" name="address" placeholder="Address" />
-      <input type="text" name="city" placeholder="City" />
-      <input type="text" name="state" placeholder="State" />
-      <input type="text" name="zipcode" placeholder="Zipcode" />
-      <input type="text" name="contact-info" placeholder="Phone Number" />
-      <input type="text-area" name="history" placeholder="Description" />
+      <input type="text" name="Days-Hours of Operation" placeholder="Days/Hours of Opertions" v-model="brewery.name" />
+      <input type="text" name="address" placeholder="Address" v-model="brewery.address" />
+      <input type="text" name="city" placeholder="City" v-model="brewery.city"/>
+      <input type="text" name="state" placeholder="State" v-model="brewery.state"/>
+      <input type="text" name="zipcode" placeholder="Zipcode" v-model="brewery.zipcode"/>
+      <input type="text" name="contact-info" placeholder="Phone Number" v-model="brewery.contactInfo"/>
+      <input type="text-area" name="history" placeholder="Description" v-model="brewery.history"/>
       </div>
       <div>
         <input type="img" name="photos" placeholder="Add Photos Here">
       </div>
-      <button>Enter</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click="addNewBrewery()">Enter</button>
     </form>
   </div>
 </template>
@@ -23,9 +23,23 @@
 import UserService from "@/services/UserService.js";
 
 export default {
+    data() {
+        return {
+            brewery: {
+                name: '',
+                HrsOp: '',
+                address: '',
+                city: '',
+                state: '',
+                zipcode: '',
+                contactInfo: '',
+                history: ''
+            }
+        }
+    },
   methods: {
-    addNewBrewery(name) {
-      UserService.addNewBrewery(name);
+    addNewBrewery(brewery) {
+      UserService.addNewBrewery(brewery);
     },
   },
 };
