@@ -13,7 +13,9 @@ import com.techelevator.model.Brewery;
 public class BrewerySqlDAO implements BreweryDAO{
 	
 	private JdbcTemplate jdbcTemplate;
-    private static final String ALL_FIELDS = "breweryid, name, breweryaddressid, history, days_operations, hours_operationid";
+    private static final String ALL_FIELDS = 
+    		"name, address_street, address_city, address_state, address_zip, "
+    		+ "phone_number, history, days_operation, hours_operation";
     
     public BrewerySqlDAO(JdbcTemplate jdbcTemplate) {
     	this.jdbcTemplate = jdbcTemplate;
@@ -24,7 +26,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public List<Brewery> getAll() {
 		// TODO Auto-generated method stub
 		List<Brewery> breweryList = new ArrayList<>();
-		String sql = "SELECT breweryid, name, breweryaddressid, history, days_operations, hours_operationid FROM brewery";
+		String sql = "SELECT " + ALL_FIELDS + " FROM brewery";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
 		while(rs.next()) {
 			breweryList.add(mapRowToBrewery(rs));
@@ -35,23 +37,45 @@ public class BrewerySqlDAO implements BreweryDAO{
 	
 	private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
-        brewery.setId(rs.getInt("breweryid"));
+        brewery.setBrewery_id(rs.getInt("brewery_id"));
         brewery.setName(rs.getString("name"));
-        brewery.setAddressId(rs.getInt("breweryaddressid"));
-        brewery.setHistoryBio(rs.getString("history"));
-        brewery.setDaysOfOperation(rs.getString("days_operations"));
-        brewery.setHrsOfOperation(rs.getString("hours_operationid"));
+        brewery.setAddress_street(rs.getString("address_street"));
+        brewery.setAddress_city(rs.getString("address_city"));
+        brewery.setAddress_zip(rs.getInt("address_zip"));
+        brewery.setAddress_state(rs.getString("address_state"));
+        brewery.setPhone_number(rs.getString("phone_number"));
+        brewery.setHistory(rs.getString("history"));
+        brewery.setDaysOfOperation(rs.getString("days_operation"));
+        brewery.setHrsOfOperation(rs.getString("hours_operation"));
         
         return brewery;
     }
 
 	@Override
 	public Brewery createBrewery(Brewery breweryToAdd) {
-		String sql = "INSERT INTO brewery (name, breweryaddressid, history, days_operations, hours_operationid)"
-				+ " VALUES(?, ?, ?, ?, ?) RETURNING breweryid";
-		int resultID = jdbcTemplate.queryForObject(sql, Integer.class, breweryToAdd.getName(), breweryToAdd.getAddressId(), breweryToAdd.getHistoryBio(), breweryToAdd.getDaysOfOperation(), breweryToAdd.getHrsOfOperation() );
+		String sql = "INSERT INTO brewery ("
+				+ " name,"
+				+ " address_street,"
+				+ " address_city,"
+				+ " address_state,"
+				+ " address_zip,"
+				+ " phone_number,"
+				+ " history,"
+				+ " days_operation,"
+				+ " hours_operation)"
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING breweryid";
+		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
+				breweryToAdd.getName(),
+				breweryToAdd.getAddress_street(), 
+				breweryToAdd.getAddress_city(),
+				breweryToAdd.getAddress_state(),
+				breweryToAdd.getAddress_zip(),
+				breweryToAdd.getPhone_number(),
+				breweryToAdd.getHistory(),
+				breweryToAdd.getDaysOfOperation(),
+				breweryToAdd.getHrsOfOperation());
 		
-		breweryToAdd.setId(resultID);
+		breweryToAdd.setBrewery_id(resultID);
 		
 		return breweryToAdd;
 	}
