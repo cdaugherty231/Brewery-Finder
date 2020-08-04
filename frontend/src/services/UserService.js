@@ -11,7 +11,7 @@ export default {
   },
   
   addNewBrewery(brewery) {
-    return axios.post('/home', brewery);
+    return axios.post('/breweries', brewery);
   }
 
 };

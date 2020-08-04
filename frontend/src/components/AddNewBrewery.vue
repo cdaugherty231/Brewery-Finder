@@ -2,8 +2,8 @@
   <div>
     <form class="findUser">
       <div>
-      <input type="text" name="name" placeholder="Brewery Name" />
-      <input type="text" name="Days-Hours of Operation" placeholder="Days/Hours of Opertions" v-model="brewery.name" />
+      <input type="text" name="name" placeholder="Brewery Name" v-model="brewery.name" />
+      <input type="text" name="hours-opertation" placeholder="Hours of Opertion" v-model="brewery.hrsOp" />
       <input type="text" name="address" placeholder="Address" v-model="brewery.address" />
       <input type="text" name="city" placeholder="City" v-model="brewery.city"/>
       <input type="text" name="state" placeholder="State" v-model="brewery.state"/>
@@ -27,7 +27,7 @@ export default {
         return {
             brewery: {
                 name: '',
-                HrsOp: '',
+                hrsOp: '',
                 address: '',
                 city: '',
                 state: '',
