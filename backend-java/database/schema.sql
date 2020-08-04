@@ -38,4 +38,6 @@ CREATE TABLE brewery (
 
 INSERT INTO brewery(name, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation) VALUES ('Braxton','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm');
 
+
+
 COMMIT TRANSACTION;

@@ -40,3 +40,30 @@ INSERT INTO brewery(name, breweryaddressid, history, days_operations,  hours_ope
 
      SELECT *
     FROM address; */
+
+    SELECT *
+    FROM address
+
+    Begin Transaction
+    INSERT INTO brewery(breweryid, name, breweryaddressid, history, days_operations,  hours_operationid)
+    VALUES (12,'Humble Monk Brewing Co', 11, 'Pet Friendly', 'Wed - Sun', '4 - 11 pm')
+
+    INSERT INTO address(streetaddress, city, statetwochar, zip,phonenumber ) 
+    VALUES ('1641 Blue Rock St', 'Cincinnati', 'OH', 45223, '513-510-4615');
+
+    INSERT INTO address(streetaddress, city, statetwochar, zip,phonenumber ) 
+    VALUES ('1445 Compton Rd', 'Cincinnati', 'OH', 45231, '513-832-1422');
+    
+    INSERT INTO address(streetaddress, city, statetwochar, zip,phonenumber ) 
+    VALUES ('4614 Industry Dr', 'Fairfield', 'OH', 45014, '513-201-7070');
+
+    INSERT INTO address(streetaddress, city, statetwochar, zip,phonenumber ) 
+    VALUES ('5905 Hamilton Ave', 'Cincinnati', 'OH', 45224, '513-882-3334');
+
+    INSERT INTO address(streetaddress, city, statetwochar, zip,phonenumber ) 
+    VALUES ('1621 Dana Ave', 'Cincinnati', 'OH', 45207, '513-731-1130');
+
+    INSERT INTO address(streetaddress, city, statetwochar, zip,phonenumber ) 
+    VALUES ('1621 Dana Ave', 'Cincinnati', 'OH', 45207, '513-731-1130');
+
+    
