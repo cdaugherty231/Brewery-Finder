@@ -1,13 +1,19 @@
 package com.techelevator.model;
 
 public class Address {
+	private int id;
 	private String streetAddress;
 	private String city;
 	private String state;
 	private int zipcode;
 	private String phoneNumber;
 	
-	public Address(String streetAddress, String city, String state, int zipcode, String phoneNumber) {
+	public Address() {
+		
+	}
+	
+	public Address(int id,String streetAddress, String city, String state, int zipcode, String phoneNumber) {
+		this.setId(id);
 		this.setStreetAddress(streetAddress);
 		this.setCity(city);
 		this.setState(state);
@@ -53,6 +59,14 @@ public class Address {
 
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 

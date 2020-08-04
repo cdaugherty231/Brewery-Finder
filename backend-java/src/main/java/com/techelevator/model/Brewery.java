@@ -2,18 +2,24 @@ package com.techelevator.model;
 
 public class Brewery {
 
+	private int id;
 	private String name;
 	private String daysOfOperation;
 	private String hrsOfOperation;
 	private String historyBio;
-	private Address address;
+	private int addressId;
 	
-	public Brewery(String name, String daysOfOperation, String hrsOfOperation, String historyBio, Address address) {
+	public Brewery() {
+		
+	}
+	
+	public Brewery(int id, String name, String daysOfOperation, String hrsOfOperation, String historyBio, int addressId) {
+		this.id = id;
 		this.name = name;
 		this.daysOfOperation = daysOfOperation;
 		this.hrsOfOperation = hrsOfOperation;
 		this.historyBio = historyBio;
-		this.setAddress(address);
+		this.setAddressId(addressId);
 	}
 
 	public String getName() {
@@ -48,12 +54,20 @@ public class Brewery {
 		this.historyBio = historyBio;
 	}
 
-	public Address getAddress() {
-		return address;
+	public int getAddressId() {
+		return addressId;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }
 	
