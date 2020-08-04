@@ -25,7 +25,7 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 CREATE TABLE brewery (
      brewery_id SERIAL,
      name VARCHAR (99 ),
-     address_street INT,
+     address_street VARCHAR (99 ),
      address_city VARCHAR (99 ),
      address_state VARCHAR (99), 
      address_zip INT,
