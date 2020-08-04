@@ -11,7 +11,7 @@
           <input name="days-opertation" placeholder="Days of Operation" v-model="brewery.days_operation" /> 
         </li>
         <li>
-          <input type="number" name="address" placeholder="Address" v-model="brewery.address_street" /> 
+          <input type="text" name="address" placeholder="Address" v-model="brewery.address_street" /> 
         </li>
         <li>
           <input type="text" name="city" placeholder="City" v-model="brewery.address_city" />
@@ -27,10 +27,9 @@
         <li>
           <textarea type="text-area" name="history" placeholder="Description" v-model="brewery.history" />
         </li>
+         <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()" >Enter</button>
       </div>
-      <div>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()" >Enter</button>
+     
     </form>
   </div>
 </template>
@@ -67,7 +66,7 @@ export default {
   padding: 30px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;;
+  margin-top: 20px;
   text-align: center;
   background: #e0dd04;
   color: rgb(54, 86, 145);
@@ -76,9 +75,10 @@ export default {
 }
 
 .findUser {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   margin:auto;
-	max-width: 400px;
+	max-width: 600px;
 	padding: 20px 12px 10px 20px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -89,7 +89,7 @@ export default {
 	margin: 10px 0 0 0;
 }
 .sidebyside {
-  padding: 10px 0px 10px 0px
+  padding: 10px 0px 10px 0px;
 }
 
 .textarea {

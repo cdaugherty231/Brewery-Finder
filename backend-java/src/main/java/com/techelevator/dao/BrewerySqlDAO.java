@@ -63,7 +63,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 				+ " history,"
 				+ " days_operation,"
 				+ " hours_operation)"
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING breweryid";
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
 		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
 				breweryToAdd.getName(),
 				breweryToAdd.getAddress_street(), 

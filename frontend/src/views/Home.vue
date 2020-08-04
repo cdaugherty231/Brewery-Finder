@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>You must be authenticated to see this.</p>
     <div class="Admin" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')">
       <admin-look-up-user></admin-look-up-user>
       <add-new-brewery></add-new-brewery>
