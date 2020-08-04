@@ -2,8 +2,6 @@ package com.techelevator.dao;
 
 import java.util.List;
 
-import org.springframework.jdbc.support.rowset.SqlRowSet;
-
 import com.techelevator.model.Brewery;
 
 public interface BreweryDAO {
@@ -14,7 +12,7 @@ public interface BreweryDAO {
 	// Find brewery by name
 	
 	// Create brewery
-	
+	public Brewery createBrewery(Brewery breweryToAdd);
 
 
 }

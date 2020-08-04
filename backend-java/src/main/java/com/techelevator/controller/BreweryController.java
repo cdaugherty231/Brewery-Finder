@@ -3,21 +3,28 @@ package com.techelevator.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.techelevator.dao.BrewerySqlDAO;
 import com.techelevator.model.Brewery;
 
 @RestController
 public class BreweryController {
+	private BrewerySqlDAO  brewerySqlDAO;
 	
 	//@ResponseStatus(HttpStatus.)
-	@RequestMapping(value = "/getBrewery")
-	public List<Brewery> getBreweryList(){
-		List<Brewery> breweryList = new ArrayList<>();
-		
-		return breweryList;
+	@RequestMapping(value = "/breweries", method = RequestMethod.GET)
+	public List<Brewery> getBreweryList(){	
+		return brewerySqlDAO.getAll();
+	}
+	
+	@RequestMapping(value = "/breweries", method = RequestMethod.POST)
+	public Brewery getBreweryList(@RequestBody Brewery breweryToAdd){	
+		return null;
 	}
 
 }

@@ -43,6 +43,14 @@ public class BrewerySqlDAO implements BreweryDAO{
         return brewery;
     }
 
+	@Override
+	public Brewery createBrewery(Brewery breweryToAdd) {
+		String sql = "INSERT INTO brewery (name, breweryaddressid, history, days_operations, hours_operationid)"
+				+ " VALUES(?, ?, ?, ?, ?)";
+		
+		return null;
+	}
+
 
 
 }
