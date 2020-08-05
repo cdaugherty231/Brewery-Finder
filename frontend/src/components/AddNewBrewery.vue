@@ -12,13 +12,6 @@
             <option value v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
           </select>
         </li>
-        <!--<li v-for="brewer in users">
-          <select
-          :options="Brewers"
-          :value="brewer.brewer_username"
-          @input="brewer_username">
-          </select>
-        </li>-->
         <li class="sidebyside">
           <input
             type="text"
@@ -26,7 +19,8 @@
             placeholder="Hours of Operation"
             v-model="brewery.hours_operation"
           />
-          <input
+          <input 
+            type="text"
             name="days-opertation"
             placeholder="Days of Operation"
             v-model="brewery.days_operation"

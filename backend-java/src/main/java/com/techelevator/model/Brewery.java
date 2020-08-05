@@ -18,12 +18,12 @@ public class Brewery {
 		
 	}
 	
-	public Brewery(long id, String name, String daysOfOperation, String hrsOfOperation, String historyBio,
+	public Brewery(long id, String name, String days_operation, String hours_operation, String historyBio,
 			String address_street, String address_city, String address_state, int address_zip, String phone_number) {
 		this.brewery_id = id;
 		this.name = name;
-		this.days_operation = daysOfOperation;
-		this.hours_operation = hrsOfOperation;
+		this.days_operation = days_operation;
+		this.hours_operation = hours_operation;
 		this.history = historyBio;
 		this.address_city = address_city;
 		this.address_state = address_state;
@@ -40,20 +40,20 @@ public class Brewery {
 		this.name = name;
 	}
 
-	public String getDaysOfOperation() {
+	public String getdays_operation() {
 		return days_operation;
 	}
 
-	public void setDaysOfOperation(String daysOfOperation) {
-		this.days_operation = daysOfOperation;
+	public void setdays_operation(String days_operation) {
+		this.days_operation = days_operation;
 	}
 
-	public String getHrsOfOperation() {
+	public String gethours_operation() {
 		return hours_operation;
 	}
 
-	public void setHrsOfOperation(String hrsOfOperation) {
-		this.hours_operation = hrsOfOperation;
+	public void sethours_operation(String hours_operation) {
+		this.hours_operation = hours_operation;
 	}
 
 	public String getHistory() {

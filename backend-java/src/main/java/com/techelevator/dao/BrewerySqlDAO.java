@@ -78,8 +78,8 @@ public class BrewerySqlDAO implements BreweryDAO{
         brewery.setAddress_state(rs.getString("address_state"));
         brewery.setPhone_number(rs.getString("phone_number"));
         brewery.setHistory(rs.getString("history"));
-        brewery.setDaysOfOperation(rs.getString("days_operation"));
-        brewery.setHrsOfOperation(rs.getString("hours_operation"));
+        brewery.setdays_operation(rs.getString("days_operation"));
+        brewery.sethours_operation(rs.getString("hours_operation"));
         
         return brewery;
     }
@@ -107,8 +107,8 @@ public class BrewerySqlDAO implements BreweryDAO{
 				breweryToAdd.getAddress_zip(),
 				breweryToAdd.getPhone_number(),
 				breweryToAdd.getHistory(),
-				breweryToAdd.getDaysOfOperation(),
-				breweryToAdd.getHrsOfOperation());
+				breweryToAdd.getdays_operation(),
+				breweryToAdd.gethours_operation());
 		
 		breweryToAdd.setBrewery_id(resultID);
 		
