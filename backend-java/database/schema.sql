@@ -25,11 +25,12 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 CREATE TABLE brewery (
      brewery_id SERIAL,
      name VARCHAR (99 ),
-     address_street VARCHAR (99 ),
-     address_city VARCHAR (99 ),
+     brewer_name VARCHAR(99),
+     address_street VARCHAR (99),
+     address_city VARCHAR (99),
      address_state VARCHAR (99), 
      address_zip INT,
-     phone_number VARCHAR (99 ),
+     phone_number VARCHAR (99),
      history VARCHAR (999), 
      days_operation VARCHAR(99),
      hours_operation VARCHAR(99),
@@ -39,3 +40,5 @@ CREATE TABLE brewery (
 INSERT INTO brewery(name, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation) VALUES ('Braxton','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm');
 
 COMMIT TRANSACTION;
+
+
