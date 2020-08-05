@@ -1,35 +1,35 @@
 <template>
-  <div>
+  <div> 
+    <h1 class="header">Enter the information for a new brewery below:</h1>
     <form class="findUser">
       <div>
         <li>
           <input type="text" name="name" placeholder="Brewery Name" v-model="brewery.name" /> 
         </li>
         <li class="sidebyside">
-          <input  type="text" name="hours-opertation" placeholder="Hours of Opertion" v-model="brewery.hrsOfOperation" /> 
-          <input  type="text" name="days-opertation" placeholder="Days of Opertion" v-model="brewery.daysOfOperation" /> 
+          <input  type="text" name="hours-opertation" placeholder="Hours of Operation" v-model="brewery.hours_operation" /> 
+          <input name="days-opertation" placeholder="Days of Operation" v-model="brewery.days_operation" /> 
         </li>
         <li>
-          <input type="number" name="address" placeholder="Address" v-model="brewery.addressId" /> 
+          <input type="text" name="address" placeholder="Address" v-model="brewery.address_street" /> 
         </li>
         <li>
-          <input type="text" name="city" placeholder="City" v-model="brewery.city" />
+          <input type="text" name="city" placeholder="City" v-model="brewery.address_city" />
           </li>
-         <li> <input type="text" name="state" placeholder="State" v-model="brewery.state" />
+         <li> <input type="text" name="state" placeholder="State" v-model="brewery.address_state" />
          </li>
          <li>
-          <input type="text" name="zipcode" placeholder="Zipcode" v-model="brewery.zipcode" />
+          <input type="text" name="zipcode" placeholder="Zipcode" v-model="brewery.address_zip" />
         </li>
           <li>
-          <input type="text" name="contact-info" placeholder="Phone Number" v-model="brewery.contactInfo" />
+          <input type="text" name="contact-info" placeholder="Phone#" v-model="brewery.phone_number" />
         </li>
         <li>
-          <input type="text-area" name="history" placeholder="Description" v-model="brewery.historyBio" />
+          <textarea type="text-area" name="history" placeholder="Description" v-model="brewery.history" />
         </li>
+         <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()" >Enter</button>
       </div>
-      <div>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()" >Enter</button>
+     
     </form>
   </div>
 </template>
@@ -42,15 +42,14 @@ export default {
     return {
       brewery: {
         name: "",
-        addressId: "",
-        historyBio: "",
-        daysOfOperation: "",
-        hrsOfOperation: "",
-        /*address: "",
-        city: "",
-        state: "",
-        zipcode: "",
-        contactInfo: "",*/
+        days_operation: "",
+        hours_operation: "",
+        address_street: "",
+        address_city: "",
+        address_state: "",
+        address_zip: "",
+        phone_number: "",
+        history: ""
       },
     };
   },
@@ -63,9 +62,23 @@ export default {
 </script>
 
 <style>
+.header {
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+  background: #e0dd04;
+  color: rgb(54, 86, 145);
+  font: 20px "Arial Black", Gadget, sans-serif;
+  width: 80%;
+}
+
 .findUser {
-  margin:10px auto;
-	max-width: 400px;
+  display: flex;
+  justify-content: center;
+  margin:auto;
+	max-width: 600px;
 	padding: 20px 12px 10px 20px;
 	font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
@@ -76,7 +89,11 @@ export default {
 	margin: 10px 0 0 0;
 }
 .sidebyside {
-  padding: 10px 0px 10px 0px
+  padding: 10px 0px 10px 0px;
+}
+
+.textarea {
+  height: 300px;
 }
 </style>
 
