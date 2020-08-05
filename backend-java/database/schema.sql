@@ -90,8 +90,8 @@ FROM brewery
 INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
 INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id;
 
-ROLLBACK;
+--ROLLBACK;
 
---COMMIT TRANSACTION;
+COMMIT TRANSACTION;
 
 
