@@ -40,7 +40,7 @@ public class UserSqlDAO implements UserDAO {
 		List<User> userListByRole = new ArrayList<>();
 		String sql = "SELECT " + ALL_FIELDS + " FROM users WHERE role = ?";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, role);
-		if(rs.next()) {
+		while(rs.next()) {
 			userListByRole.add(mapRowToUser(rs));
 		}
 		// TODO Auto-generated method stub

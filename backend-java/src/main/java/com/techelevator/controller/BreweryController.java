@@ -38,6 +38,11 @@ public class BreweryController {
 	public List<Brewery> getBreweryList(@RequestParam String breweryName){	
 		return breweryDAO.getAll();
 	}
+	
+	@RequestMapping(path = "/breweries", method = RequestMethod.PUT)
+	public Brewery updateBrewery(@RequestBody Brewery breweryToUpdate) {
+		return null;
+	}
 
 }
 
