@@ -25,6 +25,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 		List<Brewery> breweryList = new ArrayList<>();
 		String sql = "SELECT"
 				+ " brewery_id,"
+				+ " brewer_username"
 				+ " name,"
 				+ " address_street,"
 				+ " address_city,"
@@ -47,6 +48,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 		Brewery breweryToReturn = null;
 		String sql = "SELECT"
 				+ " brewery_id,"
+				+ " brewer_username"
 				+ " name,"
 				+ " address_street,"
 				+ " address_city,"
@@ -68,6 +70,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
         brewery.setBrewery_id(rs.getLong("brewery_id"));
+        brewery.setBrewer_username(rs.getString("brewery_username"));
         brewery.setName(rs.getString("name"));
         brewery.setAddress_street(rs.getString("address_street"));
         brewery.setAddress_city(rs.getString("address_city"));
@@ -85,6 +88,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public Brewery createBrewery(Brewery breweryToAdd) {
 		String sql = "INSERT INTO brewery ("
 				+ " name,"
+				+ " brewer_username"
 				+ " address_street,"
 				+ " address_city,"
 				+ " address_state,"
@@ -93,9 +97,10 @@ public class BrewerySqlDAO implements BreweryDAO{
 				+ " history,"
 				+ " days_operation,"
 				+ " hours_operation)"
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING brewery_id";
 		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
 				breweryToAdd.getName(),
+				breweryToAdd.getBrewer_username(),
 				breweryToAdd.getAddress_street(), 
 				breweryToAdd.getAddress_city(),
 				breweryToAdd.getAddress_state(),

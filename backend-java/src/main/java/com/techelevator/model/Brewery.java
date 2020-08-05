@@ -4,6 +4,7 @@ public class Brewery {
 
 	private long brewery_id;
 	private String name;
+	private String brewer_username;
 	private String days_operation;
 	private String hours_operation;
 	private String history;
@@ -109,6 +110,14 @@ public class Brewery {
 
 	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
+	}
+
+	public String getBrewer_username() {
+		return brewer_username;
+	}
+
+	public void setBrewer_username(String brewer_username) {
+		this.brewer_username = brewer_username;
 	}
 }
 	
