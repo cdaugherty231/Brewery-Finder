@@ -2,16 +2,20 @@
   <div class="home">
     <h1>Home</h1>
     <div class="Admin" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')">
-     
+      <brewery-list></brewery-list>
       <add-new-brewery></add-new-brewery>
     </div>
 
-     <div class="Brewer" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')">
+    <div
+      class="Brewer"
+      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
+    ></div>
+    <div
+      class="Beer-Lover"
+      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BEER_LOVER')"
+    >
       <brewery-list></brewery-list>
     </div>
-    <div class="Beer-Lover" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BEER_LOVER')">
-    </div>
-
   </div>
 </template>
 
@@ -28,7 +32,10 @@ export default {
   },
   components: {
     AddNewBrewery,
-    BreweryList
+    BreweryList,
   },
 };
 </script>
+
+<style>
+</style>

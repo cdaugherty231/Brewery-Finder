@@ -18,31 +18,31 @@
       <tbody>
         <tr>
           <td>
-            <input type="text" id="breweryNameFilter" v-model="filter.breweryName" />
+            <input type="text" id="breweryNameFilter" v-model="filter.name" />
           </td>
           <td>
-            <input type="text" id="brewerNameFilter" v-model="filter.brewerName" />
+            <input type="text" id="brewerNameFilter" v-model="filter.brewer_username" />
           </td>
           <td>
-            <input type="text" id="daysOfOpsFilter" v-model="filter.daysOfOps" />
+            <input type="text" id="daysOfOpsFilter" v-model="filter.days_operation" />
           </td>
           <td>
-            <input type="text" id="hrsOfOpsFilter" v-model="filter.hrsOfOps" />
+            <input type="text" id="hrsOfOpsFilter" v-model="filter.hours_operation" />
           </td>
           <td>
-            <input type="text" id="addressFilter" v-model="filter.address" />
+            <input type="text" id="addressFilter" v-model="filter.address_street" />
           </td>
           <td>
-            <input type="text" id="cityFilter" v-model="filter.city" />
+            <input type="text" id="cityFilter" v-model="filter.address_city" />
           </td>
           <td>
-            <input type="text" id="stateFilter" v-model="filter.state" />
+            <input type="text" id="stateFilter" v-model="filter.address_state" />
           </td>
           <td>
-            <input type="text" id="zipFilter" v-model="filter.zip" />
+            <input type="text" id="zipFilter" v-model="filter.address_zip" />
           </td>
           <td>
-            <input type="text" id="phoneFilter" v-model="filter.phone" />
+            <input type="text" id="phoneFilter" v-model="filter.phone_number" />
           </td>
         </tr>
         <tr v-for="brewery in filteredList" :key="brewery.breweryName">
@@ -62,10 +62,12 @@
 </template>
 
 <script>
+import BreweryService from "@/services/BreweryService.js"; 
+
 export default {
   data() {
     return {
-      brewery: {
+      filter: {
         name: "",
         brewer_username: "",
         days_operation: "",
@@ -73,43 +75,49 @@ export default {
         address_street: "",
         address_city: "",
         address_state: "",
-        address_zip: "",
+        address_zip: (Number),
         phone_number: "",
-        history: ""
       },
+      breweries: [
+        
+      ]
     };
+  },
+  created() {
+    BreweryService.getAllBreweries().then((response) => {
+      this.breweries = response.data
+    })
   },
   computed: {
     filteredList() {
-      return this.brewery.filter((brewery) => {
+      return this.breweries.filter((brewery) => {
         return (
           brewery.name
             .toLowerCase()
-            .includes(this.filter.breweryName.toLowerCase()) &&
+            .includes(this.filter.name.toLowerCase()) &&
           brewery.brewer_username
             .toLowerCase()
-            .includes(this.filter.breweryName.toLowerCase()) &&
-          brewery.days_operation
+            .includes(this.filter.brewer_username.toLowerCase()) &&
+         ((brewery.days_operation !== null) &&
+         (brewery.days_operation
             .toLowerCase()
-            .includes(this.filter.daysOfOps.toLowerCase()) &&
-          brewery.hours_opration
+            .includes(this.filter.days_operation.toLowerCase())))
+          /*brewery.hours_operation
             .toLowerCase()
-            .includes(this.filter.hrsOfOps.toLowerCase()) &&
+            .includes(this.filter.hours_operation.toLowerCase()) &&
           brewery.address_street
             .toLowerCase()
-            .includes(this.filter.address.toLowerCase()) &&
+            .includes(this.filter.address_street.toLowerCase()) &&
           brewery.address_city
             .toLowerCase()
-            .includes(this.filter.city.toLowerCase()) &&
+            .includes(this.filter.address_city.toLowerCase()) &&
           brewery.address_state
             .toLowerCase()
-            .includes(this.filter.state.toLowerCase()) &&
+            .includes(this.filter.address_state.toLowerCase()) &&
           brewery.address_zip
-            .toLowerCase()
-            .includes(this.filter.zip.toLowerCase()) &&
+            .includes(this.filter.address_zip.toString()) &&
           brewery.phone_number
-            .toLowerCase()
-            .includes(this.filter.phone.toLowerCase())
+            .includes(this.filter.phone_number)*/
         );
       });
     },
