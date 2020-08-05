@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Service;
 
 import com.techelevator.model.BeerProduct;
 
+@Service
 public class BeerProductSqlDAO implements BeerProductDAO{
 	private JdbcTemplate jdbcTemplate;
 	
@@ -31,12 +33,11 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	@Override
 	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd) {
 		String sql = "INSERT INTO beerproduct ("
-				+ " beer_id,"
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
 				+ " beer_type)"
-				+ " VALUES( ?, ?, ?, ?, ?) RETURNING beer_id";
+				+ " VALUES( ?, ?, ?, ?) RETURNING beer_id";
 		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
 				beerProductToAdd.getBeer_name(),
 				beerProductToAdd.getBeer_description(),
@@ -53,7 +54,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		beerProduct.setBeer_id(rs.getInt("beer_id"));
 		beerProduct.setBeer_name(rs.getString("beer_name"));
 		beerProduct.setBeer_description(rs.getString("beer_description"));
-		beerProduct.setAbv(rs.getString("avb"));
+		beerProduct.setAbv(rs.getString("abv"));
 		beerProduct.setBeer_type(rs.getString("beer_type"));
 		
 		return beerProduct;

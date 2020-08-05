@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.techelevator.model.BeerProduct;
 
+
 public interface BeerProductDAO {
 	
 	// Get all beers list
