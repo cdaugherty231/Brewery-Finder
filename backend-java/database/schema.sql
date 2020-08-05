@@ -67,17 +67,28 @@ REFERENCES beerproduct(beer_id);
 
 
 INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation) VALUES ('Braxton','somebrewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm');
-INSERT INTO beerproduct(beer_id, beer_name, beer_description, abv, beer_type) VALUES (1,'Storm','Good beer - This golden cream ale', '4.8', 'This golden cream ale');
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type) VALUES ('BUD','SOME BEER', '5', 'MALT');
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type) VALUES ('LightBeer','very light beer', '1.0', 'beer');
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Braxton'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='LightBeer'));
 
 
+INSERT INTO users(username, password_hash,role) VALUES ('somebrewer','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_BREWER');
+
+
+--INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES(1,5);
+
+SELECT brewery.name as Brewery_Name, beer_name, beer_description
+FROM brewery
+INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
+INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id
 
 --ROLLBACK;
 
 COMMIT TRANSACTION;
 
-SELECT * FROM brewery;
-
-SELECT * FROM beerproduct;
-
-SELECT * FROM brewery_beerproduct;
 
