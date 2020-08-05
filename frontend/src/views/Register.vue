@@ -36,8 +36,7 @@
         type="checkbox"
         id="Brewer Check"
         class="form-control"
-        v-model="user.role" true-value="Brewer" false-value="Beer_lover"
-        required
+        v-model="user.role" true-value="Brewer" false-value=""
       />
       <label for="Brewer Check">Check if you are a brewer?  </label>
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
@@ -59,7 +58,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: '',
+        role: 'User',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',

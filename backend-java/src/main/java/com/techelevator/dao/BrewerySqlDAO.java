@@ -25,7 +25,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 		List<Brewery> breweryList = new ArrayList<>();
 		String sql = "SELECT"
 				+ " brewery_id,"
-				+ " brewer_username"
+				+ " brewer_username,"
 				+ " name,"
 				+ " address_street,"
 				+ " address_city,"
@@ -48,7 +48,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 		Brewery breweryToReturn = null;
 		String sql = "SELECT"
 				+ " brewery_id,"
-				+ " brewer_username"
+				+ " brewer_username,"
 				+ " name,"
 				+ " address_street,"
 				+ " address_city,"
@@ -70,7 +70,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
         brewery.setBrewery_id(rs.getLong("brewery_id"));
-        brewery.setBrewer_username(rs.getString("brewery_username"));
+        brewery.setBrewer_username(rs.getString("brewer_username"));
         brewery.setName(rs.getString("name"));
         brewery.setAddress_street(rs.getString("address_street"));
         brewery.setAddress_city(rs.getString("address_city"));
@@ -88,7 +88,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public Brewery createBrewery(Brewery breweryToAdd) {
 		String sql = "INSERT INTO brewery ("
 				+ " name,"
-				+ " brewer_username"
+				+ " brewer_username,"
 				+ " address_street,"
 				+ " address_city,"
 				+ " address_state,"

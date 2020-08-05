@@ -9,9 +9,12 @@ export default {
   getAllUsers() {
     return axios.get('/users');
   },
-  
-  addNewBrewery(brewery) {
-    return axios.post('/breweries', brewery);
+
+  getUsersByRole() {
+    return axios.get('/users/role?role=ROLE_USER');
+  },
+  getBrewers() {
+    return axios.get('/users/role?role=ROLE_BREWER');
   }
 
 };

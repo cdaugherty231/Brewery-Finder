@@ -2,11 +2,12 @@
   <div class="home">
     <h1>Home</h1>
     <div class="Admin" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')">
-      <admin-look-up-user></admin-look-up-user>
+     
       <add-new-brewery></add-new-brewery>
     </div>
 
      <div class="Brewer" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')">
+      <brewery-list></brewery-list>
     </div>
     <div class="Beer-Lover" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BEER_LOVER')">
     </div>
@@ -15,8 +16,8 @@
 </template>
 
 <script>
-import AdminLookUpUser from "@/components/AdminLookUpUser.vue";
 import AddNewBrewery from "@/components/AddNewBrewery.vue";
+import BreweryList from "@/components/BreweryList.vue";
 
 export default {
   name: "home",
@@ -26,8 +27,8 @@ export default {
     };
   },
   components: {
-    AdminLookUpUser,
-    AddNewBrewery
+    AddNewBrewery,
+    BreweryList
   },
 };
 </script>
