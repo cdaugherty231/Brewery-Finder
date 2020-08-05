@@ -1,17 +1,15 @@
 package com.techelevator.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.BreweryDAO;
-import com.techelevator.dao.BrewerySqlDAO;
 import com.techelevator.model.Brewery;
 
 @RestController
@@ -34,6 +32,11 @@ public class BreweryController {
 	@RequestMapping(path = "/breweries", method = RequestMethod.POST)
 	public Brewery getBreweryList(@RequestBody Brewery breweryToAdd){	
 		return breweryDAO.createBrewery(breweryToAdd);
+	}
+	
+	@RequestMapping(path = "/breweries/find", method = RequestMethod.GET)
+	public List<Brewery> getBreweryList(@RequestParam String breweryName){	
+		return breweryDAO.getAll();
 	}
 
 }

@@ -10,6 +10,7 @@ public interface BreweryDAO {
 	public List<Brewery> getAll();
 	
 	// Find brewery by name
+	public Brewery getByName();
 	
 	// Create brewery
 	public Brewery createBrewery(Brewery breweryToAdd);

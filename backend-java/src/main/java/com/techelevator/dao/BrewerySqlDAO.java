@@ -13,9 +13,6 @@ import com.techelevator.model.Brewery;
 public class BrewerySqlDAO implements BreweryDAO{
 	
 	private JdbcTemplate jdbcTemplate;
-    private static final String ALL_FIELDS = 
-    		"name, address_street, address_city, address_state, address_zip, "
-    		+ "phone_number, history, days_operation, hours_operation";
     
     public BrewerySqlDAO(JdbcTemplate jdbcTemplate) {
     	this.jdbcTemplate = jdbcTemplate;
@@ -26,13 +23,46 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public List<Brewery> getAll() {
 		// TODO Auto-generated method stub
 		List<Brewery> breweryList = new ArrayList<>();
-		String sql = "SELECT brewery_id, name, address_street, address_city, address_state, address_zip, phone_number, history, days_operation, hours_operation FROM brewery";
+		String sql = "SELECT"
+				+ " brewery_id,"
+				+ " name,"
+				+ " address_street,"
+				+ " address_city,"
+				+ " address_state,"
+				+ " address_zip,"
+				+ " phone_number,"
+				+ " history,"
+				+ " days_operation,"
+				+ " hours_operation FROM brewery";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
 		while(rs.next()) {
 			breweryList.add(mapRowToBrewery(rs));
 		}
 		
 		return breweryList;
+	}
+	
+	@Override
+	public Brewery getByName() {
+		Brewery breweryToReturn = null;
+		String sql = "SELECT"
+				+ " brewery_id,"
+				+ " name,"
+				+ " address_street,"
+				+ " address_city,"
+				+ " address_state,"
+				+ " address_zip,"
+				+ " phone_number,"
+				+ " history,"
+				+ " days_operation,"
+				+ " hours_operation"
+				+ " FROM brewery WHERE LOWER(name) = LOWER(?)";
+		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
+		
+		if(rs.next()) {
+			breweryToReturn = mapRowToBrewery(rs);
+		}
+		return breweryToReturn;
 	}
 	
 	private Brewery mapRowToBrewery(SqlRowSet rs) {
