@@ -26,7 +26,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public List<Brewery> getAll() {
 		// TODO Auto-generated method stub
 		List<Brewery> breweryList = new ArrayList<>();
-		String sql = "SELECT " + ALL_FIELDS + " FROM brewery";
+		String sql = "SELECT brewery_id, name, address_street, address_city, address_state, address_zip, phone_number, history, days_operation, hours_operation FROM brewery";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
 		while(rs.next()) {
 			breweryList.add(mapRowToBrewery(rs));
@@ -37,7 +37,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	
 	private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
-        brewery.setBrewery_id(rs.getInt("brewery_id"));
+        brewery.setBrewery_id(rs.getLong("brewery_id"));
         brewery.setName(rs.getString("name"));
         brewery.setAddress_street(rs.getString("address_street"));
         brewery.setAddress_city(rs.getString("address_city"));
