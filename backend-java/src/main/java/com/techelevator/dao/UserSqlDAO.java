@@ -1,5 +1,8 @@
 package com.techelevator.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -31,6 +34,18 @@ public class UserSqlDAO implements UserDAO {
     		throw new UsernameNotFoundException("User " + username + " was not found.");
     	}
     }
+    
+	@Override
+	public List<User> findByRole(String role){
+		List<User> userListByRole = new ArrayList<>();
+		String sql = "SELECT " + ALL_FIELDS + " FROM users WHERE role = ?";
+		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, role);
+		if(rs.next()) {
+			userListByRole.add(mapRowToUser(rs));
+		}
+		// TODO Auto-generated method stub
+		return userListByRole;
+	}
     
     @Override
     public boolean usernameExists(String username) {
@@ -64,4 +79,6 @@ public class UserSqlDAO implements UserDAO {
         user.setActivated(true);
         return user;
     }
+
+
 }
