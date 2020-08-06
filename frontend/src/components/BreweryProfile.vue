@@ -30,9 +30,7 @@ export default {
           phone_number: "",
           history: ""
         },
-        currentBrewery: [
-
-        ], 
+        currentBrewery: {}, 
       };
 },
     created() {

@@ -45,7 +45,7 @@
             <input type="text" id="phoneFilter" v-model="filter.phone_number" />
           </td>
         </tr>
-        <tr v-for="brewery in filteredList" :key="brewery.breweryName">
+        <tr v-for="brewery in this.$store.state.breweries" :key="brewery.breweryName">
           <td>{{brewery.name}}</td>
           <td>{{brewery.brewer_username}}</td>
           <td>{{brewery.days_operation}}</td>
@@ -78,14 +78,11 @@ export default {
         address_zip: (Number),
         phone_number: "",
       },
-      breweries: [
-        
-      ]
     };
   },
   created() {
     BreweryService.getAllBreweries().then((response) => {
-      this.breweries = response.data
+      this.$store.commit("FILL_BREWERIES", response.data)
     })
   },
   computed: {

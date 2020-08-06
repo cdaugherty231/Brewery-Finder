@@ -20,9 +20,9 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    breweries: [
-
-    ]
+    breweries: [],
+    beers: [],
+    reviews: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -41,8 +41,17 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    fillBreweries(state, breweriesArray) {
-      this.$state.breweries = breweriesArray;
+    FILL_BREWERIES(state, breweriesArray) {
+      state.breweries = breweriesArray;
+    },
+
+    FILL_BEERS(state, beersList) {
+      state.beers = beersList;
+    },
+
+    FILL_REVIEWS(state, reviewsList){
+      state.reviews = reviewsList;
     }
+
   }
 })
