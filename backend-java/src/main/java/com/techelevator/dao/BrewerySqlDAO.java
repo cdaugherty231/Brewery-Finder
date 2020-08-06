@@ -115,6 +115,39 @@ public class BrewerySqlDAO implements BreweryDAO{
 		return breweryToAdd;
 	}
 
+	
+	@Override
+	public Brewery updateBrewery(Brewery updatedBrewery) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE brewery SET"
+				+ " name = ?,"
+				+ " brewer_username = ?,"
+				+ " address_street = ?,"
+				+ " address_city = ?,"
+				+ " address_state = ?,"
+				+ " address_zip = ?,"
+				+ " phone_number = ?,"
+				+ " history = ?,"
+				+ " days_operation = ?,"
+				+ " hours_operation = ?"
+				+ " WHERE brewery_id = ?;";
+		Brewery returnedBrewery = jdbcTemplate.queryForObject(sql, Brewery.class,
+				updatedBrewery.getName(),
+				updatedBrewery.getBrewer_username(),
+				updatedBrewery.getAddress_street(), 
+				updatedBrewery.getAddress_city(),
+				updatedBrewery.getAddress_state(),
+				updatedBrewery.getAddress_zip(),
+				updatedBrewery.getPhone_number(),
+				updatedBrewery.getHistory(),
+				updatedBrewery.getdays_operation(),
+				updatedBrewery.gethours_operation(),
+				updatedBrewery.getBrewery_id());
+		
+		return returnedBrewery;
+
+	}
+
 
 
 }

@@ -14,6 +14,9 @@ public interface BreweryDAO {
 	
 	// Create brewery
 	public Brewery createBrewery(Brewery breweryToAdd);
+	
+	// Update Brewery info
+	public Brewery updateBrewery(Brewery updatedBrewery);
 
 
 }
