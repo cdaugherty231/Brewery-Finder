@@ -13,32 +13,20 @@
 </template>
 
 <script>
-import BreweryService from "@/services/BreweryService.js"
+import BreweryService from "@/services/BreweryService.js";
 
 export default {
-    data() {
-      return {
-        brewery: {
-          name: "",
-          brewer_username: "",
-          days_operation: "",
-          hours_operation: "",
-          address_street: "",
-          address_city: "",
-          address_state: "",
-          address_zip: "",
-          phone_number: "",
-          history: ""
-        },
-        currentBrewery: {}, 
-      };
-},
-    created() {
-          BreweryService.getBreweryByName().then((response) => {
-              this.currentBrewery = response.data
-          });
-      },
-}
+  data() {
+    return {
+
+    };
+  },
+
+  props: {
+    brewery: {}
+  }
+
+};
 </script>
 
 <style>

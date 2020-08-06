@@ -46,7 +46,7 @@
           </td>
         </tr>
         <tr v-for="brewery in this.$store.state.breweries" :key="brewery.breweryName">
-          <td>{{brewery.name}}</td>
+          <td> <router-link to="/breweryProfile" v-bind:brewery=brewery>{{brewery.name}}</router-link></td>
           <td>{{brewery.brewer_username}}</td>
           <td>{{brewery.days_operation}}</td>
           <td>{{brewery.hours_operation}}</td>
