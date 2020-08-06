@@ -12,7 +12,7 @@
     ></div>
     <div
       class="Beer-Lover"
-      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BEER_LOVER')"
+      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
     >
       <brewery-list></brewery-list>
     </div>

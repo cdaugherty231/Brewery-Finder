@@ -94,8 +94,8 @@ export default {
     },
   },
   created() {
-      UserService.getBrewers().then((respone) => {
-        this.brewers = respone.data;
+      UserService.getBrewers().then((response) => {
+        this.brewers = response.data;
       });
     }
 };

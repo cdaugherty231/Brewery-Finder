@@ -8,6 +8,10 @@ export default {
 
   getAllBreweries() {
       return axios.get('/breweries');
+  },
+
+  getBreweryByName() {
+      return axios.get('/breweries/find');
   }
 
 };
