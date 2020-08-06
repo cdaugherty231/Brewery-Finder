@@ -72,35 +72,6 @@ ADD FOREIGN KEY(beer_id)
 REFERENCES beerproduct(beer_id);
 
 
---For Admin to add new brewery
-INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) VALUES ('Braxton','Cincy Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','https://images.squarespace-cdn.com/content/v1/56bc856f37013b1b46f58914/1575937608540-BOQK49AKM0U2PVVVS0OM/ke17ZwdGBToddI8pDm48kCvp9wUojcKRXNLZnuWdJbxZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIq7Wb5dtC4qoJ6CEJp3okJIUgQ1b_-LUh8rmXwLlAs0MKMshLAGzx4R3EDFOm1kBS/72189940_807006633050419_5757390238515200000_n.jpg');
-INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) VALUES ('Best Beer Inc.','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
-
---For Brewer to add new beer into brewery
-INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('BUD','AMERICAN BEER', '5', 'MALT','https://images.squarespace-cdn.com/content/v1/5c2d190d5ffd20fcfe3de667/1594250082106-B2OV6B6NLGXSS4UFFVYH/ke17ZwdGBToddI8pDm48kJKo3YTR7zgUvInmXMbZ6zZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0geeCvn1f36QDdcifB7yxGjTk-SMFplgtEhJ5kBshkhu5q5viBDDnY2i_eu2ZnquSA/NewBeers.DayBracey.TABLE.Summer2020');
-INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('LightBeer','very light beer', '1.0', 'beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
-----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='LightBeer'));
-----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Best Beer Inc.'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='BUD'));
-
-
-
-COMMIT TRANSACTION;
-
---INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES(1,5);
-SELECT brewery.name as Brewery_Name, beer_name, beer_description
-FROM brewery
-INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
-INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id;
 
 
 -----------------------------------------------------------------------------------------
@@ -109,6 +80,7 @@ INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id;
 --CREATING JOINING TABLES FOR 'BEER_ID/REVIEW_ID'
 CREATE TABLE beerreview(
     review_id SERIAL,
+    reviewer VARCHAR (99),
     beer_name VARCHAR(99),
     beer_rating float,
     beer_review VARCHAR (1000),
@@ -130,10 +102,81 @@ ADD FOREIGN KEY(review_id)
 REFERENCES beerreview(review_id);
 
 
+
+
+----------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
+---Input fake breweries into brewery table------------
+INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
+VALUES ('Braxton','Cincy Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','https://images.squarespace-cdn.com/content/v1/56bc856f37013b1b46f58914/1575937608540-BOQK49AKM0U2PVVVS0OM/ke17ZwdGBToddI8pDm48kCvp9wUojcKRXNLZnuWdJbxZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIq7Wb5dtC4qoJ6CEJp3okJIUgQ1b_-LUh8rmXwLlAs0MKMshLAGzx4R3EDFOm1kBS/72189940_807006633050419_5757390238515200000_n.jpg');
+
+INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
+VALUES ('Best Beer Inc.','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Humble Monk Brewing Co', 'msmith', '1641 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 510-4615', 'Pet Friendly', 'Mon-Sun', '4:00pm - 11:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Fibonacci Brewing Company', 'tlewis', '1445 Compton Rd', 'Cincinnati', 'OH', 45231, '(513) 832-1422', 'A nanobrewery that produces high quality craft beers in a laid back, casual environment.', 'Mon-Sun', '6:00pm - 11:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Swine City Brewing', 'mglass', '4614 Industry Dr', 'Fairfield', 'OH', 45014, '(513) 201-7070', 'We prouldly self-distribute our beer.', 'Mon-Sun', '3:00pm - 12:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Brink Brewing Company', 'jbedinghaus', '5905 Hamilton Ave', 'Cincinnati', 'OH', 45224, '(513) 882-3334', 'Good beer is about the people, the brewing, and the experience.', 'Mon-Sun', '1:00pm - 10:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Listerman Brewing Company', 'nvorhis', '1621 Dana Ave', 'Cincinnati', 'OH', 45207, '(513) 731-1130', 'Enduring microbrewery with handcrafted bottled ales, a growler station & a homebrew supply store.', 'Mon-Sun', '5:00pm - 11:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Grainworks Brewing Company', 'mdunhill', '7790 Service Center Dr', 'West Chester', 'OH', 45069, '(513) 480-2337', 'It is in the grains.', 'Mon-Sun', '3:00pm - 12:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Urban Artifact', 'pfarmer', '1660 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 542-4222', 'We moved into an historic church and opened the doors with our first beers and first music shows in April 2015.', 'Mon-Sun', '4:00pm - 10:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Fretboard Brewing Company', 'bday', '5800 Creek Rd', 'Cincinnati', 'OH', 45242, '(513) 914-4677', 'At Fretboard we aspire to create something that inspires and excites.', 'Mon-Sun', '4:00pm - 11:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('Little Miami Brewing Company', 'dkennedy', '208 Mill St', 'Milford', 'OH', 45150, '(513) 713-1121', 'Dan & Joe had a dream. They wanted to open a Craft Brewery in Cincinnati.', 'Mon-Sun', '2:00pm - 11:00pm','');
+
+INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
+VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester', 'OH', 45069, '(513) 847-8208', 'You should not have to live without delicious beer. Place an order, we’ll can it for you fresh from the tap.', 'Mon-Sun', '4:00pm - 12:00pm','');
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+--For Brewer to add new beer into brewery
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('BUD','AMERICAN BEER', '5', 'MALT','https://images.squarespace-cdn.com/content/v1/5c2d190d5ffd20fcfe3de667/1594250082106-B2OV6B6NLGXSS4UFFVYH/ke17ZwdGBToddI8pDm48kJKo3YTR7zgUvInmXMbZ6zZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0geeCvn1f36QDdcifB7yxGjTk-SMFplgtEhJ5kBshkhu5q5viBDDnY2i_eu2ZnquSA/NewBeers.DayBracey.TABLE.Summer2020');
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('LightBeer','very light beer', '1.0', 'beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('Blue Sun','Europe beer', '5.0', 'dark beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+
+----For Brewer to add new beer into brewery
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Braxton'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='LightBeer'));
+----For Brewer to add new beer into brewery
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Best Beer Inc.'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='BUD'));
+----For Brewer to add new beer into brewery
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Best Beer Inc.'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Blue Sun'));
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 --For User to add rating/review for a beer under a brewery
-INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('BUD', 4.5, 'Very good beer!!!');
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Patrick', 'BUD', 4.5, 'Very good beer!!!');
 --INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('BUD', 5, '5 STARS BEER!!!');
-INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('LightBeer', 2, 'This beer tastes like water');
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','LightBeer', 2, 'This beer tastes like water');
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Blue Sun', 3.5, 'This beer got me drunk fast');
+
 --INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('LightBeer', 3, 'This beer is okay');
 
 ----For User to add rating/review for a beer under a brewery
@@ -148,9 +191,17 @@ FROM beerproduct
 WHERE beerproduct.beer_name='BUD'),(select max(beerreview.review_id)
 FROM beerreview
 WHERE beerreview.beer_name='BUD'));
+----For User to add rating/review for a beer under a brewery
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Blue Sun'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Blue Sun'));
+
+
 
 ---QUERY TO GET BREWERY'S NAME, BREWERY'S BEER PRODUCTS & THE PRODUCTS' Reviews & Ratings
-SELECT brewery.name as Brewery_Name, beerproduct.beer_name, beerproduct.beer_description, beer_rating, beer_review
+SELECT brewery.name as Brewery_Name, beerreview.reviewer, beerproduct.beer_name, beerproduct.beer_description, beer_rating, beer_review
 FROM brewery
 INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
 INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id
@@ -159,39 +210,8 @@ INNER JOIN beerreview ON beerproduct_beerreview.review_id = beerreview.review_id
 
 --ROLLBACK;
 
-<-- These are the fake, dummy breweries for the database -->
+
 COMMIT TRANSACTION;
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Humble Monk Brewing Co', 'msmith', '1641 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 510-4615', 'Pet Friendly', 'Mon-Sun', '4:00pm - 11:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Fibonacci Brewing Company', 'tlewis', '1445 Compton Rd', 'Cincinnati', 'OH', 45231, '(513) 832-1422', 'A nanobrewery that produces high quality craft beers in a laid back, casual environment.', 'Mon-Sun', '6:00pm - 11:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Swine City Brewing', 'mglass', '4614 Industry Dr', 'Fairfield', 'OH', 45014, '(513) 201-7070', 'We prouldly self-distribute our beer.', 'Mon-Sun', '3:00pm - 12:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Brink Brewing Company', 'jbedinghaus', '5905 Hamilton Ave', 'Cincinnati', 'OH', 45224, '(513) 882-3334', 'Good beer is about the people, the brewing, and the experience.', 'Mon-Sun', '1:00pm - 10:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Listerman Brewing Company', 'nvorhis', '1621 Dana Ave', 'Cincinnati', 'OH', 45207, '(513) 731-1130', 'Enduring microbrewery with handcrafted bottled ales, a growler station & a homebrew supply store.', 'Mon-Sun', '5:00pm - 11:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Grainworks Brewing Company', 'mdunhill', '7790 Service Center Dr', 'West Chester', 'OH', 45069, '(513) 480-2337', 'It is in the grains.', 'Mon-Sun', '3:00pm - 12:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Urban Artifact', 'pfarmer', '1660 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 542-4222', 'We moved into an historic church and opened the doors with our first beers and first music shows in April 2015.', 'Mon-Sun', '4:00pm - 10:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Fretboard Brewing Company', 'bday', '5800 Creek Rd', 'Cincinnati', 'OH', 45242, '(513) 914-4677', 'At Fretboard we aspire to create something that inspires and excites.', 'Mon-Sun', '4:00pm - 11:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('Little Miami Brewing Company', 'dkennedy', '208 Mill St', 'Milford', 'OH', 45150, '(513) 713-1121', 'Dan & Joe had a dream. They wanted to open a Craft Brewery in Cincinnati.', 'Mon-Sun', '2:00pm - 11:00pm');
-
-INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
-VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester', 'OH', 45069, '(513) 847-8208', 'You should not have to live without delicious beer. Place an order, we’ll can it for you fresh from the tap.', 'Mon-Sun', '4:00pm - 12:00pm');
-
 
 
 

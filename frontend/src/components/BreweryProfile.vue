@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>brewery profile</h1>
     <div class="profile-image"></div>
     <div>
       <header class="brewery-name">{{ brewery.name }}</header>
@@ -13,15 +14,15 @@
 </template>
 
 <script>
-import BreweryService from "@/services/BreweryService.js";
+
 
 export default {
+  name: 'brewery-profile',
   data() {
     return {
 
     };
   },
-
   props: {
     brewery: {}
   }
