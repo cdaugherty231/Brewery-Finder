@@ -86,17 +86,17 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	public List<BeerProduct> getBreweryBeerList(String name) {
 		List<BeerProduct> breweryBeerList = new ArrayList<>();
 		
-		String sql = "Select beer_id,"
-				+ " beer_name,"
-				+ " beer_description,"
-				+ " abv,"
-				+ " beer_type"
+		String sql = "Select beerproduct.beer_id,"
+				+ " beerproduct.beer_name,"
+				+ " beerproduct.beer_description,"
+				+ " beerproduct.abv,"
+				+ " beerproduct.beer_type"
 				+ " FROM beerproduct"
 				+ " INNER JOIN brewery_beerproduct"
 				+ " ON beerproduct.beer_id = brewery_beerproduct.beer_id"
 				+ " INNER JOIN brewery"
 				+ " ON brewery.brewery_id = brewery_beerproduct.brewery_id"
-				+ " WHERE brewery.name = ?;";
+				+ " WHERE LOWER(brewery.name) = LOWER(?);";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, name);
 		
 		while(rs.next()) {
@@ -104,5 +104,11 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		}
 		
 		return breweryBeerList;
+	}
+
+	@Override
+	public void deleteBeer(int beer_id) {
+		String sql = "DELETE FROM beerproduct WHERE beer_id = ?";
+		jdbcTemplate.update(sql, beer_id);
 	}
 }

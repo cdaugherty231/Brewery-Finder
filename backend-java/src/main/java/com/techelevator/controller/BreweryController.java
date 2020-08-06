@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.dao.BeerProductDAO;
@@ -48,7 +47,7 @@ public class BreweryController {
 	}
 	
 	@RequestMapping(path = "/breweries/beers/{name}", method = RequestMethod.GET)
-	public List<BeerProduct> getBreweryBeers(@RequestParam String name){
+	public List<BeerProduct> getBreweryBeers(@PathVariable String name){
 		return beerProductDAO.getBreweryBeerList(name);
 		
 	}

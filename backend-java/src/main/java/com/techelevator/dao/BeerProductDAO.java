@@ -13,8 +13,8 @@ public interface BeerProductDAO {
 	public BeerProduct getById(int beer_id);
 	
 	public List<BeerProduct> getBreweryBeerList(String name);
-	
-	// Find brewery by name
+
+	public void deleteBeer(int beer_id);
 	
 	// Create beer
 	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd);

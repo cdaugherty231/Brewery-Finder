@@ -32,7 +32,7 @@ public class BeerReviewController {
 		return beerReviewDAO.getById(review_id);
 	}
 	
-	@RequestMapping(path = "/beerreviewt", method = RequestMethod.POST)
+	@RequestMapping(path = "/beerreview", method = RequestMethod.POST)
 	public BeerReview createBeer(@RequestBody BeerReview beerReviewToAdd){
 		return beerReviewDAO.createBeerReview(beerReviewToAdd);
 	}

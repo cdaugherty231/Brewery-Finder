@@ -36,4 +36,9 @@ public class BeerProductController {
 	public BeerProduct createBeer(@RequestBody BeerProduct beerProductToAdd){
 		return beerProductDao.createBeerProduct(beerProductToAdd);
 	}
+	
+	@RequestMapping(path = "/beerproduct/{beer_id}", method = RequestMethod.DELETE)
+	public void deleteBeer(@PathVariable int beer_id){	
+		beerProductDao.deleteBeer(beer_id);
+	}
 }
