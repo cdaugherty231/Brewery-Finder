@@ -81,4 +81,28 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		}
 		return found;
 	}
+
+	@Override
+	public List<BeerProduct> getBreweryBeerList(String name) {
+		List<BeerProduct> breweryBeerList = new ArrayList<>();
+		
+		String sql = "Select beer_id,"
+				+ " beer_name,"
+				+ " beer_description,"
+				+ " abv,"
+				+ " beer_type"
+				+ " FROM beerproduct"
+				+ " INNER JOIN brewery_beerproduct"
+				+ " ON beerproduct.beer_id = brewery_beerproduct.beer_id"
+				+ " INNER JOIN brewery"
+				+ " ON brewery.brewery_id = brewery_beerproduct.brewery_id"
+				+ " WHERE brewery.name = ?;";
+		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, name);
+		
+		while(rs.next()) {
+			breweryBeerList.add(mapRowToBeerProduct(rs));
+		}
+		
+		return breweryBeerList;
+	}
 }

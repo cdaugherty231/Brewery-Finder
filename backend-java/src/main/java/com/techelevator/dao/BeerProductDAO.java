@@ -12,6 +12,8 @@ public interface BeerProductDAO {
 	
 	public BeerProduct getById(int beer_id);
 	
+	public List<BeerProduct> getBreweryBeerList(String name);
+	
 	// Find brewery by name
 	
 	// Create beer

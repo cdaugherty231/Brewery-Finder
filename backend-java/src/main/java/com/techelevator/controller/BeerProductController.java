@@ -23,7 +23,7 @@ public class BeerProductController {
 	}
 	
 	@RequestMapping(path = "/beerproduct/{beer_id}", method = RequestMethod.GET)
-	public BeerProduct getBreweryById(@PathVariable int beer_id){	
+	public BeerProduct getBeerById(@PathVariable int beer_id){	
 		return beerProductDao.getById(beer_id);
 	}
 
