@@ -102,5 +102,6 @@ INSERT INTO brewery(name, brewer_username, address_street, address_city, address
 VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester', 'OH', 45069, '(513) 847-8208', 'You should not have to live without delicious beer. Place an order, we’ll can it for you fresh from the tap.', 'Mon-Sun', '4:00pm - 12:00pm');
 
 SELECT *
-FROM brewery
+FROM beerproduct
+
 
