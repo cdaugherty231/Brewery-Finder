@@ -23,7 +23,6 @@ public class BreweryController {
 		// TODO Auto-generated constructor stub
 	}
 	
-	//@ResponseStatus(HttpStatus.)
 	@RequestMapping(path = "/breweries", method = RequestMethod.GET)
 	public List<Brewery> getBreweryList(){	
 		return breweryDAO.getAll();
@@ -46,13 +45,3 @@ public class BreweryController {
 
 }
 
-
-//@ResponseStatus(HttpStatus.CREATED)
-//@RequestMapping(value = "/register", method = RequestMethod.POST)
-//public void register(@Valid @RequestBody RegisterUserDTO newUser) {
-//    if (userDAO.usernameExists(newUser.getUsername())) {
-//        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User Already Exists.");
-//    } else {
-//        userDAO.create(newUser.getUsername(),newUser.getPassword(), newUser.getRole());
-//    }
-//}

@@ -10,13 +10,16 @@ public interface BreweryDAO {
 	public List<Brewery> getAll();
 	
 	// Find brewery by name
-	public Brewery getByName();
+	public Brewery getByName(String name);
 	
 	// Create brewery
 	public Brewery createBrewery(Brewery breweryToAdd);
 	
 	// Update Brewery info
 	public Brewery updateBrewery(Brewery updatedBrewery);
+	
+	// Delete Brewery
 
+	public Brewery getById(int id);
 
 }
