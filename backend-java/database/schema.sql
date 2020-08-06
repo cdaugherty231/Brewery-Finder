@@ -1,9 +1,12 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS brewery_beerproduct;
+DROP TABLE IF EXISTS beerproduct_beerreview;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS brewery;
 DROP TABLE IF EXISTS beerproduct;
+DROP TABLE IF EXISTS beerreview;
+
 DROP SEQUENCE IF EXISTS seq_user_id;
 
 CREATE SEQUENCE seq_user_id
@@ -23,12 +26,13 @@ CREATE TABLE users (
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
+INSERT INTO users(username, password_hash,role) VALUES ('Cincy Brewer','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_BREWER');
 
  
 CREATE TABLE brewery (
      brewery_id SERIAL,
-     name VARCHAR (99 ),
-     brewer_username VARCHAR (99),
+     name VARCHAR (99) NOT NULL, --Modify to be not null, need Brewer & Admin to at least fill in the name of Brewery
+     brewer_username VARCHAR (99) NOT NULL, --Modify to be not null, need Brewer & Admin to at least fill in the username of Brewer
      address_street VARCHAR (99 ),
      address_city VARCHAR (99 ),
      address_state VARCHAR (99), 
@@ -37,6 +41,7 @@ CREATE TABLE brewery (
      history VARCHAR (999), 
      days_operation VARCHAR(99),
      hours_operation VARCHAR(99),
+     brewery_image VARCHAR(1000), --NEW ADD
      constraint pk_brewery_id primary key (brewery_id)
 );
 
@@ -46,6 +51,7 @@ CREATE TABLE beerproduct(
     beer_description VARCHAR (99),
     abv VARCHAR (99),
     beer_type VARCHAR (99),
+    beer_image VARCHAR (1000), --NEW ADD
     constraint pk_beerproduct PRIMARY KEY (beer_id)
 );
 
@@ -66,29 +72,90 @@ ADD FOREIGN KEY(beer_id)
 REFERENCES beerproduct(beer_id);
 
 
-INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation) VALUES ('Braxton','somebrewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm');
-INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type) VALUES ('BUD','SOME BEER', '5', 'MALT');
-INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type) VALUES ('LightBeer','very light beer', '1.0', 'beer');
+--For Admin to add new brewery
+INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) VALUES ('Braxton','Cincy Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','https://images.squarespace-cdn.com/content/v1/56bc856f37013b1b46f58914/1575937608540-BOQK49AKM0U2PVVVS0OM/ke17ZwdGBToddI8pDm48kCvp9wUojcKRXNLZnuWdJbxZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIq7Wb5dtC4qoJ6CEJp3okJIUgQ1b_-LUh8rmXwLlAs0MKMshLAGzx4R3EDFOm1kBS/72189940_807006633050419_5757390238515200000_n.jpg');
+INSERT INTO brewery(name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) VALUES ('Best Beer Inc.','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
 
+--For Brewer to add new beer into brewery
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('BUD','AMERICAN BEER', '5', 'MALT','https://images.squarespace-cdn.com/content/v1/5c2d190d5ffd20fcfe3de667/1594250082106-B2OV6B6NLGXSS4UFFVYH/ke17ZwdGBToddI8pDm48kJKo3YTR7zgUvInmXMbZ6zZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0geeCvn1f36QDdcifB7yxGjTk-SMFplgtEhJ5kBshkhu5q5viBDDnY2i_eu2ZnquSA/NewBeers.DayBracey.TABLE.Summer2020');
+INSERT INTO beerproduct(beer_name, beer_description, abv, beer_type, beer_image) VALUES ('LightBeer','very light beer', '1.0', 'beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+----For Brewer to add new beer into brewery
 INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
 FROM brewery
 WHERE brewery.name='Braxton'),(select beer_id 
 FROM beerproduct
 WHERE beer_name='LightBeer'));
-
-
-INSERT INTO users(username, password_hash,role) VALUES ('somebrewer','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_BREWER');
+----For Brewer to add new beer into brewery
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Best Beer Inc.'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='BUD'));
 
 
 
 COMMIT TRANSACTION;
 
 --INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES(1,5);
-
 SELECT brewery.name as Brewery_Name, beer_name, beer_description
 FROM brewery
 INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
 INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id;
+
+
+-----------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+--CREATING JOINING TABLES FOR 'BEER_ID/REVIEW_ID'
+CREATE TABLE beerreview(
+    review_id SERIAL,
+    beer_name VARCHAR(99),
+    beer_rating float,
+    beer_review VARCHAR (1000),
+    constraint pk_beerreview PRIMARY KEY (review_id)
+);
+
+CREATE TABLE beerproduct_beerreview(
+    beer_id integer,
+    review_id integer,
+    CONSTRAINT PK_beerproduct_beerreview_beer_id_review_id PRIMARY KEY (beer_id, review_id)
+);
+
+ALTER TABLE beerproduct_beerreview
+ADD FOREIGN KEY(beer_id)
+REFERENCES beerproduct(beer_id);
+
+ALTER TABLE beerproduct_beerreview
+ADD FOREIGN KEY(review_id)
+REFERENCES beerreview(review_id);
+
+
+--For User to add rating/review for a beer under a brewery
+INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('BUD', 4.5, 'Very good beer!!!');
+--INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('BUD', 5, '5 STARS BEER!!!');
+INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('LightBeer', 2, 'This beer tastes like water');
+--INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('LightBeer', 3, 'This beer is okay');
+
+----For User to add rating/review for a beer under a brewery
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='LightBeer'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='LightBeer'));
+----For User to add rating/review for a beer under a brewery
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='BUD'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='BUD'));
+
+---QUERY TO GET BREWERY'S NAME, BREWERY'S BEER PRODUCTS & THE PRODUCTS' Reviews & Ratings
+SELECT brewery.name as Brewery_Name, beerproduct.beer_name, beerproduct.beer_description, beer_rating, beer_review
+FROM brewery
+INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
+INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id
+INNER JOIN beerproduct_beerreview ON beerproduct.beer_id = beerproduct_beerreview.beer_id
+INNER JOIN beerreview ON beerproduct_beerreview.review_id = beerreview.review_id;
 
 --ROLLBACK;
 
@@ -124,4 +191,8 @@ VALUES ('Little Miami Brewing Company', 'dkennedy', '208 Mill St', 'Milford', 'O
 
 INSERT INTO brewery(name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation) 
 VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester', 'OH', 45069, '(513) 847-8208', 'You should not have to live without delicious beer. Place an order, we’ll can it for you fresh from the tap.', 'Mon-Sun', '4:00pm - 12:00pm');
+
+
+
+
 
