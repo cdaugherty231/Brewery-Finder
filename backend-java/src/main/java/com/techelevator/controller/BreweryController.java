@@ -41,7 +41,7 @@ public class BreweryController {
 	
 	@RequestMapping(path = "/breweries", method = RequestMethod.PUT)
 	public Brewery updateBrewery(@RequestBody Brewery breweryToUpdate) {
-		return null;
+		return breweryDAO.updateBrewery(breweryToUpdate);
 	}
 
 }
