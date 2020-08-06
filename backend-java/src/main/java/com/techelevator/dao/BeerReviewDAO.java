@@ -12,6 +12,9 @@ public interface BeerReviewDAO {
 	// Create beerReview
 	public BeerReview createBeerReview(BeerReview reviewToAdd);
 	
+	// get by id
+	public BeerReview getById(int review_id);
+	
 	// Delete beerReview
 	
 }

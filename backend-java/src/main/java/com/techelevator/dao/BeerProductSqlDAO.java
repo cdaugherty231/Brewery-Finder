@@ -21,7 +21,12 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	public List<BeerProduct> getAll() {
 		List<BeerProduct> beerList = new ArrayList<>();
 		
-		String sql = "Select beer_id, beer_name, beer_description, abv, beer_type FROM beerproduct";
+		String sql = "Select beer_id,"
+				+ " beer_name,"
+				+ " beer_description,"
+				+ " abv,"
+				+ " beer_type"
+				+ " FROM beerproduct";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
 		while(rs.next()) {
 			beerList.add(mapRowToBeerProduct(rs));
@@ -58,5 +63,22 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		beerProduct.setBeer_type(rs.getString("beer_type"));
 		
 		return beerProduct;
+	}
+
+	@Override
+	public BeerProduct getById(int beer_id) {
+		BeerProduct found = null;
+		String sql = "Select beer_id,"
+				+ " beer_name,"
+				+ " beer_description,"
+				+ " abv,"
+				+ " beer_type"
+				+ " FROM beerproduct"
+				+ " WHERE beer_id = ?;";
+		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, beer_id);
+		if(rs.next()) {
+			found = mapRowToBeerProduct(rs);
+		}
+		return found;
 	}
 }

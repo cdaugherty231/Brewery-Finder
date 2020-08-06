@@ -64,4 +64,23 @@ public class BeerReviewSqlDAO implements BeerReviewDAO{
 		return review;
 	}
 
+	@Override
+	public BeerReview getById(int review_id) {
+		BeerReview returned = null;
+		String sql = "SELECT"
+				+ " review_id,"
+				+ " beer_name,"
+				+ " beer_rating,"
+				+ " beer_review"
+				+ " FROM beerreview"
+				+ " WHERE review_id = ?;";
+		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, review_id);
+		
+		if(rs.next()) {
+			returned = mapRowToBeerList(rs);
+		}
+		
+		return returned;
+	}
+
 }

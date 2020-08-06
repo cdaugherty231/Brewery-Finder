@@ -9,6 +9,8 @@ public interface BreweryDAO {
 	// Get all breweries list
 	public List<Brewery> getAll();
 	
+	// Get With query path variable
+	
 	// Find brewery by name
 	public Brewery getByName(String name);
 	

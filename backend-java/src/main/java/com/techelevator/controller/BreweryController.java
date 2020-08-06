@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,11 @@ public class BreweryController {
 	@RequestMapping(path = "/breweries", method = RequestMethod.GET)
 	public List<Brewery> getBreweryList(){	
 		return breweryDAO.getAll();
+	}
+	
+	@RequestMapping(path = "/breweries/{brewery_id}", method = RequestMethod.GET)
+	public Brewery getBreweryById(@PathVariable int brewery_id){	
+		return breweryDAO.getById(brewery_id);
 	}
 	
 	@RequestMapping(path = "/breweries", method = RequestMethod.POST)
