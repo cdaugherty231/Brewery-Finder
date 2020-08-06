@@ -130,7 +130,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 				+ " history = ?,"
 				+ " days_operation = ?,"
 				+ " hours_operation = ?"
-				+ " WHERE name = ?;";
+				+ " WHERE brewery_id = ?;";
 		Brewery returnedBrewery = jdbcTemplate.queryForObject(sql, Brewery.class,
 				updatedBrewery.getName(),
 				updatedBrewery.getBrewer_username(),
@@ -142,7 +142,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 				updatedBrewery.getHistory(),
 				updatedBrewery.getdays_operation(),
 				updatedBrewery.gethours_operation(),
-				updatedBrewery.getName());
+				updatedBrewery.getBrewery_id());
 		
 		return returnedBrewery;
 
