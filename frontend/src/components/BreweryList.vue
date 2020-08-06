@@ -63,7 +63,7 @@ import BreweryService from "@/services/BreweryService.js";
 export default {
   data() {
     return {
-      filter: {
+      filter: { 
         name: "",
         brewer_username: "",
         days_operation: "",
