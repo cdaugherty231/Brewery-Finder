@@ -45,9 +45,9 @@
             <input type="text" id="phoneFilter" v-model="filter.phone_number" />
           </td>
         </tr>
-        <tr v-for="brewery in this.$store.state.breweries" :key="brewery.breweryName">
-          <td> <router-link to="/breweryProfile" v-bind:brewery=brewery>{{brewery.name}}</router-link></td>
-          <td>{{brewery.brewer_username}}</td>
+        <tr v-for="brewery in this.$store.state.breweries" :key="brewery.name">
+          <td> <router-link :to="{name: 'breweryProfileDetail', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
+          <td>{{brewery.username}}</td>
           <td>{{brewery.days_operation}}</td>
           <td>{{brewery.hours_operation}}</td>
           <td>{{brewery.address_street}}</td>
