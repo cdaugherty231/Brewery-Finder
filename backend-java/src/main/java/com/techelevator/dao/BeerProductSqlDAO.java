@@ -108,7 +108,9 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 
 	@Override
 	public void deleteBeer(int beer_id) {
-		String sql = "DELETE FROM beerproduct WHERE beer_id = ?";
-		jdbcTemplate.update(sql, beer_id);
+		String sql = "DELETE FROM beerproduct_beerreview WHERE beer_id = ?;"
+				+ "DELETE FROM brewery_beerproduct WHERE beer_id = ?;"
+				+ " DELETE FROM beerproduct WHERE beer_id = ?;";
+		jdbcTemplate.update(sql, beer_id, beer_id, beer_id);
 	}
 }
