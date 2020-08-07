@@ -74,3 +74,11 @@ export default {
   }
 };
 </script>
+<style>
+.login {
+  display: flex;
+  align-content: center;
+  background-color: #79d0e8;
+}
+
+</style>

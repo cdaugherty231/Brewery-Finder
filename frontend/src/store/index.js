@@ -21,7 +21,6 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
-    beers: [],
     reviews: []
   },
   mutations: {
@@ -45,8 +44,8 @@ export default new Vuex.Store({
       state.breweries = breweriesArray;
     },
 
-    FILL_BEERS(state, beersList) {
-      state.beers = beersList;
+    FILL_BEERS(state, brewery, beersList) {
+      brewery.beerList = beersList;
     },
 
     FILL_REVIEWS(state, reviewsList){

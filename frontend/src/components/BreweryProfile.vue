@@ -3,18 +3,17 @@
     <h1>brewery profile</h1>
     <div class="profile-image"></div>
     <div>
-      <!--<header class="brewery-name">{{ brewery.name }}</header>
-      <p1 class="brewery-address">{{ brewery.address_street }}{{ brewery.address_city }}</p1>
-      <p1 class="brewery-address">{{ brewery.address_state }}{{ brewery.address_zip }}</p1>
-      <p1 class="brewery-phone">{{ brewery.phone_number }}</p1>
-      <p2 class="history-bio">{{ history }}</p2>-->
+      <header class="brewery-name">{{ currentBrewery.name }}</header>
+      <p class="brewery-address">{{ currentBrewery.address_street }} {{ currentBrewery.address_city }}</p>
+      <p class="brewery-address">{{ currentBrewery.address_state }} {{ currentBrewery.address_zip }}</p>
+      <p class="brewery-phone">{{ currentBrewery.phone_number }}</p>
+      <p class="history-bio">{{ currentBrewery.history }}</p> 
     </div>
     <div></div>
   </div>
 </template>
 
 <script>
-
 
 export default {
   name: 'brewery-profile',
@@ -24,8 +23,8 @@ export default {
     };
   },
   props: {
-    brewery: {}
-  }
+    currentBrewery: {}
+  },
 
 };
 </script>
