@@ -104,6 +104,14 @@ VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester',
 SELECT *
 FROM beerproduct
 
+DELETE FROM beerproduct
+WHERE beer_id > 0;
+
+DROP TABLE beerproduct;
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Rhinegeist Truth IPA','Intensely hopped, and all those hops give peach, mango and passion fruit notes.', '7.2', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\001truth.jpeg');
+
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'MadTree Psychopathy IPA','Blend of citrus, bright, and floral aromas; citrus flavors follow a smooth bitterness.', '6.9', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\002psychopathy.jpg');
 
@@ -163,3 +171,13 @@ VALUES (TRUE, 'Dogberry Brewing Wildfire','Crisp malt bodies IPA with bright hop
 
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Listermann Triple Digit','Sweet with hazelnut turned way up. Very sneaky 10%. Leaves a slight bitter aftertaste but enjoyable overall.', '10', 'Brown Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\022listermann.jpg');
+
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='DogBerry Brewing'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Listermann Triple Digit'));
+
+SELECT *
+FROM beerproduct;

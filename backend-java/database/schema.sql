@@ -50,7 +50,7 @@ CREATE TABLE beerproduct(
     beer_id SERIAL,
     isactive boolean,
     beer_name VARCHAR (99),
-    beer_description VARCHAR (99),
+    beer_description VARCHAR (199),
     abv VARCHAR (99),
     beer_type VARCHAR (99),
     beer_image VARCHAR (1000), --NEW ADD
@@ -214,7 +214,6 @@ VALUES (TRUE, 'Dogberry Brewing Wildfire','Crisp malt bodies IPA with bright hop
 
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Listermann Triple Digit','Sweet with hazelnut turned way up. Very sneaky 10%. Leaves a slight bitter aftertaste but enjoyable overall.', '10', 'Brown Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\022listermann.jpg');
-
 
 
 ----For Brewer to add new beer into brewery
