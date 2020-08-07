@@ -104,4 +104,62 @@ VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester',
 SELECT *
 FROM beerproduct
 
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'MadTree Psychopathy IPA','Blend of citrus, bright, and floral aromas; citrus flavors follow a smooth bitterness.', '6.9', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\002psychopathy.jpg');
 
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'MadTree Happy Amber','This dry-hopped ale combines caramel and biscuit flavors, with a fine balance of hops and malts.', '6', 'Amber Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\003happyamber.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Rhinegeist Cougar','It has a brilliant malt character, balanced yet dry with crystal and bravo hops.', '4.8', 'Golden Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\004Cougar.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'MadTree Gnarly Brown','Malts bring hints of brown sugar and vanilla; roasted coffee malt flavors obscure lines between brown ale and porter.', '7', 'Brown Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\006gnarlybrown.png');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'MadTree Lift','A crisp refreshing beer with a hint of orange will lift your spirits high.', '4.7', 'Kolsch','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\007Lift.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Moerlein OTR Ale','A generous amount of hops for stability, and a full malt character for balance makes for a crisp ale.', '5.8', 'Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\008OTR.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Hofbrahaus Hofbrau Dunkel','The archetype of a Munich beer, with a roasted hoppy taste and subtle malty finish.', '5.5', 'Dunkel','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\009HofbrauDunkel.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Mt. Carmel Amber Ale','Deep amber in color, entering with an aroma of fresh hops, coupled with a smooth flavorful body, balancing a complex hop finish.', '6', 'Amber Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\010MtCarmel-Amber.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Rivertown Roebling Porter','Brings together coffee, vanilla beans and raw, organic turbinado sugar into a big, rich, chocolate, espresso infused brownie of a beer.', '7.8', 'Porter','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\011Roebling.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Fifty West IPA','Our original IPA, blends the best of both Coasts. Tropical meets dank.', '6.8', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\012Fifty-West.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Eight Ball Prodigal','Enough malt to balance the massive amount of dry hops we introduce after fermentation. This lends piney, citrus, floral, and even grassy notes.', '6.5', 'Pale Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\013EightBall.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Blank Slate: Fork In the Road','Generous amounts of Citra and Centennial hops remind you that it is an India style beer.', '6.8', 'Amber Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\014ForkInTheRoad.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Great Crescent Coconut Porter','Brewed as a traditional English Style Porter. Organic Coconut is added during the brewing process to give this beer a nutty flavor and a little touch of sweetness.', '5.6', 'Porter','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\015CoconutPorter.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Cellar Dweller Copperhead','Fresh floral aromas and spice follow to a burst of citrus with a clean crisp finish on the palate.', '5.8', 'Pale Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\016cellarDweller.jpeg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Bad Tom Smith','A medium bodied ale with rich reddish-brown color, a fruity aroma, with an essence of toasted malt combined with candied nuts and a light caramel flavor,', '6', 'Brown Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\017BadTom.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Old Firehouse Probie','A perfectly robust ale with chocolate/coffee notes and firm hop bitterness.', '6.5', 'Porter','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\018Probie.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Geo. Wiedemann','Head is two fingers thick, with webbed lacing and a medium golden body, smells like rich, roasted malts and lighter floral hops.', '5', 'Pilsner','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\019Wiedemann.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Tap & Screw Dr Kool','Overtones of grapefruit, passionfruit and gooseberry; hopped four times though -- to add more intense flavor without bitterness.', '6.8', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\020tapandscrew.png');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Dogberry Brewing Wildfire','Crisp malt bodies IPA with bright hop notes brewed with peppercorn and coriander.', '6.7', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\021dogberry.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Listermann Triple Digit','Sweet with hazelnut turned way up. Very sneaky 10%. Leaves a slight bitter aftertaste but enjoyable overall.', '10', 'Brown Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\022listermann.jpg');
