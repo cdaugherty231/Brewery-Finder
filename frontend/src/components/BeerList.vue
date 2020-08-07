@@ -2,7 +2,7 @@
   <div>
     <!--<router-link :to="{name : 'beerInfoView', params: {beer_id: beer.beer_id}}" v-for="beer in $store.state.beers" v-bind:key="beer.beer_id">{{beer.name}}</router-link>
     -->
-    <beer v-for="currentBeer in beerList" :key="currentBeer.beer_name" v-bind:beer="currentBeer"></beer>
+    <beer v-for="currentBeer in getBeerList" :key="currentBeer.beer_name" v-bind:beer="currentBeer"></beer>
   </div>
 </template>
 
@@ -13,15 +13,23 @@ export default {
     name: 'beer-list',
     data() {
         return {
-            beerList: [],
+
         }
     },
-    props: [
-        "currentBrewery"
-    ],
+    props: {
+        breweryName: String
+    }
+    ,
     components: {
-        Beer,
+        Beer
     },
+    computed: {
+        getBeerList(){
+            return this.$store.state.breweries.find((brewery) => {
+                return brewery.name = this.breweryName;
+            }).beerList;
+        }
+    }
 
 
 }
