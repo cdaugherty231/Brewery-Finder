@@ -111,6 +111,27 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		
 		return breweryBeerList;
 	}
+	
+	@Override
+	public BeerProduct updateBeerProduct(BeerProduct updated) {
+		String sql = "UPDATE beerproduct SET"
+				+ " isactive = ?,"
+				+ " beer_name = ?,"
+				+ " beer_description = ?,"
+				+ " abv = ?,"
+				+ " beer_type = ?,"
+				+ " WHERE beer_id = ?;";
+		jdbcTemplate.update(sql,
+				updated.getIsactive(),
+				updated.getBeer_name(),
+				updated.getBeer_description(),
+				updated.getAbv(),
+				updated.getBeer_type(),
+				updated.getBeer_id());
+		
+		
+		return getById(updated.getBeer_id());
+	}
 
 	@Override
 	public void deleteBeer(int beer_id) {
@@ -118,5 +139,15 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				   + " DELETE FROM brewery_beerproduct WHERE beer_id = ?;"
 				   + " DELETE FROM beerproduct WHERE beer_id = ?;";
 		jdbcTemplate.update(sql, beer_id, beer_id, beer_id);
+	}
+
+	@Override
+	public BeerProduct toggleActiveStatus(int beer_id) {
+		String sql = " UPDATE beerproduct"
+				   + " SET isactive = NOT isactive"
+				   + " WHERE beer_id = ?;";
+		jdbcTemplate.update(sql, beer_id);
+		
+		return getById(beer_id);
 	}
 }

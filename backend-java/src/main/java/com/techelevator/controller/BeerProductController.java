@@ -41,4 +41,9 @@ public class BeerProductController {
 	public void deleteBeer(@PathVariable int beer_id){	
 		beerProductDao.deleteBeer(beer_id);
 	}
+	
+	public BeerProduct toggleActiveStatus(int beer_id) {
+		return null;
+	}
+	
 }
