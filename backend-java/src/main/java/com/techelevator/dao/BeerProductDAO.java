@@ -12,8 +12,15 @@ public interface BeerProductDAO {
 	
 	public BeerProduct getById(int beer_id);
 	
-	// Find brewery by name
+	public List<BeerProduct> getBreweryBeerList(String name);
+
+	public void deleteBeer(int beer_id);
+	
+	public BeerProduct updateBeerProduct(BeerProduct updated);
 	
 	// Create beer
 	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd);
+	
+	public BeerProduct toggleActiveStatus(int beer_id);
+	
 }

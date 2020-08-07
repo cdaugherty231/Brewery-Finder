@@ -23,7 +23,7 @@ public class BeerProductController {
 	}
 	
 	@RequestMapping(path = "/beerproduct/{beer_id}", method = RequestMethod.GET)
-	public BeerProduct getBreweryById(@PathVariable int beer_id){	
+	public BeerProduct getBeerById(@PathVariable int beer_id){	
 		return beerProductDao.getById(beer_id);
 	}
 
@@ -36,4 +36,14 @@ public class BeerProductController {
 	public BeerProduct createBeer(@RequestBody BeerProduct beerProductToAdd){
 		return beerProductDao.createBeerProduct(beerProductToAdd);
 	}
+	
+	@RequestMapping(path = "/beerproduct/{beer_id}", method = RequestMethod.DELETE)
+	public void deleteBeer(@PathVariable int beer_id){	
+		beerProductDao.deleteBeer(beer_id);
+	}
+	
+	public BeerProduct toggleActiveStatus(int beer_id) {
+		return null;
+	}
+	
 }

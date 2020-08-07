@@ -22,6 +22,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public List<Brewery> getAll() {
 		List<Brewery> breweryList = new ArrayList<>();
 		String sql = "SELECT"
+				+ " isactive,"
 				+ " brewery_id,"
 				+ " brewer_username,"
 				+ " name,"
@@ -45,6 +46,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	public Brewery getByName(String name) {
 		Brewery breweryToReturn = null;
 		String sql = "SELECT"
+				+ " isactive"
 				+ " brewery_id,"
 				+ " brewer_username,"
 				+ " name,"
@@ -67,6 +69,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	
 	private Brewery mapRowToBrewery(SqlRowSet rs) {
         Brewery brewery = new Brewery();
+        brewery.setIsactive(rs.getBoolean("isactive"));
         brewery.setBrewery_id(rs.getInt("brewery_id"));
         brewery.setBrewer_username(rs.getString("brewer_username"));
         brewery.setName(rs.getString("name"));
@@ -85,6 +88,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 	@Override
 	public Brewery createBrewery(Brewery breweryToAdd) {
 		String sql = "INSERT INTO brewery ("
+				+ " isactive,"
 				+ " name,"
 				+ " brewer_username,"
 				+ " address_street,"
@@ -95,9 +99,10 @@ public class BrewerySqlDAO implements BreweryDAO{
 				+ " history,"
 				+ " days_operation,"
 				+ " hours_operation)"
-				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+				+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
 				+ " RETURNING brewery_id";
 		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
+				breweryToAdd.getIsactive(),
 				breweryToAdd.getName(),
 				breweryToAdd.getBrewer_username(),
 				breweryToAdd.getAddress_street(), 
@@ -120,6 +125,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 		// TODO Auto-generated method stub
 		//Brewery returnedBrewery = new Brewery();
 		String sql = "UPDATE brewery SET"
+				+ " isactive = ?,"
 				+ " name = ?,"
 				+ " brewer_username = ?,"
 				+ " address_street = ?,"
@@ -132,6 +138,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 				+ " hours_operation = ?"
 				+ " WHERE brewery_id = ?;";
 		jdbcTemplate.update(sql,
+				updatedBrewery.getIsactive(),
 				updatedBrewery.getName(),
 				updatedBrewery.getBrewer_username(),
 				updatedBrewery.getAddress_street(), 
@@ -145,13 +152,13 @@ public class BrewerySqlDAO implements BreweryDAO{
 				updatedBrewery.getBrewery_id());
 		
 		return getById(updatedBrewery.getBrewery_id());
-
 	}
 
 	@Override
 	public Brewery getById(int id) {
 		Brewery breweryToReturn = null;
 		String sql = "SELECT"
+				+ " isactive,"
 				+ " brewery_id,"
 				+ " brewer_username,"
 				+ " name,"

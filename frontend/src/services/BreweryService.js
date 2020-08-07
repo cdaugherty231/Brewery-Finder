@@ -12,6 +12,10 @@ export default {
 
   getBreweryById(id) {
       return axios.get(`/breweries/${id}`);
+  },
+
+  getBeersByBrewery(name) {
+    return axios.get(`/breweries/beers/${name}`);
   }
 
 };

@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.techelevator.dao.BeerProductDAO;
 import com.techelevator.dao.BreweryDAO;
+import com.techelevator.model.BeerProduct;
 import com.techelevator.model.Brewery;
 
 @RestController
@@ -18,10 +19,11 @@ import com.techelevator.model.Brewery;
 public class BreweryController {
 	
 	private BreweryDAO breweryDAO;
+	private BeerProductDAO beerProductDAO;
 	
-	public BreweryController(BreweryDAO breweryDAO) {
+	public BreweryController(BreweryDAO breweryDAO, BeerProductDAO beerProductDAO) {
 		this.breweryDAO = breweryDAO;
-		// TODO Auto-generated constructor stub
+		this.beerProductDAO = beerProductDAO;
 	}
 	
 	@RequestMapping(path = "/breweries", method = RequestMethod.GET)
@@ -39,14 +41,15 @@ public class BreweryController {
 		return breweryDAO.createBrewery(breweryToAdd);
 	}
 	
-	@RequestMapping(path = "/breweries/find", method = RequestMethod.GET)
-	public List<Brewery> getBreweryList(@RequestParam String breweryName){	
-		return breweryDAO.getAll();
-	}
-	
 	@RequestMapping(path = "/breweries", method = RequestMethod.PUT)
 	public Brewery updateBrewery(@RequestBody Brewery breweryToUpdate) {
 		return breweryDAO.updateBrewery(breweryToUpdate);
+	}
+	
+	@RequestMapping(path = "/breweries/beers/{name}", method = RequestMethod.GET)
+	public List<BeerProduct> getBreweryBeers(@PathVariable String name){
+		return beerProductDAO.getBreweryBeerList(name);
+		
 	}
 
 }

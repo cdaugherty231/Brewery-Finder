@@ -2,15 +2,18 @@
   <div>
     <h1>{{brewery.name}}</h1>
     <brewery-profile v-bind:brewery="brewery"></brewery-profile>
+    <beer-list v-bind:brewery="brewery"></beer-list>
   </div>
 </template>
 
 <script>
 import BreweryProfile from "@/components/BreweryProfile.vue"
+import BeerList from "@/components/BeerList.vue"
 
 export default {
   components: {
-    BreweryProfile
+    BreweryProfile,
+    BeerList
   },
   computed: {
     brewery() {
