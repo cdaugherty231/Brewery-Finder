@@ -2,7 +2,7 @@
   <div>
     <!--<router-link :to="{name : 'beerInfoView', params: {beer_id: beer.beer_id}}" v-for="beer in $store.state.beers" v-bind:key="beer.beer_id">{{beer.name}}</router-link>
     -->
-    <beer></beer>
+    <beer v-for="beer in beerList" :key="beer.beer_name"></beer>
   </div>
 </template>
 
@@ -12,17 +12,22 @@ import Beer from "@/components/Beer.vue"
 
 export default {
     name: 'beer-list',
-    props: {
-        breweries: {}
+    data() {
+        return {
+            beerList: [],
+        }
     },
+    props: [
+        "brewery"
+    ],
     components: {
         Beer,
-        BreweryService
     },
     created() {
-        BreweryService.getAllBeers(this.breweries.name).then((response) =>{
-            this.$store.commit("FILL_BEERS", respone.data)
-        })
+        BreweryService.getBeersByBrewery(this.brewery.name).then((response) => {
+            this.$store.commit("FILL_BEERS", response.data);
+            this.beerList = this.$store.state.beers;
+        });
     }
 
 }
