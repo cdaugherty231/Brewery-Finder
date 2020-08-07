@@ -21,7 +21,7 @@ export default {
       // second api call to populate each breweries beer list
       this.$store.state.breweries.forEach(element => {
         BreweryService.getBeersByBrewery(element.name).then((response2) => {
-          console.log(element.name + ": " + response2.data);
+          //console.log(element.name + ": " + response2.data);
           element.beerList = response2.data;
           //this.$store.commit("FILL_BEERS", element, "test");
         })
@@ -31,3 +31,15 @@ export default {
   },
 }
 </script>
+<style>
+
+h1 {
+  text-align: center;
+}
+
+#app {
+  align-items: center;
+  background-color: #79d0e8;
+}
+
+</style>
