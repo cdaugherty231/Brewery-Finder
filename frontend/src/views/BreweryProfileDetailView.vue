@@ -1,29 +1,35 @@
 <template>
   <div>
     <h1>{{brewery.name}}</h1>
-    <brewery-profile v-bind:brewery="brewery"></brewery-profile>
-    <beer-list v-bind:brewery="brewery"></beer-list>
+    <brewery-profile v-bind:currentBrewery="brewery"></brewery-profile>
+    <!-- <beer-list v-bind:currentBrewery="brewery"></beer-list> -->
   </div>
 </template>
 
 <script>
-import BreweryProfile from "@/components/BreweryProfile.vue"
-import BeerList from "@/components/BeerList.vue"
+//import BreweryService from "@/services/BreweryService.js";
+import BreweryProfile from "@/components/BreweryProfile.vue";
+// import BeerList from "@/components/BeerList.vue";
 
 export default {
   components: {
     BreweryProfile,
-    BeerList
+   // BeerList,
   },
   computed: {
     brewery() {
-     return this.$store.state.breweries.find((brewery) => {
+      return this.$store.state.breweries.find((brewery) => {
         return brewery.brewery_id == this.$route.params.brewery_id;
-      })
-    }
+      });
+    },
+  },
 
-  }
-
+  // created() {
+  //   BreweryService.getBeersByBrewery(this.brewery.name).then((response) => {
+  //     this.$store.commit("FILL_BEERS", response.data);
+  //     this.beerList = this.$store.state.beers;
+  //   });
+  // },
 };
 </script>
 

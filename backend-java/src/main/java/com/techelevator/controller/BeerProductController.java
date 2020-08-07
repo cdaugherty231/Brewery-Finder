@@ -42,8 +42,14 @@ public class BeerProductController {
 		beerProductDao.deleteBeer(beer_id);
 	}
 	
+	@RequestMapping(path = "beerproduct/togglestatus/{beer_id}", method = RequestMethod.PUT)
 	public BeerProduct toggleActiveStatus(int beer_id) {
-		return null;
+		return beerProductDao.toggleActiveStatus(beer_id);
+	}
+	
+	@RequestMapping(path = "beerproduct/{beer_id}", method = RequestMethod.PUT)
+	public BeerProduct updateBeerProduct(BeerProduct updatedBeer) {
+		return beerProductDao.updateBeerProduct(updatedBeer);
 	}
 	
 }

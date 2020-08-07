@@ -4,8 +4,8 @@
     <div class="profile-image"></div>
     <div>
       <header class="beer-name">{{ beer.beer_name }}</header>
-      <p1 class="beer-desciption">{{ beer.beer_description }}</p1>
-      <p1 class="beer-specs">{{ beer.abv }}{{ beer.beer_type }}</p1>
+      <p class="beer-desciption">{{ beer.beer_description }}</p>
+      <p class="beer-specs">{{ beer.abv }}{{ beer.beer_type }}</p>
     </div>
     <div></div>
   </div>

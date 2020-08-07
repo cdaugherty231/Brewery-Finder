@@ -42,7 +42,7 @@
           </td>
         </tr>
         <tr v-for="brewery in filteredList" :key="brewery.name">
-          <td> <router-link :to="{name: 'breweryProfileDetail', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
+          <td> <router-link :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
           <td>{{brewery.username}}</td>
           <td>{{brewery.days_operation}}</td>
           <td>{{brewery.hours_operation}}</td>
@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import BreweryService from "@/services/BreweryService.js"; 
 
 export default {
   data() {
@@ -76,11 +75,7 @@ export default {
       },
     };
   },
-  created() {
-    BreweryService.getAllBreweries().then((response) => {
-      this.$store.commit("FILL_BREWERIES", response.data)
-    })
-  },
+
   computed: {
     filteredList() {
       return this.$store.state.breweries.filter((brewery) => {
