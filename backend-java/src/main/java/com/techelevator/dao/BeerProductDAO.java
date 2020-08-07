@@ -16,6 +16,11 @@ public interface BeerProductDAO {
 
 	public void deleteBeer(int beer_id);
 	
+	public BeerProduct updateBeerProduct(BeerProduct updated);
+	
 	// Create beer
 	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd);
+	
+	public BeerProduct toggleActiveStatus(int beer_id);
+	
 }

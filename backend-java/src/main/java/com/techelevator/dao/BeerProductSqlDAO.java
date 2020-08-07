@@ -22,6 +22,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		List<BeerProduct> beerList = new ArrayList<>();
 		
 		String sql = "Select beer_id,"
+				+ " isactive,"
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
@@ -38,12 +39,14 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	@Override
 	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd) {
 		String sql = "INSERT INTO beerproduct ("
+				+ " isactive,"
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
 				+ " beer_type)"
-				+ " VALUES( ?, ?, ?, ?) RETURNING beer_id";
+				+ " VALUES( ?, ?, ?, ?, ?) RETURNING beer_id";
 		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
+				beerProductToAdd.getIsactive(),
 				beerProductToAdd.getBeer_name(),
 				beerProductToAdd.getBeer_description(),
 				beerProductToAdd.getAbv(),
@@ -56,6 +59,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	private BeerProduct mapRowToBeerProduct(SqlRowSet rs) {
 		BeerProduct beerProduct = new BeerProduct();
 		
+		beerProduct.setIsactive(rs.getBoolean("isactive"));
 		beerProduct.setBeer_id(rs.getInt("beer_id"));
 		beerProduct.setBeer_name(rs.getString("beer_name"));
 		beerProduct.setBeer_description(rs.getString("beer_description"));
@@ -69,6 +73,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	public BeerProduct getById(int beer_id) {
 		BeerProduct found = null;
 		String sql = "Select beer_id,"
+				+ " isactive,"
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
@@ -87,6 +92,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		List<BeerProduct> breweryBeerList = new ArrayList<>();
 		
 		String sql = "Select beerproduct.beer_id,"
+				+ " beerproduct.isactive,"
 				+ " beerproduct.beer_name,"
 				+ " beerproduct.beer_description,"
 				+ " beerproduct.abv,"
@@ -105,12 +111,43 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		
 		return breweryBeerList;
 	}
+	
+	@Override
+	public BeerProduct updateBeerProduct(BeerProduct updated) {
+		String sql = "UPDATE beerproduct SET"
+				+ " isactive = ?,"
+				+ " beer_name = ?,"
+				+ " beer_description = ?,"
+				+ " abv = ?,"
+				+ " beer_type = ?,"
+				+ " WHERE beer_id = ?;";
+		jdbcTemplate.update(sql,
+				updated.getIsactive(),
+				updated.getBeer_name(),
+				updated.getBeer_description(),
+				updated.getAbv(),
+				updated.getBeer_type(),
+				updated.getBeer_id());
+		
+		
+		return getById(updated.getBeer_id());
+	}
 
 	@Override
 	public void deleteBeer(int beer_id) {
-		String sql = "DELETE FROM beerproduct_beerreview WHERE beer_id = ?;"
-				+ "DELETE FROM brewery_beerproduct WHERE beer_id = ?;"
-				+ " DELETE FROM beerproduct WHERE beer_id = ?;";
+		String sql = " DELETE FROM beerproduct_beerreview WHERE beer_id = ?;"
+				   + " DELETE FROM brewery_beerproduct WHERE beer_id = ?;"
+				   + " DELETE FROM beerproduct WHERE beer_id = ?;";
 		jdbcTemplate.update(sql, beer_id, beer_id, beer_id);
+	}
+
+	@Override
+	public BeerProduct toggleActiveStatus(int beer_id) {
+		String sql = " UPDATE beerproduct"
+				   + " SET isactive = NOT isactive"
+				   + " WHERE beer_id = ?;";
+		jdbcTemplate.update(sql, beer_id);
+		
+		return getById(beer_id);
 	}
 }

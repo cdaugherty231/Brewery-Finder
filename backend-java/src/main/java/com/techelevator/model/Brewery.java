@@ -13,23 +13,10 @@ public class Brewery {
 	private String address_state;
 	private int address_zip;
 	private String phone_number;
+	private boolean isactive;
 	
 	public Brewery() {
 		
-	}
-	
-	public Brewery(int id, String name, String days_operation, String hours_operation, String historyBio,
-			String address_street, String address_city, String address_state, int address_zip, String phone_number) {
-		this.brewery_id = id;
-		this.name = name;
-		this.days_operation = days_operation;
-		this.hours_operation = hours_operation;
-		this.history = historyBio;
-		this.address_city = address_city;
-		this.address_state = address_state;
-		this.address_street = address_street;
-		this.address_zip = address_zip;
-		this.phone_number = phone_number;
 	}
 
 	public String getName() {
@@ -118,6 +105,14 @@ public class Brewery {
 
 	public void setBrewer_username(String brewer_username) {
 		this.brewer_username = brewer_username;
+	}
+
+	public boolean getIsactive() {
+		return isactive;
+	}
+
+	public void setIsactive(boolean isactive) {
+		this.isactive = isactive;
 	}
 }
 	

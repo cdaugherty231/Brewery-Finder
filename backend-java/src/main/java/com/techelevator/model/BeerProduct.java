@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 public class BeerProduct {
 	private int beer_id;
+	private boolean isactive;
 	private String beer_name;
 	private String beer_description;
 	private String abv;
@@ -49,6 +50,14 @@ public class BeerProduct {
 
 	public void setBeer_type(String beer_type) {
 		this.beer_type = beer_type;
+	}
+
+	public boolean getIsactive() {
+		return isactive;
+	}
+
+	public void setIsactive(boolean isactive) {
+		this.isactive = isactive;
 	}
 
 }
