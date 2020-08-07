@@ -53,11 +53,16 @@
             placeholder="Description"
             v-model="brewery.history"
           />
+
+        <!-- 
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+        v-on:click.prevent="submitNewBrewery()" -->
         </li>
-        <button
-          class="btn btn-lg btn-primary btn-block"
-          type="submit"
-          v-on:click.prevent="submitNewBrewery()"
+        <button 
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+        v-on:click.prevent="submitNewBrewery()"
         >Enter</button>
       </div>
     </form>
@@ -90,8 +95,12 @@ export default {
   },
   methods: {
     submitNewBrewery() {
-      BreweryService.addNewBrewery(this.brewery);
-    },
+      BreweryService.addNewBrewery(this.brewery).then(response => {
+        if(response.status == 200){
+          location.reload();
+        }
+      })
+    }
   },
   created() {
       UserService.getBrewers().then((response) => {
