@@ -1,7 +1,9 @@
 <template>
-  <div id="login" class="text-center login-box container">
+  <div id="login" class="text-center container">
+    <header>Test</header>
+    <content>Content
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal please-sign-in">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal please-sign-in login-box">Please Sign In</h1>
       <div
         class="alert alert-danger login-box"
         role="alert"
@@ -42,6 +44,9 @@
       <button class="login-btn" type="submit">Sign in</button>
       </div>
     </form>
+    </content>
+    <footer>Footer Test</footer>
+
   </div>
 </template>
 
@@ -85,9 +90,31 @@ export default {
 <style>
 
 .container {
-  display: flex;
- position: relative;
+  height: 100vh;
+  display: grid;
+  grid-template-columns:1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  align-items: stretch;
+  grid-template-areas:
+    "header "
+    "content"
+    "footer";
+
 }
+
+header {
+  grid-area: header;
+}
+
+content{
+  grid-area: content;
+}
+
+footer{
+  grid-area: footer;
+}
+
 
 body {
   background: lightblue; 
