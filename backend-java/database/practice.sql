@@ -180,4 +180,4 @@ FROM beerproduct
 WHERE beer_name='Listermann Triple Digit'));
 
 SELECT *
-FROM beerproduct;
+FROM beerproduct;gi

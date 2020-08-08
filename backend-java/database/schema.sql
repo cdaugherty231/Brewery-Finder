@@ -248,6 +248,125 @@ WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id
 FROM beerproduct
 WHERE beer_name='Dogberry Brewing Wildfire'));
 
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='MadTree Psychopathy IPA'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Rhinegeist Cougar'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Rhinegeist Cougar'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Mt. Carmel Amber Ale'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Eight Ball Prodigal'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Urban Artifact'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Eight Ball Prodigal'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Urban Artifact'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Great Crescent Coconut Porter'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Urban Artifact'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Old Firehouse Probie'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Old Firehouse Probie'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='MadTree Gnarly Brown'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Hofbrahaus Hofbrau Dunkel'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Swine City Brewing'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Hofbrahaus Hofbrau Dunkel'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Swine City Brewing'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='MadTree Happy Amber'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Swine City Brewing'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Fifty West IPA'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Fifty West IPA'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Blank Slate: Fork In the Road'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Cellar Dweller Copperhead'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Blank Slate: Fork In the Road'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Bad Tom Smith'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Tap & Screw Dr Kool'));
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -300,13 +419,151 @@ WHERE beerreview.beer_name='Listermann Triple Digit'));
 
 --Adding another review/rating to same beer: 'Listermann Triple Digit'
 INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Dogberry Brewing Wildfire', 5.0, 'Best beer made from the monks');
-
 INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
 FROM beerproduct
 WHERE beerproduct.beer_name='Dogberry Brewing Wildfire'),(select max(beerreview.review_id)
 FROM beerreview
 WHERE beerreview.beer_name='Dogberry Brewing Wildfire'));
 
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Joel','Old Firehouse Probie', 4.0, 'The taste was nicely balanced and easy to drink with roast and peat presence.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Old Firehouse Probie'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Old Firehouse Probie'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Leigh','Cellar Dweller Copperhead', 3.5, 'This was nice and malty with a floral aroma and a spicy dry finish.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Cellar Dweller Copperhead'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Cellar Dweller Copperhead'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Jake','Bad Tom Smith', 4.5, 'The name says bad, but the taste says very good.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Bad Tom Smith'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Bad Tom Smith'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Edward','Bad Tom Smith', 3.5, 'I like the color and the fruity aroma.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Bad Tom Smith'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Bad Tom Smith'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Peter','Geo. Wiedemann', 2.5, ' Too much foam for me, and the taste was bitter.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Geo. Wiedemann'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Geo. Wiedemann'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Debbie','Great Crescent Coconut Porter', 4.5, 'I really like the coconut flavor, very nice.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Great Crescent Coconut Porter'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Great Crescent Coconut Porter'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Sharon','Eight Ball Prodigal', 4.2, 'The hops contribute notes of citrus and pine.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Eight Ball Prodigal'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Eight Ball Prodigal'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Mike','Eight Ball Prodigal', 4.7, 'Medium amber in color with good clarity and carbonation.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Eight Ball Prodigal'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Eight Ball Prodigal'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Howie','Rivertown Roebling Porter', 4.9, 'Now this is a rich, dark porter.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Rivertown Roebling Porter'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Rivertown Roebling Porter'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Sarah','Rivertown Roebling Porter', 4.2, 'The vanilla beans give this a great taste.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Rivertown Roebling Porter'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Rivertown Roebling Porter'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Dave','Rivertown Roebling Porter', 3.9, 'Anything with coffee flavor works for me.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Rivertown Roebling Porter'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Rivertown Roebling Porter'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Petra','Hofbrahaus Hofbrau Dunkel', 3.7, 'It reminded me of my childhood in Germany.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Hofbrahaus Hofbrau Dunkel'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Hofbrahaus Hofbrau Dunkel'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Ethan','Moerlein OTR Ale', 5.0, 'This red ale is the bomb; I would give it a 10 if I could.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Moerlein OTR Ale'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Moerlein OTR Ale'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Fred','MadTree Gnarly Brown', 3.8, 'Nice earthy, malty aroma bursts forth from the glass.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='MadTree Gnarly Brown'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='MadTree Gnarly Brown'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Pat','MadTree Lift', 4.6, 'This is such a refreshing and tasty beer.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='MadTree Lift'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='MadTree Lift'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Hank','MadTree Psychopathy', 2.6, 'This beer is driving me to madness with addiction.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='MadTree Psychopathy'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='MadTree Psychopathy'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Franz','MadTree Happy Amber', 3.4, 'There is a really nice caramel flavor in this.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='MadTree Happy Amber'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='MadTree Happy Amber'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Terry','MadTree Happy Amber', 4.4, 'Smell is fruity, autumnal, with lots of hops this is happy, hoppy amber.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='MadTree Happy Amber'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='MadTree Happy Amber'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Daisy','MadTree Happy Amber', 3.9, 'Golden amber color with a beautiful fluffy head and great lacing.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='MadTree Happy Amber'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='MadTree Happy Amber'));
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Lola','Rhinegeist Cougar', 2.9, 'Fits the style of an American Blonde Ale.');
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Rhinegeist Cougar'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Rhinegeist Cougar'));
 
 
 
