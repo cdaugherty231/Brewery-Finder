@@ -75,10 +75,29 @@ export default {
 };
 </script>
 <style>
-.login {
-  display: flex;
-  align-content: center;
-  background-color: #79d0e8;
+
+body {
+  background: lightblue; 
+  font-family: 'Noto Sans', sans-serif;
+   /*background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
+div {
+  text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+input {
+  border-radius: 25px;
+  font-size: 25px;
+  padding: 10px;
+  border:none;	
+ outline:none;
+ border-bottom:1px solid #e74c3c;	
+}
 </style>
