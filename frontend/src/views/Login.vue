@@ -37,12 +37,13 @@
       /></div>
 
       <div class="login-box">
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <router-link class ="white-txt" :to="{ name: 'register' }">Need an account?</router-link>
       </div>
 
       <div class="login-box">
       <button class="login-btn" type="submit">Sign in</button>
-      </div>
+    
+      </div> 
     </form>
     </content>
     <footer>Footer Test</footer>
@@ -105,6 +106,8 @@ export default {
 
 header {
   grid-area: header;
+  background-color: rgba(20, 123, 219, 0.986);
+  height: 125px;
 }
 
 content{
@@ -113,6 +116,8 @@ content{
 
 footer{
   grid-area: footer;
+  background-color: rgba(20, 123, 219, 0.986);
+  height: 125px;
 }
 
 
@@ -120,10 +125,6 @@ body {
   background: lightblue; 
   font-family: 'Noto Sans', sans-serif;
   background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 }
 
 
@@ -153,5 +154,10 @@ body {
  font-size: 20px;
  border-radius: 5px;
  background-color: rgb(247, 206, 71);
+}
+
+.white-txt {
+  color: aliceblue;
+  font-size: 20px;
 }
 </style>
