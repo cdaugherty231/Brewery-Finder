@@ -1,18 +1,19 @@
 <template>
-  <div id="login" class="text-center">
+  <div id="login" class="text-center login-box container">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="h3 mb-3 font-weight-normal please-sign-in">Please Sign In</h1>
       <div
-        class="alert alert-danger"
+        class="alert alert-danger login-box"
         role="alert"
         v-if="invalidCredentials"
       >Invalid username and password!</div>
       <div
-        class="alert alert-success"
+        class="alert alert-success login-box"
         role="alert"
         v-if="this.$route.query.registration"
       >Thank you for registering, please sign in.</div>
-      <label for="username" class="sr-only">Username</label>
+        
+      <div class="login-box">
       <input
         type="text"
         id="username"
@@ -21,8 +22,9 @@
         v-model="user.username"
         required
         autofocus
-      />
-      <label for="password" class="sr-only">Password</label>
+      /></div>
+
+      <div class="login-box">
       <input
         type="password"
         id="password"
@@ -30,9 +32,15 @@
         placeholder="Password"
         v-model="user.password"
         required
-      />
+      /></div>
+
+      <div class="login-box">
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      </div>
+
+      <div class="login-box">
+      <button class="login-btn" type="submit">Sign in</button>
+      </div>
     </form>
   </div>
 </template>
@@ -76,28 +84,47 @@ export default {
 </script>
 <style>
 
+.container {
+  display: flex;
+ position: relative;
+}
+
 body {
   background: lightblue; 
   font-family: 'Noto Sans', sans-serif;
-   /*background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;*/
-  -webkit-background-size: cover;
+  background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
+  /*-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover;*/
 }
 
-div {
+
+.please-sign-in {
+  color: white
+}
+
+.login-box {
+  display: flex;
+  justify-content: center;
   text-align: center;
   margin: 20px 0;
   padding: 10px;
 }
 
-input {
+.form-control {
   border-radius: 25px;
-  font-size: 25px;
+  font-size: 30px;
   padding: 10px;
   border:none;	
  outline:none;
- border-bottom:1px solid #e74c3c;	
+}
+
+.login-btn {	
+ padding: 10px;
+ margin: 10px;
+ font-size: 20px;
+ border-radius: 5px;
+ background-color: rgb(247, 206, 71);
 }
 </style>

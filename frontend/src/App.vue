@@ -33,13 +33,5 @@ export default {
 </script>
 <style>
 
-h1 {
-  text-align: center;
-}
-
-#app {
-  align-items: center;
-  background-color: #79d0e8;
-}
 
 </style>
