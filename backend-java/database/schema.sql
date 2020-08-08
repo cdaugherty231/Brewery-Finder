@@ -113,7 +113,7 @@ INSERT INTO brewery(isactive, name, brewer_username, address_street , address_ci
 VALUES (TRUE, 'Braxton','Cincy Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','https://images.squarespace-cdn.com/content/v1/56bc856f37013b1b46f58914/1575937608540-BOQK49AKM0U2PVVVS0OM/ke17ZwdGBToddI8pDm48kCvp9wUojcKRXNLZnuWdJbxZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIq7Wb5dtC4qoJ6CEJp3okJIUgQ1b_-LUh8rmXwLlAs0MKMshLAGzx4R3EDFOm1kBS/72189940_807006633050419_5757390238515200000_n.jpg');
 
 INSERT INTO brewery(isactive,name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
-VALUES (TRUE,'Best Beer Inc.','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
+VALUES (TRUE,'Best Beer Co','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
 
 INSERT INTO brewery(isactive,name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
 VALUES (TRUE,'Humble Monk Brewing Co', 'msmith', '1641 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 510-4615', 'Pet Friendly', 'Mon-Sun', '4:00pm - 11:00pm','');
@@ -148,8 +148,8 @@ VALUES (TRUE,'DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Ches
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --For Brewer to add new beer into brewery
-INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) VALUES (TRUE, 'BUD','AMERICAN BEER', '5', 'MALT','https://images.squarespace-cdn.com/content/v1/5c2d190d5ffd20fcfe3de667/1594250082106-B2OV6B6NLGXSS4UFFVYH/ke17ZwdGBToddI8pDm48kJKo3YTR7zgUvInmXMbZ6zZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0geeCvn1f36QDdcifB7yxGjTk-SMFplgtEhJ5kBshkhu5q5viBDDnY2i_eu2ZnquSA/NewBeers.DayBracey.TABLE.Summer2020');
-INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) VALUES (TRUE, 'LightBeer','very light beer', '1.0', 'beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) VALUES (TRUE, 'Bud USA','AMERICAN BEER', '5.0', 'Lager','https://images.squarespace-cdn.com/content/v1/5c2d190d5ffd20fcfe3de667/1594250082106-B2OV6B6NLGXSS4UFFVYH/ke17ZwdGBToddI8pDm48kJKo3YTR7zgUvInmXMbZ6zZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0geeCvn1f36QDdcifB7yxGjTk-SMFplgtEhJ5kBshkhu5q5viBDDnY2i_eu2ZnquSA/NewBeers.DayBracey.TABLE.Summer2020');
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) VALUES (TRUE, 'Light Years','low alcohol beer', '1.0', 'malt beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) VALUES (TRUE, 'Blue Sun','Europe beer', '5.0', 'dark beer','https://images.unsplash.com/photo-1566633806327-68e152aaf26d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80');
 
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
@@ -221,52 +221,96 @@ INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id
 FROM brewery
 WHERE brewery.name='Braxton'),(select beer_id 
 FROM beerproduct
-WHERE beer_name='LightBeer'));
-----For Brewer to add new beer into brewery
+WHERE beer_name='Light Years'));
+
 INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
 FROM brewery
-WHERE brewery.name='Best Beer Inc.'),(select beer_id 
+WHERE brewery.name='Braxton'),(select beer_id 
 FROM beerproduct
-WHERE beer_name='BUD'));
+WHERE beer_name='Listermann Triple Digit'));
+
 ----For Brewer to add new beer into brewery
 INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
 FROM brewery
-WHERE brewery.name='Best Beer Inc.'),(select beer_id 
+WHERE brewery.name='Best Beer Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Bud USA'));
+----For Brewer to add new beer into brewery
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Best Beer Co'),(select beer_id 
 FROM beerproduct
 WHERE beer_name='Blue Sun'));
+----For Brewer to add new beer into brewery
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Dogberry Brewing Wildfire'));
+
+
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
-
---For User to add rating/review for a beer under a brewery
-INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Patrick', 'BUD', 4.5, 'Very good beer!!!');
---INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('BUD', 5, '5 STARS BEER!!!');
-INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','LightBeer', 2, 'This beer tastes like water');
-INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Blue Sun', 3.5, 'This beer got me drunk fast');
-
---INSERT INTO beerreview(beer_name, beer_rating, beer_review) VALUES ('LightBeer', 3, 'This beer is okay');
-
 ----For User to add rating/review for a beer under a brewery
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Salvador','Light Years', 2.0, 'This beer tastes like water');
+
 INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
 FROM beerproduct
-WHERE beerproduct.beer_name='LightBeer'),(select max(beerreview.review_id)
+WHERE beerproduct.beer_name='Light Years'),(select max(beerreview.review_id)
 FROM beerreview
-WHERE beerreview.beer_name='LightBeer'));
+WHERE beerreview.beer_name='Light Years'));
+
 ----For User to add rating/review for a beer under a brewery
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Patrick', 'Bud USA', 4.5, 'Very good beer!!!');
+
 INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
 FROM beerproduct
-WHERE beerproduct.beer_name='BUD'),(select max(beerreview.review_id)
+WHERE beerproduct.beer_name='Bud USA'),(select max(beerreview.review_id)
 FROM beerreview
-WHERE beerreview.beer_name='BUD'));
+WHERE beerreview.beer_name='Bud USA'));
+
 ----For User to add rating/review for a beer under a brewery
+
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Greyson','Blue Sun', 3.5, 'This beer got me drunk fast');
+
 INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
 FROM beerproduct
 WHERE beerproduct.beer_name='Blue Sun'),(select max(beerreview.review_id)
 FROM beerreview
 WHERE beerreview.beer_name='Blue Sun'));
 
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Connor','Listermann Triple Digit', 4.0, 'This beer is a good buzz');
+
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Listermann Triple Digit'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Listermann Triple Digit'));
+
+--Adding another review/rating to same beer: 'Listermann Triple Digit'
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Listermann Triple Digit', 4.0, 'This beer helps me through the hw');
+
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Listermann Triple Digit'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Listermann Triple Digit'));
+
+--Adding another review/rating to same beer: 'Listermann Triple Digit'
+INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Dogberry Brewing Wildfire', 5.0, 'Best beer made from the monks');
+
+INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+FROM beerproduct
+WHERE beerproduct.beer_name='Dogberry Brewing Wildfire'),(select max(beerreview.review_id)
+FROM beerreview
+WHERE beerreview.beer_name='Dogberry Brewing Wildfire'));
 
 
----QUERY TO GET BREWERY'S NAME, BREWERY'S BEER PRODUCTS & THE PRODUCTS' Reviews & Ratings
+
+
+---QUERY TO GET BREWERY'S NAME, BREWERY'S BEER PRODUCTS & THE PRODUCTS' Reviews & Ratings,etc...
 SELECT brewery.name as Brewery_Name, beerreview.reviewer, beerproduct.beer_name, beerproduct.beer_description, beer_rating, beer_review
 FROM brewery
 INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
