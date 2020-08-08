@@ -530,13 +530,6 @@ WHERE beerproduct.beer_name='MadTree Lift'),(select max(beerreview.review_id)
 FROM beerreview
 WHERE beerreview.beer_name='MadTree Lift'));
 
-INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Hank','MadTree Psychopathy', 2.6, 'This beer is driving me to madness with addiction.');
-INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
-FROM beerproduct
-WHERE beerproduct.beer_name='MadTree Psychopathy'),(select max(beerreview.review_id)
-FROM beerreview
-WHERE beerreview.beer_name='MadTree Psychopathy'));
-
 INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Franz','MadTree Happy Amber', 3.4, 'There is a really nice caramel flavor in this.');
 INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
 FROM beerproduct
