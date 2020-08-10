@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table>
+    <table class="table-full">
       <thead>
         <tr class="table-header">
           <th>Brewery</th>
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr class="table-main-body">
           <td>
             <input type="text" id="breweryNameFilter" v-model="filter.name" />
           </td>
@@ -28,6 +28,7 @@
             <input type="text" id="stateFilter" v-model="filter.address_state" />
           </td>
         </tr>
+        <tr class="table-main-body" v-for="brewery in filteredList" :key="brewery.name">
         <tr class="brewery-tbl" v-for="brewery in filteredList" :key="brewery.name">
           <td> <router-link :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
           <td>{{brewery.days_operation}}</td>
@@ -91,13 +92,39 @@ export default {
 
 <style>
 
-table {
-  color: #333;
+.table-full {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
     font-family: Helvetica, Arial, sans-serif;
     width: 640px; 
     border-collapse: 
     collapse; border-spacing: 0; 
-} 
+  
+}
+
+.table-full td, .table-full th {
+   border: 1px solid transparent; /* No more visible border */
+    height: 30px; 
+    transition: all 0.3s;  /* Simple transition for hover effect */
+    
+}
+.table-full th {  
+    background: #DFDFDF;  /* Darken header a bit */
+    font-weight: bold;
+}
+
+.table-full td {  
+   color: #f3ecec;
+    background: #FAFAFA;
+    text-align: center;
+    
+}
+tr:nth-child(even) td { background-color: rgba(70, 131, 180, 0.89); }  
+
+tr:nth-child(odd) td { background-color: rgba(70, 131, 180, 0.644); }  
+
+tr td:hover { background: #666; color: #FFF; }  
 
   
 </style>
