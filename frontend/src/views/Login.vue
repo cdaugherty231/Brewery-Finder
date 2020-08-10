@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center container">
-    <header>Test</header>
-    <content>Content
+    <header></header>
+    <content>
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal please-sign-in login-box">Please Sign In</h1>
       <div
@@ -20,7 +20,7 @@
         type="text"
         id="username"
         class="form-control"
-        placeholder="Username"
+        placeholder="Username..."
         v-model="user.username"
         required
         autofocus
@@ -31,7 +31,7 @@
         type="password"
         id="password"
         class="form-control"
-        placeholder="Password"
+        placeholder="Password..."
         v-model="user.password"
         required
       /></div>
@@ -46,7 +46,7 @@
       </div> 
     </form>
     </content>
-    <footer>Footer Test</footer>
+    <footer></footer>
 
   </div>
 </template>
@@ -104,30 +104,18 @@ export default {
 
 }
 
-/*header {
-  grid-area: header;
-  background-color: rgba(20, 123, 219, 0.986);
-  height: 125px;
-}*/
-
 content{
   grid-area: content;
 }
-
-/*footer{
-  grid-area: footer;
-  background-color: rgba(20, 123, 219, 0.986);
-  height: 125px;
-}*/
 
 
 body {
   background: lightblue; 
   font-family: 'Noto Sans', sans-serif;
-  background: url(https://igmcreativegroup.com/wp-content/uploads/2018/06/AdobeStock_104201889.jpeg) no-repeat center center fixed;
+  /*background: url(https://igmcreativegroup.com/wp-content/uploads/2018/06/AdobeStock_104201889.jpeg) no-repeat center center fixed;*/
   /*background: url(https://c4.wallpaperflare.com/wallpaper/903/861/209/beer-drink-alcohol-wallpaper-preview.jpg) no-repeat center center fixed;*/
   /*background: url(https://c4.wallpaperflare.com/wallpaper/578/470/326/beer-splashes-alcohol-drinking-glass-wallpaper-preview.jpg) no-repeat center center fixed;*/
-  /*background: url(https://c4.wallpaperflare.com/wallpaper/97/512/27/a-glass-of-beer-wallpaper-preview.jpg) no-repeat center center fixed;*/
+  background: url(https://c4.wallpaperflare.com/wallpaper/97/512/27/a-glass-of-beer-wallpaper-preview.jpg) no-repeat center center fixed;
   /*background: url(https://c4.wallpaperflare.com/wallpaper/240/999/697/futurama-cartoon-bender-the-simpsons-wallpaper-preview.jpg) no-repeat center center fixed;*/
   /*background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;*/
 
