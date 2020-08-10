@@ -13,7 +13,8 @@
         class="alert alert-success login-box"
         role="alert"
         v-if="this.$route.query.registration"
-      >Thank you for registering, please sign in.</div>
+      >Thank you for registering, please sign in.
+      </div>
         
       <div class="login-box">
       <input
@@ -24,7 +25,8 @@
         v-model="user.username"
         required
         autofocus
-      /></div>
+      />
+      </div>
 
       <div class="login-box">
       <input
@@ -34,7 +36,8 @@
         placeholder="Password..."
         v-model="user.password"
         required
-      /></div>
+      />
+      </div>
 
       <div class="login-box">
       <router-link class ="white-txt" :to="{ name: 'register' }">Need an account?</router-link>
@@ -42,8 +45,8 @@
 
       <div class="login-box">
       <button class="login-btn" type="submit">Sign in</button>
-    
       </div> 
+
     </form>
     </content>
     <footer></footer>

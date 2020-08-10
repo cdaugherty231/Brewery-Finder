@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <header></header>
+    <content>
     <h1 class="header">Enter the information for a new brewery below:</h1>
     <form class="form-style">
       <div>
@@ -91,6 +93,8 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()">Enter</button>
       </div>
     </form>
+    </content>
+    <footer></footer>
   </div>
 </template>
 
@@ -135,8 +139,21 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns:1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: aliceblue;
+  grid-gap: 20px;
+  align-items: stretch;
+  grid-template-areas:
+    "header "
+    "content"
+    "footer";
+}
 
 input[type=text], select, textarea {
   width: 100%;
@@ -163,12 +180,6 @@ input[type=submit] {
 
 input[type=submit]:hover {
   background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
 }
 
 .col-25 {
