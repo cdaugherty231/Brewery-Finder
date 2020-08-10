@@ -13,23 +13,20 @@
 </template>
 
 <script>
-
-
 export default {
-  name: 'beer',
-  data() {
-    return {
 
-    };
-  },
+  name:'beer',
+
   props: {
-    beer: {
-        
-    }
+    beer: Object
+  },
+  computed:{
+
   }
 
 };
 </script>
+
 
 <style>
 

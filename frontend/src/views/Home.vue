@@ -8,8 +8,9 @@
 
     <div
       class="Brewer"
-      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
-    ></div>
+      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')">
+      <brewery-update></brewery-update> <!--Tien's Change-->
+    </div>
     <div
       class="Beer-Lover"
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')">
@@ -21,6 +22,7 @@
 <script>
 import AddNewBrewery from "@/components/AddNewBrewery.vue";
 import BreweryList from "@/components/BreweryList.vue";
+import BreweryUpdate from "@/components/BreweryUpdate.vue";
 
 export default {
   name: "home",
@@ -32,6 +34,7 @@ export default {
   components: {
     AddNewBrewery,
     BreweryList,
+    BreweryUpdate
   },
 };
 </script>

@@ -16,6 +16,10 @@ export default {
 
   getBeersByBrewery(name) {
     return axios.get(`/breweries/beers/${name}`);
+  },
+
+  getBeerProduct(){
+    return axios.get(`/beerproduct`);
   }
 
 };

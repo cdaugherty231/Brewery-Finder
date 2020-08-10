@@ -8,7 +8,9 @@
     <p class="listofbeer"><br><br>LIST OF BEER(S): <br></p>
     <beers v-for="currentBeers in allBeers" v-bind:key="currentBeers.beer_name">
       
-      Beer Name: {{currentBeers.beer_name}}<br>
+      Beer Name: {{currentBeers.beer_name}} 
+      <router-link
+      :to="{name: 'EditBeer', params: {messageId: currentBeers.beer_id}}" tag="button" class="btnEditBeer">Edit</router-link><br> 
       Description: {{currentBeers.beer_description}}<br>
       Type: {{currentBeers.beer_type}}<br>
       ABV: {{currentBeers.abv}}<br>

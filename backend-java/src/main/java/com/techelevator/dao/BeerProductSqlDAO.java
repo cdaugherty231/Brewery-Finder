@@ -102,7 +102,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				+ " ON beerproduct.beer_id = brewery_beerproduct.beer_id"
 				+ " INNER JOIN brewery"
 				+ " ON brewery.brewery_id = brewery_beerproduct.brewery_id"
-				+ " WHERE LOWER(brewery.name) = LOWER(?);";
+				+ " WHERE LOWER(brewery.name) = LOWER(?) AND beerproduct.isactive = TRUE;";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, name);
 		
 		while(rs.next()) {

@@ -21,7 +21,19 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     breweries: [],
-    reviews: []
+    reviews: [],
+
+    /*activeTopic: {
+      id: 0,
+      title: '',
+      messages: []
+    },
+    activeMessage: {
+      id: null,
+      topicId: null,
+      title: '',
+      messageText: ''
+    }*/
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

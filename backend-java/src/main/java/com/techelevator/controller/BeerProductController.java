@@ -39,7 +39,7 @@ public class BeerProductController {
 	
 	@RequestMapping(path = "/beerproduct/{beer_id}", method = RequestMethod.DELETE)
 	public void deleteBeer(@PathVariable int beer_id){	
-		beerProductDao.deleteBeer(beer_id);
+		beerProductDao.deleteBeer(beer_id); 
 	}
 	
 	@RequestMapping(path = "beerproduct/togglestatus/{beer_id}", method = RequestMethod.PUT)
@@ -51,5 +51,7 @@ public class BeerProductController {
 	public BeerProduct updateBeerProduct(BeerProduct updatedBeer) {
 		return beerProductDao.updateBeerProduct(updatedBeer);
 	}
+	
+	
 	
 }
