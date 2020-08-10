@@ -19,7 +19,7 @@ public interface BeerProductDAO {
 	public BeerProduct updateBeerProduct(BeerProduct updated);
 	
 	// Create beer
-	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd);
+	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd, String breweryName);
 	
 	public BeerProduct toggleActiveStatus(int beer_id);
 	
