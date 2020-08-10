@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="brewery-list-page">
     <table class="table-full">
       <thead>
         <tr class="table-header">
@@ -91,6 +91,16 @@ export default {
 </script>
 
 <style>
+
+.brewery-list-page {
+  background-color: lightblue; 
+  font-family: 'Noto Sans', sans-serif;
+  background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
+  background-size: cover;
+   height: 100%;
+  
+  
+}
 
 .table-full {
     margin-left: auto;

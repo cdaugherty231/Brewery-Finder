@@ -1,5 +1,5 @@
 <template>
-  <div id="login" class="text-center container">
+    <div id="login" class="text-center container">
     <header></header>
     <content>
     <form class="form-signin" @submit.prevent="login">
@@ -47,7 +47,6 @@
     </form>
     </content>
     <footer></footer>
-
   </div>
 </template>
 
@@ -109,7 +108,7 @@ content{
 }
 
 
-body {
+#login {
   background: lightblue; 
   font-family: 'Noto Sans', sans-serif;
   /*background: url(https://igmcreativegroup.com/wp-content/uploads/2018/06/AdobeStock_104201889.jpeg) no-repeat center center fixed;*/
