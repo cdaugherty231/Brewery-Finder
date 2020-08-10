@@ -4,14 +4,10 @@
       <thead>
         <tr class="table-header">
           <th>Brewery</th>
-          <th>Brewer</th>
           <th>Days of Operation</th>
           <th>Hours of Opertaion</th>
-          <th>Address</th>
           <th>City</th>
           <th>State</th>
-          <th>Zipcode</th>
-          <th>Phone</th>
         </tr>
       </thead>
       <tbody>
@@ -26,31 +22,18 @@
             <input type="text" id="hrsOfOpsFilter" v-model="filter.hours_operation" />
           </td>
           <td>
-            <input type="text" id="addressFilter" v-model="filter.address_street" />
-          </td>
-          <td>
             <input type="text" id="cityFilter" v-model="filter.address_city" />
           </td>
           <td>
             <input type="text" id="stateFilter" v-model="filter.address_state" />
           </td>
-          <td>
-            <input type="text" id="zipFilter" v-model="filter.address_zip" />
-          </td>
-          <td>
-            <input type="text" id="phoneFilter" v-model="filter.phone_number" />
-          </td>
         </tr>
-        <tr v-for="brewery in filteredList" :key="brewery.name">
+        <tr class="brewery-tbl" v-for="brewery in filteredList" :key="brewery.name">
           <td> <router-link :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
-          <td>{{brewery.username}}</td>
           <td>{{brewery.days_operation}}</td>
           <td>{{brewery.hours_operation}}</td>
-          <td>{{brewery.address_street}}</td>
           <td>{{brewery.address_city}}</td>
           <td>{{brewery.address_state}}</td>
-          <td>{{brewery.address_zip}}</td>
-          <td>{{brewery.phone_number}}</td>
         </tr>
       </tbody>
     </table>
@@ -89,23 +72,16 @@ export default {
          ((brewery.days_operation !== null) &&
          (brewery.days_operation
             .toLowerCase()
-            .includes(this.filter.days_operation.toLowerCase())))
-          /*brewery.hours_operation
+            .includes(this.filter.days_operation.toLowerCase())))&&
+          brewery.hours_operation
             .toLowerCase()
             .includes(this.filter.hours_operation.toLowerCase()) &&
-          brewery.address_street
-            .toLowerCase()
-            .includes(this.filter.address_street.toLowerCase()) &&
           brewery.address_city
             .toLowerCase()
             .includes(this.filter.address_city.toLowerCase()) &&
           brewery.address_state
             .toLowerCase()
-            .includes(this.filter.address_state.toLowerCase()) &&
-          brewery.address_zip
-            .includes(this.filter.address_zip.toString()) &&
-          brewery.phone_number
-            .includes(this.filter.phone_number)*/
+            .includes(this.filter.address_state.toLowerCase())
         );
       });
     },
@@ -121,36 +97,7 @@ table {
     width: 640px; 
     border-collapse: 
     collapse; border-spacing: 0; 
-}
-
-td, th {
-   border: 1px solid transparent; /* No more visible border */
-    height: 30px; 
-    transition: all 0.3s;  /* Simple transition for hover effect */
-}
-th {  
-    background: #DFDFDF;  /* Darken header a bit */
-    font-weight: bold;
-}
-
-td {  
-    background: #FAFAFA;
-    text-align: center;
-}
-tr:nth-child(even) td { background: #F1F1F1; }  
-
-tr:nth-child(odd) td { background: #FEFEFE; }  
-
-tr td:hover { background: #666; color: #FFF; }  
-
-body {
-
-   background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
+} 
 
   
 </style>
