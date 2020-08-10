@@ -37,7 +37,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 	}
 
 	@Override
-	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd) {
+	public BeerProduct createBeerProduct(BeerProduct beerProductToAdd, String breweryName) {
 		String sql = "INSERT INTO beerproduct ("
 				+ " isactive,"
 				+ " beer_name,"
@@ -52,6 +52,8 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				beerProductToAdd.getAbv(),
 				beerProductToAdd.getBeer_type());
 		beerProductToAdd.setBeer_id(resultID);
+		
+		addBeerToBrewery(breweryName, resultID);
 		
 		return beerProductToAdd;
 	}
@@ -149,5 +151,12 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		jdbcTemplate.update(sql, beer_id);
 		
 		return getById(beer_id);
+	}
+	
+	private void addBeerToBrewery(String breweryName, int beerID) {
+		String sql = "INSERT INTO brewery_beerproduct"
+				+ " (brewery_id, beer_id)"
+				+ " VALUES ((SELECT brewery_id FROM brewery WHERE LOWER(name) = LOWER(?)), ?)";
+		jdbcTemplate.update(sql, breweryName, beerID);
 	}
 }

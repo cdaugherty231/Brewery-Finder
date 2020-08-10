@@ -20,6 +20,10 @@ export default {
 
   getBeerProduct(){
     return axios.get(`/beerproduct`);
+  },
+
+  addNewBeer(beerProductToAdd, breweryName){
+    return axios.post('beerproduct', beerProductToAdd, breweryName);
   }
 
 };

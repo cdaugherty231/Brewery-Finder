@@ -1,6 +1,10 @@
 <template>
   <div class="main">
     <h1>{{brewery.name}}</h1>
+    <router-link
+      :to="{name: 'addNewBeer', params: {breweryName: brewery.name}}"
+      tag="button"
+      >Add New Beer</router-link>
     <brewery-profile v-bind:currentBrewery="brewery"></brewery-profile>
     <!--<beer-list v-bind:breweryName="brewery.name"></beer-list>-->
     <!--<beer-display v-for="currentBeers in allBeers" v-bind:key="currentBeers.beer_name" v-bind:beer="currentBeers"></beer-display>-->
