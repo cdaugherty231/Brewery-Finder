@@ -2,8 +2,9 @@
   <div class="home">
     <h1></h1>
     <div class="Admin" v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')">
-      <brewery-list></brewery-list>
       <add-new-brewery></add-new-brewery>
+      <brewery-list></brewery-list>
+      
     </div>
 
     <div
@@ -38,4 +39,11 @@ export default {
   },
 };
 </script>
+<style>
+body {
+  background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
+}
+
+
+</style>
 

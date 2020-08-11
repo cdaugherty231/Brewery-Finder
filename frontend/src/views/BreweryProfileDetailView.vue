@@ -50,7 +50,15 @@ export default {
 
 </script>
 
+<<<<<<< HEAD
 
 <style>
 
 </style>
+=======
+<style scoped>
+.main{
+  color:white;
+}
+</style>
+>>>>>>> e059ea69a64226fe01d1505491d03d29a6047a78
