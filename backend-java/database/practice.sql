@@ -180,4 +180,19 @@ FROM beerproduct
 WHERE beer_name='Listermann Triple Digit'));
 
 SELECT *
-FROM beerproduct;gi
+FROM beerproduct;
+
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Miss Patterson', 'This balanced Belgian ale contains an elegant mixture of spices to compliment the present malty sweetness.', '5.9', 'Belgian Blonde', 'C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\088BircusLudlow.jpg');
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='The Breaded Lady'));
+
+
+UPDATE beerproduct
+SET beer_name = 'Ludlow'
+WHERE beer_id = 29;

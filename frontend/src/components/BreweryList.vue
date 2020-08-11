@@ -90,12 +90,30 @@ export default {
 };
 </script>
 
+<<<<<<< HEAD
 <style scoped>
 
 .brewery-list-page {
   font-family: 'Noto Sans', sans-serif;
   background-size: cover;
    height: 100%;
+=======
+<style scope>
+
+
+.brewery-list-page {
+  background-color: lightblue; 
+  font-family: 'Noto Sans', sans-serif; 
+  background:  linear-gradient(
+      rgba(255, 216, 155, 0.40), 
+      rgba(25, 84, 123, 0.80)
+    ), url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100vw;
+  
+  
+>>>>>>> 2eaf38e0cd54ea33ff989694f88ebd9284406c9f
 }
 
 .table-full {

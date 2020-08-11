@@ -118,7 +118,9 @@ content {
     ), url(https://c4.wallpaperflare.com/wallpaper/97/512/27/a-glass-of-beer-wallpaper-preview.jpg) no-repeat center center fixed;
   background-size: cover;
   height: 100%;
-    text-indent: -9999px;
+  text-indent: -9999px;
+    height: 100vh;
+  width: 100vw;
 
 }
 
