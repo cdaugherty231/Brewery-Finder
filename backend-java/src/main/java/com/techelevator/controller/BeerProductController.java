@@ -33,8 +33,8 @@ public class BeerProductController {
 	}
 	
 	@RequestMapping(path = "/beerproduct", method = RequestMethod.POST)
-	public BeerProduct createBeer(@RequestBody BeerProduct beerProductToAdd){
-		return beerProductDao.createBeerProduct(beerProductToAdd);
+	public BeerProduct createBeer(@RequestBody BeerProduct beerProductToAdd, String breweryName){
+		return beerProductDao.createBeerProduct(beerProductToAdd, breweryName);
 	}
 	
 	@RequestMapping(path = "/beerproduct/{beer_id}", method = RequestMethod.DELETE)

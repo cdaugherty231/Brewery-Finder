@@ -118,42 +118,4 @@ export default {
 
 <style>
 
-table {
-  color: #333;
-    font-family: Helvetica, Arial, sans-serif;
-    width: 640px; 
-    border-collapse: 
-    collapse; border-spacing: 0; 
-}
-
-td, th {
-   border: 1px solid transparent; /* No more visible border */
-    height: 30px; 
-    transition: all 0.3s;  /* Simple transition for hover effect */
-}
-th {  
-    background: #DFDFDF;  /* Darken header a bit */
-    font-weight: bold;
-}
-
-td {  
-    background: #FAFAFA;
-    text-align: center;
-}
-tr:nth-child(even) td { background: #F1F1F1; }  
-
-tr:nth-child(odd) td { background: #FEFEFE; }  
-
-tr td:hover { background: #666; color: #FFF; }  
-
-body {
-
-   background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-  
 </style>
