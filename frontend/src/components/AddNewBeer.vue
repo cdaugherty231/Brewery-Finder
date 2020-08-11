@@ -67,16 +67,20 @@ export default {
         }
     },
 
-    props: {
-        breweryName: String,
-    },
-
     methods: {
         submitNewBeer(){
             BreweryService.addNewBeer(this.newBeer, this.breweryName);
         }
 
-    }
+    },
+
+    computed: {
+    breweryName() {
+      return this.$store.state.breweries.find((brewery) => {
+        return brewery.brewery_id == this.$route.params.brewery_id;
+
+      }).name;
+    }}
 
 }
 </script>

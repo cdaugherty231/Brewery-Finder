@@ -1,121 +1,222 @@
 <template>
-  <div>
-    <table>
-      <thead>
-        <tr class="table-header">
-          <th></th>
-          <th>Brewery</th>
-          <th>Brewer</th>
-          <th>Days of Operation</th>
-          <th>Hours of Opertaion</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zipcode</th>
-          <th>Phone</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td>
-            <input type="text" id="breweryNameFilter" v-model="filter.name" />
-          </td>
-          <td>
-            <input type="text" id="daysOfOpsFilter" v-model="filter.days_operation" />
-          </td>
-          <td>
-            <input type="text" id="hrsOfOpsFilter" v-model="filter.hours_operation" />
-          </td>
-          <td>
-            <input type="text" id="addressFilter" v-model="filter.address_street" />
-          </td>
-          <td>
-            <input type="text" id="cityFilter" v-model="filter.address_city" />
-          </td>
-          <td>
-            <input type="text" id="stateFilter" v-model="filter.address_state" />
-          </td>
-          <td>
-            <input type="text" id="zipFilter" v-model="filter.address_zip" />
-          </td>
-          <td>
-            <input type="text" id="phoneFilter" v-model="filter.phone_number" />
-          </td>
-        </tr>
-        <tr v-for="brewery in filteredList" :key="brewery.name">
-          <td> <router-link :to="{name: 'breweryProfileViewEdit', params: {brewery_id: brewery.brewery_id}}"> <button id="updateButton">Update</button></router-link></td>
-          <td> <router-link :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
-          <td>{{brewery.username}}</td>
-          <td>{{brewery.days_operation}}</td>
-          <td>{{brewery.hours_operation}}</td>
-          <td>{{brewery.address_street}}</td>
-          <td>{{brewery.address_city}}</td>
-          <td>{{brewery.address_state}}</td>
-          <td>{{brewery.address_zip}}</td>
-          <td>{{brewery.phone_number}}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="container">
+    <header><h1 class="header">Enter the information for a new brewery below:</h1></header>
+    <content>
+    <form class="form-style">
+      <div>
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Brewery Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="name" placeholder="Enter Brewery Name" v-model="breweryToUpdate.name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="brewerName">Brewer Name</label>
+          </div>
+              <!-- <div class="col-75">
+                <select id="brewerName" v-model="breweryToUpdate.brewer_username">
+                  <option disabled value>Select Brewer</option>
+                  <option v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
+                </select> -->
+              <!-- </div> -->
+          </div>
+        <div class="row">
+          <div class="col-25">
+              <label for="hours-operation">Hours of Operation</label>
+          </div>
+          <div class="col-75"> 
+            <input type="text" name="hours-opertation" placeholder="10:00AM-11:00PM"
+                v-model="breweryToUpdate.hours_operation" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="days-operation">Days of Operation</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="days-opertation" placeholder="Mon-Sun"
+                v-model="breweryToUpdate.days_operation" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="address">Street</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="address" placeholder="Address" v-model="breweryToUpdate.address_street" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="city">City</label>
+          </div>
+          <div class="col-75">
+          <input type="text" name="city" placeholder="City" v-model="breweryToUpdate.address_city" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="state">State</label>
+          </div>
+          <div class="col-75">
+          <input type="text" name="state" placeholder="State" v-model="breweryToUpdate.address_state" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="zipcode">Zipcode</label>
+          </div>
+          <div class="col-75">
+          <input type="text" name="zipcode" placeholder="Zipcode" v-model="breweryToUpdate.address_zip" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-25">
+            <label for="contact-info">Phone</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="contact-info" placeholder="Phone Number" v-model="breweryToUpdate.phone_number"/>
+          </div>
+        </div>
+          <div class="row">
+          <div class="col-25">
+            <label for="history">Description</label>
+          </div>
+          <div class="col-75">
+            <textarea type="text-area" name="history" placeholder="Description" v-model="breweryToUpdate.history" />
+          </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitUpdatedBrewery()">Enter</button>
+      </div>
+    </form>
+    </content>
+    <footer></footer>
   </div>
 </template>
 
 <script>
+import BreweryService from "@/services/BreweryService.js"; 
+//import UserService from "@/services/UserService.js"
 
 export default {
   data() {
     return {
-      filter: { 
-        name: "",
-        brewer_username: "",
-        days_operation: "",
-        hours_operation: "",
-        address_street: "",
-        address_city: "",
-        address_state: "",
-        address_zip: (Number),
-        phone_number: "",
-      },
-    };
+      brewers: [],
+    }
+  },
+
+  methods: {
+    submitUpdatedBrewery() {
+      BreweryService.updateBrewery(this.breweryToUpdate).then(response => {
+        if(response.status == 200){
+          this.$router.push({name: "home"});
+        }
+      })
+    }
   },
 
   computed: {
-    filteredList() {
-      return this.$store.state.breweries.filter((brewery) => {
-        return (
-          brewery.name
-            .toLowerCase()
-            .includes(this.filter.name.toLowerCase()) &&
-          brewery.brewer_username
-            .toLowerCase()
-            .includes(this.filter.brewer_username.toLowerCase()) &&
-         ((brewery.days_operation !== null) &&
-         (brewery.days_operation
-            .toLowerCase()
-            .includes(this.filter.days_operation.toLowerCase())))
-          /*brewery.hours_operation
-            .toLowerCase()
-            .includes(this.filter.hours_operation.toLowerCase()) &&
-          brewery.address_street
-            .toLowerCase()
-            .includes(this.filter.address_street.toLowerCase()) &&
-          brewery.address_city
-            .toLowerCase()
-            .includes(this.filter.address_city.toLowerCase()) &&
-          brewery.address_state
-            .toLowerCase()
-            .includes(this.filter.address_state.toLowerCase()) &&
-          brewery.address_zip
-            .includes(this.filter.address_zip.toString()) &&
-          brewery.phone_number
-            .includes(this.filter.phone_number)*/
-        );
+    breweryToUpdate() {
+      return this.$store.state.breweries.find((brewery) => {
+        console.log(brewery.brewery_id == this.$route.params.brewery_id)
+        return brewery.brewery_id == this.$route.params.brewery_id;
+
       });
-    },
-  },
-};
+    }}
+
+
+}
 </script>
 
-<style>
+<style scoped>
 
+.container {
+  margin: 20px;
+  margin-bottom: 200px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns:1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  align-items: stretch;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+content {
+  grid-area: content;
+  max-width: 30%;
+  margin-left: 325px;
+}
+
+footer {
+  grid-area: footer;
+}
+
+textarea {
+  height: 100px;
+}
+
+input[type=text], select, textarea {
+  width: 400%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+}
+
+.btn {
+  background-color: #dfc118;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 30%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 </style>
+

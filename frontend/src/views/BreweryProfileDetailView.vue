@@ -3,17 +3,19 @@
   <div>
     <h1>Brewery Profile</h1>
 
-    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')">
-      <h3>CURRENT USER IS AN ADMIN</h3>
+    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN') 
+      || $store.state.user.username == displayedBrewery.brewer_username">
+      <h3>CURRENT USER IS AN ADMIN OR BREWER</h3>
+      <router-link :to="{name: 'addNewBeer',
+                         params: {brewery_id: displayedBrewery.brewery_id}}">Add New Beer</router-link>
+      <router-link :to="{name: 'updateBrewery',
+                         params: {brewery_id: displayedBrewery.brewery_id}}">Update Brewery Info</router-link>
     </div>
 
-    <div v-if="$store.state.user.username == brewery.brewer_username">
-      <h3>CURRENT USER IS BREWER FOR THIS BREWERY</h3>
-    </div>
 
     
-    <brewery-profile v-bind:currentBrewery="brewery"></brewery-profile>
-    <beer-list v-bind:breweryName="brewery.name"></beer-list>
+    <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
+    <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
   </div>
 
 </template>
@@ -31,7 +33,7 @@ export default {
   },
 
   computed: {
-    brewery() {
+    displayedBrewery() {
       return this.$store.state.breweries.find((brewery) => {
         return brewery.brewery_id == this.$route.params.brewery_id;
       });

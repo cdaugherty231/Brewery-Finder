@@ -9,7 +9,7 @@
           <th>City</th>
           <th>State</th>
         </tr>
-      </thead>
+      </thead>  
       <tbody>
         <tr class="table-main-body">
           <td>
@@ -28,7 +28,6 @@
             <input type="text" id="stateFilter" v-model="filter.address_state" />
           </td>
         </tr>
-        <tr class="table-main-body" v-for="brewery in filteredList" :key="brewery.name">
         <tr class="brewery-tbl" v-for="brewery in filteredList" :key="brewery.name">
           <td> <router-link :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
           <td>{{brewery.days_operation}}</td>

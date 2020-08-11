@@ -22,8 +22,12 @@ export default {
     return axios.get(`/beerproduct`);
   },
 
+  updateBrewery(updatedBrewery){
+    return axios.put('/breweries', updatedBrewery);
+  },
+
   addNewBeer(beerProductToAdd, breweryName){
-    return axios.post(`/beerproduct/${breweryName}`, beerProductToAdd);
-  }
+    return axios.post('/beerproduct' + '?breweryName='+breweryName, beerProductToAdd);
+  },
 
 };

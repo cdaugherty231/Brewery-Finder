@@ -122,8 +122,8 @@ export default {
     }
   },
   methods: {
-    submitNewBrewery() {
-      BreweryService.addNewBrewery(this.brewery).then(response => {
+    submitUpdatedBrewery() {
+      BreweryService.updateBrewer(this.brewery).then(response => {
         if(response.status == 200){
           location.reload();
         }
