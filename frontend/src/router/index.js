@@ -8,6 +8,7 @@ import store from '../store/index'
 import BreweryProfileDetailView from '../views/BreweryProfileDetailView.vue'
 import BreweryProfileDetailViewEdit from '../views/BreweryProfileDetailViewEdit.vue'
 import AddNewBeer from '../views/AddNewBeerView.vue'
+import BreweryUpdate from '../components/BreweryUpdate.vue'
 
 Vue.use(Router)
 
@@ -79,6 +80,15 @@ const router = new Router({
       path: '/addBeer',
       name: 'addNewBeer',
       component: AddNewBeer,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+    {
+      path: '/updateBrewery',
+      name: 'updateBrewery',
+      component: BreweryUpdate,
       meta: {
         requiresAuth: true
       }
