@@ -17,9 +17,9 @@
             <label for="brewerName">Brewer Name</label>
           </div>
               <div class="col-75">
-                <select id="brewerName">
-                  <option value>Select Brewer</option>
-                  <option value v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
+                <select id="brewerName" v-model="brewery.brewer_username">
+                  <option disabled value>Select Brewer</option>
+                  <option v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
                 </select>
               </div>
           </div>
