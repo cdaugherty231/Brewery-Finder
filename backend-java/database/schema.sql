@@ -145,6 +145,8 @@ VALUES (TRUE,'Little Miami Brewing Company', 'dkennedy', '208 Mill St', 'Milford
 INSERT INTO brewery(isactive,name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
 VALUES (TRUE,'DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester', 'OH', 45069, '(513) 847-8208', 'You should not have to live without delicious beer. Place an order, we’ll can it for you fresh from the tap.', 'Mon-Sun', '4:00pm - 12:00pm','');
 
+INSERT INTO brewery(isactive,name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
+VALUES (TRUE,'Bircus Brewing Co', 'ajhauser', '322 Elm St', 'Ludlow', 'KY', 41016, '(859)317-3778', 'They set forth to expand the Ludlow Theatre into a brewery connected to local history, community outreach, unique entertainment and stellar beer.', 'Mon-Sun', '10:00am - 12:00pm', '');
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --For Brewer to add new beer into brewery
@@ -218,6 +220,21 @@ VALUES (FALSE, 'Listermann Triple Digit','Sweet with hazelnut turned way up. Ver
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Listermann Triple Digit','Sweet with hazelnut turned way up. Very sneaky 10%. Leaves a slight bitter aftertaste but enjoyable overall.', '10', 'Brown Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\022listermann.jpg');
 
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Rapture','A well balanced belgian style imperial with chocolatey notes.', '9.7', 'Stout','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\030HMRapture.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Abbey','A bright belgian forward with subtle notes of banana and clove esters and a mild hoppy finish.', '7.4', 'Red Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\031HMAbbey.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Haze Goggles','A New England style IPA.', '6.9', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\032HMHazeGoggles.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Humble Monk Brewing Co Bobs Your Uncle','A fully body classic english mild with notes of carmel and roast but sessional and easy on the palet.', '4.4', 'English Mild Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\033HMBobsYourUncle.jpg');
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Devoted','A Trappist style beer with rich malty flavor, a copper color, and dark fruit notes', '7', 'Belgian Dubbel','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\034HMDevoted.jpg');
+
 
 
 
@@ -253,6 +270,23 @@ WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id
 FROM beerproduct
 WHERE beer_name='Rapture'));
 
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Abbey'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Humble Monk Brewing Co Bobs Your Uncle'));
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='Braxton'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='Storm'));
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
