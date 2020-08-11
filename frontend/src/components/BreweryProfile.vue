@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>brewery profile</h1>
+    <h1 class="brewery-name">{{ currentBrewery.name }}</h1>
     <div class="profile-image"></div>
     <div>
-      <header class="brewery-name">{{ currentBrewery.name }}</header>
       <p class="brewery-address">{{ currentBrewery.address_street }} {{ currentBrewery.address_city }}</p>
       <p class="brewery-address">{{ currentBrewery.address_state }} {{ currentBrewery.address_zip }}</p>
       <p class="brewery-phone">{{ currentBrewery.phone_number }}</p>
