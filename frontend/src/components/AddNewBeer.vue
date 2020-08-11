@@ -1,6 +1,6 @@
 <template>
     <div class="main container">
-        <h1 class="white-text"> Add New Beer to a {{breweryName}}'s Beer List </h1>
+        <h1 class="white-text"> Add New Beer to a 's Beer List </h1>
 
         <form class="form-control">
             <li class="register-box">
@@ -59,7 +59,8 @@ export default {
                 beer_description: '',
                 abv: '',
                 beer_type: '',
-                beer_image: ''
+                beer_image: '',
+                isactive: true
             },
 
 
@@ -74,45 +75,12 @@ export default {
         submitNewBeer(){
             BreweryService.addNewBeer(this.newBeer, this.breweryName);
         }
+
     }
 
 }
 </script>
 
 <style>
-
-
-.white-text {
-    color: white;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-
-.form-control {
-  border-radius: 25px;
-  font-size: 30px;
-  padding: 10px;
-  border:none;	
-  outline:none;
-}
-
-.form-control .register-box {
-  display: flex;
-  font-size: 15px;
-  justify-content: center;
-  text-align: center;
-  margin: 20px 0;
-  padding: 10px;
-}
-
-.btn {	
- padding: 10px;
- margin: 10px;
- font-size: 20px;
- border-radius: 5px;
- background-color: rgb(247, 206, 71);
-}
 
 </style>

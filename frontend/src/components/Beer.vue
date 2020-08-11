@@ -3,10 +3,10 @@
     <div class="profile-image"></div>
     <div>
       <header class="header">
-        <h3>{{ beer.beer_name }}</h3>
+        <h3>{{ beer_name }}</h3>
         </header>
       <p class="beer-desciption">{{ beer.beer_description }}</p>
-      <p class="beer-specs">{{ beer.abv }}{{ beer.beer_type }}</p>
+      <p class="beer-specs">{{ beer.abv }}{{ beer_type }}</p>
     </div>
     <div></div>
   </div>
