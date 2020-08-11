@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!--<router-link :to="{name : 'beerInfoView', params: {beer_id: beer.beer_id}}" v-for="beer in $store.state.beers" v-bind:key="beer.beer_id">{{beer.name}}</router-link>
-    -->
     <h2> {{breweryName}}'s Beer List</h2>
     <beer v-for="currentBeer in getBeerList" :key="currentBeer.beer_name" v-bind:beer="currentBeer"></beer>
   </div>
@@ -31,8 +29,6 @@ export default {
             }).beerList;
         }
     }
-
-
 }
 </script>
 

@@ -2,11 +2,10 @@
   <div class="card">
     <div class="profile-image"></div>
     <div>
-      <header class="header">
-        <h3>{{ beer_name }}</h3>
-        </header>
+      <h3>{{ beer.beer_name }}</h3>
       <p class="beer-desciption">{{ beer.beer_description }}</p>
-      <p class="beer-specs">{{ beer.abv }}{{ beer_type }}</p>
+      <p class="beer-specs">{{ beer.abv }}</p>
+      <p class="beer-type">{{ beer.beer_type }}</p>
     </div>
     <div></div>
   </div>
@@ -39,8 +38,4 @@ export default {
   margin-bottom: 10px;
 }
 
-.card .header {
-  display: flex;
-  justify-content: space-between;
-}
 </style>
