@@ -40,9 +40,7 @@ export default {
 };
 </script>
 <style>
-body {
-  background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
-}
+
 
 
 </style>

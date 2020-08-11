@@ -90,14 +90,6 @@ export default {
 };
 </script>
 
-<<<<<<< HEAD
-<style scoped>
-
-.brewery-list-page {
-  font-family: 'Noto Sans', sans-serif;
-  background-size: cover;
-   height: 100%;
-=======
 <style scope>
 
 
@@ -113,7 +105,6 @@ export default {
   width: 100vw;
   
   
->>>>>>> 2eaf38e0cd54ea33ff989694f88ebd9284406c9f
 }
 
 .table-full {
