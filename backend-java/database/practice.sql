@@ -180,4 +180,18 @@ FROM beerproduct
 WHERE beer_name='Listermann Triple Digit'));
 
 SELECT *
-FROM beerproduct;gi
+FROM beerproduct;
+DELETE FROM beerproduct
+WHERE beer_id > 40;
+
+INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
+VALUES (TRUE, 'Humble Monk Brewing Co Devoted', 'A Trappist style beer with rich malty flavor, a copper color, and dark fruit notes.', '7', 'Belgian Dubbel', 'C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\034HMDevoted.jpg');
+
+
+
+
+INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+FROM brewery
+WHERE brewery.name='DogBerry Brewing'),(select beer_id 
+FROM beerproduct
+WHERE beer_name='DogBerry Brewing Wildfire'));
