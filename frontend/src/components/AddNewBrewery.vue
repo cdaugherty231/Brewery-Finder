@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    <header></header>
+    <header><h1 class="header">Enter the information for a new brewery below:</h1></header>
     <content>
-    <h1 class="header">Enter the information for a new brewery below:</h1>
     <form class="form-style">
       <div>
         <div class="row">
@@ -10,12 +9,13 @@
             <label for="name">Brewery Name</label>
           </div>
           <div class="col-75">
-            <input type="text" name="name" placeholder="Enter Name.." v-model="brewery.name" />
+            <input type="text" name="name" placeholder="Enter Brewery Name" v-model="brewery.name" />
           </div>
         </div>
         <div class="row">
           <div class="col-25">
-            <label for="brewerName">Brewery Name</label>
+            <label for="brewerName">Brewer Name</label>
+          </div>
               <div class="col-75">
                 <select id="brewerName">
                   <option value>Select Brewer</option>
@@ -23,13 +23,12 @@
                 </select>
               </div>
           </div>
-        </div>
         <div class="row">
           <div class="col-25">
               <label for="hours-operation">Hours of Operation</label>
           </div>
           <div class="col-75"> 
-            <input type="text" name="hours-opertation" placeholder="Hours of Operation"
+            <input type="text" name="hours-opertation" placeholder="10:00AM-11:00PM"
                 v-model="brewery.hours_operation" />
           </div>
         </div>
@@ -38,7 +37,7 @@
             <label for="days-operation">Days of Operation</label>
           </div>
           <div class="col-75">
-            <input type="text" name="days-opertation" placeholder="Days of Operation"
+            <input type="text" name="days-opertation" placeholder="Mon-Sun"
                 v-model="brewery.days_operation" />
           </div>
         </div>
@@ -79,7 +78,7 @@
             <label for="contact-info">Phone</label>
           </div>
           <div class="col-75">
-            <input type="text" name="contact-info" placeholder="Phone#" v-model="brewery.phone_number"/>
+            <input type="text" name="contact-info" placeholder="Phone Number" v-model="brewery.phone_number"/>
           </div>
         </div>
           <div class="row">
@@ -142,21 +141,45 @@ export default {
 <style scoped>
 
 .container {
+  margin: 20px;
+  margin-bottom: 200px;
   height: 100vh;
   display: grid;
   grid-template-columns:1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: aliceblue;
   grid-gap: 20px;
   align-items: stretch;
   grid-template-areas:
-    "header "
+    "header"
     "content"
     "footer";
 }
 
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+content {
+  grid-area: content;
+  max-width: 30%;
+  margin-left: 325px;
+}
+
+footer {
+  grid-area: footer;
+}
+
+textarea {
+  height: 100px;
+}
+
 input[type=text], select, textarea {
-  width: 100%;
+  width: 400%;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -166,10 +189,12 @@ input[type=text], select, textarea {
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 20px;
 }
 
-input[type=submit] {
-  background-color: #4CAF50;
+.btn {
+  background-color: #dfc118;
   color: white;
   padding: 12px 20px;
   border: none;
