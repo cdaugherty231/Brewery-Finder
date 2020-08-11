@@ -27,7 +27,7 @@ export default {
   },
 
   addNewBeer(beerProductToAdd, breweryName){
-    return axios.post(`/beerproduct/${breweryName}`, beerProductToAdd);
+    return axios.post('/beerproduct' + '?breweryName='+breweryName, beerProductToAdd);
   },
 
 };
