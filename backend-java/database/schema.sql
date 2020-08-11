@@ -245,48 +245,48 @@ WHERE brewery.name='Braxton'),(select beer_id
 FROM beerproduct
 WHERE beer_name='Light Years'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Storm'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Braxton'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Storm'));
 
-----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Miss Patterson'));
-----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Ludlow'));
-----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Rapture'));
+-- ----For Brewer to add new beer into brewery
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Miss Patterson'));
+-- ----For Brewer to add new beer into brewery
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Ludlow'));
+-- ----For Brewer to add new beer into brewery
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Rapture'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Abbey'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Abbey'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Humble Monk Brewing Co Bobs Your Uncle'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Humble Monk Brewing Co Bobs Your Uncle'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Storm'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Braxton'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Storm'));
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -322,42 +322,40 @@ WHERE beerreview.beer_name='Blue Sun'));
 
 INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Connor','Listermann Triple Digit', 4.0, 'This beer is a good buzz');
 
-INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
-FROM beerproduct
-WHERE beerproduct.beer_name='Listermann Triple Digit'),(select max(beerreview.review_id)
-FROM beerreview
-WHERE beerreview.beer_name='Listermann Triple Digit'));
+-- INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+-- FROM beerproduct
+-- WHERE beerproduct.beer_name='Listermann Triple Digit'),(select max(beerreview.review_id)
+-- FROM beerreview
+-- WHERE beerreview.beer_name='Listermann Triple Digit'));
 
 --Adding another review/rating to same beer: 'Listermann Triple Digit'
-INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Listermann Triple Digit', 4.0, 'This beer helps me through the hw');
+-- INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Listermann Triple Digit', 4.0, 'This beer helps me through the hw');
 
-INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
-FROM beerproduct
-WHERE beerproduct.beer_name='Listermann Triple Digit'),(select max(beerreview.review_id)
-FROM beerreview
-WHERE beerreview.beer_name='Listermann Triple Digit'));
+-- INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+-- FROM beerproduct
+-- WHERE beerproduct.beer_name='Listermann Triple Digit'),(select max(beerreview.review_id)
+-- FROM beerreview
+-- WHERE beerreview.beer_name='Listermann Triple Digit'));
 
 --Adding another review/rating to same beer: 'Listermann Triple Digit'
-INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Dogberry Brewing Wildfire', 5.0, 'Best beer made from the monks');
+-- INSERT INTO beerreview(reviewer, beer_name, beer_rating, beer_review) VALUES ('Tien','Dogberry Brewing Wildfire', 5.0, 'Best beer made from the monks');
 
-INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
-FROM beerproduct
-WHERE beerproduct.beer_name='Dogberry Brewing Wildfire'),(select max(beerreview.review_id)
-FROM beerreview
-WHERE beerreview.beer_name='Dogberry Brewing Wildfire'));
+-- INSERT INTO beerproduct_beerreview(beer_id, review_id) VALUES ((select beerproduct.beer_id 
+-- FROM beerproduct
+-- WHERE beerproduct.beer_name='Dogberry Brewing Wildfire'),(select max(beerreview.review_id)
+-- FROM beerreview
+-- WHERE beerreview.beer_name='Dogberry Brewing Wildfire'));
 
 
 
 
 ---QUERY TO GET BREWERY'S NAME, BREWERY'S BEER PRODUCTS & THE PRODUCTS' Reviews & Ratings,etc...
-SELECT brewery.name as Brewery_Name, beerreview.reviewer, beerproduct.beer_name, beerproduct.beer_description, beer_rating, beer_review
-FROM brewery
-INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
-INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id
-INNER JOIN beerproduct_beerreview ON beerproduct.beer_id = beerproduct_beerreview.beer_id
-INNER JOIN beerreview ON beerproduct_beerreview.review_id = beerreview.review_id;
-
---ROLLBACK;
+-- SELECT brewery.name as Brewery_Name, beerreview.reviewer, beerproduct.beer_name, beerproduct.beer_description, beer_rating, beer_review
+-- FROM brewery
+-- INNER JOIN  brewery_beerproduct ON brewery.brewery_id = brewery_beerproduct.brewery_id
+-- INNER JOIN beerproduct ON brewery_beerproduct.beer_id = beerproduct.beer_id
+-- INNER JOIN beerproduct_beerreview ON beerproduct.beer_id = beerproduct_beerreview.beer_id
+-- INNER JOIN beerreview ON beerproduct_beerreview.review_id = beerreview.review_id;
 
 
 COMMIT TRANSACTION;
