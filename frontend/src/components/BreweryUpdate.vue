@@ -112,7 +112,7 @@ export default {
     submitUpdatedBrewery() {
       BreweryService.updateBrewery(this.breweryToUpdate).then(response => {
         if(response.status == 200){
-          location.reload();
+          this.$router.push({name: "home"});
         }
       })
     }
