@@ -92,7 +92,7 @@ export default {
 <style scope>
 
 
-.brewery-list-page {
+/*.brewery-list-page {
   background-color: lightblue; 
   font-family: 'Noto Sans', sans-serif; 
   background:  linear-gradient(
@@ -102,9 +102,7 @@ export default {
   background-size: 100% 100%;
   height: 100vh;
   width: 100vw;
-  
-  
-}
+}*/
 
 .table-full {
     margin-left: auto;
