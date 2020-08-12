@@ -156,6 +156,11 @@ export default {
 
 } */
 
+body {
+    background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color.jpg); 
+    background-size: cover;
+}
+
 .hasAccountAlready {
   margin-left: 15%;
   height: 7%;

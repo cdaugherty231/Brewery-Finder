@@ -1,6 +1,6 @@
 <template>
-  <div class="brewery-list-page">
-    <table class="table-full">
+  <div class="brewery-list-container">
+    <table align="center" class="table-full">
       <thead>
         <tr class="table-header">
           <th>Brewery</th>
@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 
 export default {
   data() {
@@ -89,7 +89,7 @@ export default {
 };
 </script>
 
-<style scope>
+<style>
 
 .link {
   color: #DFDFDF;
@@ -117,17 +117,20 @@ export default {
     font-weight: bold;
 }
 
+.table-header {
+  text-align: center;
+}
+
 .table-full td {  
    color: #f3ecec;
     background: #FAFAFA;
     text-align: center;
-    
 }
 tr:nth-child(even) td { background-color: rgba(94, 156, 206, 0.89); }  
 
 tr:nth-child(odd) td { background-color: rgba(155, 160, 132, 0.644); }  
 
-tr td:hover { background: rgb(75, 136, 194); color: #FFF; }  
+tr td:hover { background: rgb(75, 136, 194); color: #FFF;}
 
   
 </style>

@@ -108,12 +108,9 @@ REFERENCES beerreview(review_id);
 
 ----------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
----Input data for breweries into brewery table------------
+---Input fake breweries into brewery table------------
 INSERT INTO brewery(isactive, name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
 VALUES (TRUE, 'Braxton','Cincy Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','https://images.squarespace-cdn.com/content/v1/56bc856f37013b1b46f58914/1575937608540-BOQK49AKM0U2PVVVS0OM/ke17ZwdGBToddI8pDm48kCvp9wUojcKRXNLZnuWdJbxZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIq7Wb5dtC4qoJ6CEJp3okJIUgQ1b_-LUh8rmXwLlAs0MKMshLAGzx4R3EDFOm1kBS/72189940_807006633050419_5757390238515200000_n.jpg');
-
-INSERT INTO brewery(isactive,name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
-VALUES (TRUE,'Best Beer Co','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
 
 INSERT INTO brewery(isactive,name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
 VALUES (TRUE,'Humble Monk Brewing Co', 'msmith', '1641 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 510-4615', 'Pet Friendly', 'Mon-Sun', '4:00pm - 11:00pm','');
@@ -147,14 +144,6 @@ VALUES (TRUE,'DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Ches
 
 INSERT INTO brewery(isactive,name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
 VALUES (TRUE,'Bircus Brewing Co', 'ajhauser', '322 Elm St', 'Ludlow', 'KY', 41016, '(859)317-3778', 'They set forth to expand the Ludlow Theatre into a brewery connected to local history, community outreach, unique entertainment and stellar beer.', 'Mon-Sun', '10:00am - 12:00pm', '');
-
-INSERT INTO brewery(isactive,name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
-VALUES (TRUE,'MadTree Brewing Co', 'tdaniels', '3301 Madison Rd', 'Cincinnati', 'OH', 45209, '(513)836-8733', 'MadTree puts purpose in every pour. Founded in 2013, MadTree has always been driven to craft great beer.', 'Mon-Sun', '11:00am - 11:00pm','');
-
-INSERT INTO brewery(isactive,name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
-VALUES (TRUE,'Rhinegeist Brewery', 'mgrady', '1910 Elm St', 'Cincinnati', 'OH', 45202, '(513)381-1367', 'Rhinegeist started in 2005, Bob Bonder and Bryant Goulding we’re thrilled to have the opportunity to bring great people together, to foment fantastic ideas, and to build a community that values craft beer and one another.', 'Mon-Sun', '3:00pm - 12:00pm','');
-
-
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 --For Brewer to add new beer into brewery
@@ -371,423 +360,49 @@ VALUES (TRUE, 'Miss Patterson', 'This balanced Belgian ale contains an elegant m
 
 
 ----For Brewer to add new beer into brewery
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Showman'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Lagoon'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='The Breaded Lady'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Ludlow'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Miss Patterson'));
-
 INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
 FROM brewery
 WHERE brewery.name='Braxton'),(select beer_id 
 FROM beerproduct
 WHERE beer_name='Light Years'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Storm'));
+ INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+ FROM brewery
+ WHERE brewery.name='Braxton'),(select beer_id 
+ FROM beerproduct
+ WHERE beer_name='Storm'));
 
 -- ----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Tropic Flare'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Miss Patterson'));
 -- ----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Dead Blow'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Bircus Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Ludlow'));
 -- ----For Brewer to add new beer into brewery
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Blown Gasket'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Rapture'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Braxton'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Haven'));
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Abbey'));
 
+-- INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
+-- FROM brewery
+-- WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
+-- FROM beerproduct
+-- WHERE beer_name='Humble Monk Brewing Co Bobs Your Uncle'));
 
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='DogBerry Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Wildfire'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='DogBerry Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Brays On Target'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='DogBerry Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Nats Nightcap'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='DogBerry Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Blonde'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='DogBerry Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Supernova'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Earth Cookie'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Grateful IPA'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Pterodactyl'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Misty Mountain Hop IPA'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Little Miami Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Buzz Saw'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Reba'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Trey'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Fugee'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Vlad'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fretboard Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Juicy Improv'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Urban Artifact'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Finn'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Urban Artifact'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='The Gadget'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Urban Artifact'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Fire Iron'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Urban Artifact'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Pinwheel'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Urban Artifact'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Landline'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Poundsign Nofilter'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='My Blue Heaven'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Rusty Bumper'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Rebel Yell'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Grainworks Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Brewers Breakfast'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Listerman Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Triple Digit Chickow'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Listerman Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Nutcase Peanut Butter Porter'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Listerman Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Team Fiona'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Listerman Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Shamrock Shake'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Listerman Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Friar Bacon Smoked Bock'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Brink Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Moozie'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Brink Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Hold the Reins'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Brink Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Afterglow NE IPA'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Brink Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Debbie Jean Blonde'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Brink Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='J-Boy IPA'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Swine City Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='This is the New Stuff'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Swine City Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Girl Got Reasons'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Swine City Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Good Enough For Me'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Swine City Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Raised On Promises'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Swine City Brewing'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='We Been Dancin'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Tollhouse'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Earth Daisy'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Oberhausen'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Hoy Tripel'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Fibonacci Brewing Company'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='The Noid'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Rapture'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Abbey'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Haze Goggles'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Bobs Your Uncle'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Humble Monk Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Devoted'));
-
---- took these out of schema because "violated not null constraint"
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Rhinegeist Brewery'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Truth IPA'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Rhinegeist Brewery'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Cougar'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Rhinegeist Brewery'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Cheetah'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='Rhinegeist Brewery'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Knowledge'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='MadTree Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Psychopathy IPA'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='MadTree Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Happy Amber'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='MadTree Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Gnarly Brown'));
-
-INSERT INTO brewery_beerproduct(brewery_id, beer_id) VALUES ((select brewery_id 
-FROM brewery
-WHERE brewery.name='MadTree Brewing Co'),(select beer_id 
-FROM beerproduct
-WHERE beer_name='Lift'));
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----For User to add rating/review for a beer under a brewery

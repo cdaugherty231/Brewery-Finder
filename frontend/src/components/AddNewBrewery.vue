@@ -1,105 +1,141 @@
 <template>
-  <div class="container">
-    <header><h1 class="header">Enter the information for a new brewery below:</h1></header>
-    <content>
-    <form class="form-style">
-      <div>
-        <div class="row">
-          <div class="col-25">
-            <label for="name">Brewery Name</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="name" placeholder="Enter Brewery Name" v-model="brewery.name" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="brewerName">Brewer Name</label>
-          </div>
-              <div class="col-75">
-                <select id="brewerName" v-model="brewery.brewer_username">
-                  <option disabled value>Select Brewer</option>
-                  <option v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
-                </select>
-              </div>
-          </div>
-        <div class="row">
-          <div class="col-25">
-              <label for="hours-operation">Hours of Operation</label>
-          </div>
-          <div class="col-75"> 
-            <input type="text" name="hours-opertation" placeholder="10:00AM-11:00PM"
-                v-model="brewery.hours_operation" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="days-operation">Days of Operation</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="days-opertation" placeholder="Mon-Sun"
-                v-model="brewery.days_operation" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="address">Street</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="address" placeholder="Address" v-model="brewery.address_street" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="city">City</label>
-          </div>
-          <div class="col-75">
-          <input type="text" name="city" placeholder="City" v-model="brewery.address_city" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="state">State</label>
-          </div>
-          <div class="col-75">
-          <input type="text" name="state" placeholder="State" v-model="brewery.address_state" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="zipcode">Zipcode</label>
-          </div>
-          <div class="col-75">
-          <input type="text" name="zipcode" placeholder="Zipcode" v-model="brewery.address_zip" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="contact-info">Phone</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="contact-info" placeholder="Phone Number" v-model="brewery.phone_number"/>
-          </div>
-        </div>
-          <div class="row">
-          <div class="col-25">
-            <label for="history">Description</label>
-          </div>
-          <div class="col-75">
-            <textarea type="text-area" name="history" placeholder="Description" v-model="brewery.history" />
-          </div>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()">Enter</button>
-      </div>
-    </form>
-    </content>
-    <footer></footer>
-  </div>
+  <b-container>
+    <b-form @submit="submitUpdatedBrewery" class="newBreweryContainer">
+     <h1 class="new-brewery-title">Add New Brewery</h1>
+      <b-row>
+        <b-col>
+          <b-form-group
+            label-size="sm"
+            id="breweryNameLabel"
+            label-for="breweryName"
+          >
+            <b-form-input
+              id="breweryName"
+              v-model="brewery.name"
+              required
+              placeholder="Enter Brewery Name"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label-size="sm" id="brewerNameLabel" label-for="brewerName">
+            <b-form-select
+              id="brewerName"
+              v-model="brewery.brewer_username"
+              :options="brewers"
+              required
+              placeholder="Selct the Brewer for this Brewery"
+            ></b-form-select>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
+          <b-form-group label-size="sm" id="hrsOfOps" label-for="Hours">
+            <b-form-input
+              id="Hours"
+              v-model="brewery.hours_operation"
+              required
+              placeholder="Enter Hours of Operation"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="daysOfOps" label-for="Days">
+            <b-form-input
+              id="Days"
+              v-model="brewery.days_operation"
+              required
+              placeholder="Enter Days of Operation"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
+          <b-form-group label-size="sm" id="address" label-for="address">
+            <b-form-input
+              id="address"
+              v-model="brewery.address_street"
+              required
+              placeholder="Enter a Street Address"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="city" label-for="city">
+            <b-form-input
+              id="city"
+              v-model="brewery.address_city"
+              required
+              placeholder="Enter a City"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="state" label-for="state">
+            <b-form-input
+              id="state"
+              v-model="brewery.address_state"
+              required
+              placeholder="Enter a State"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="zip" label-for="zip">
+            <b-form-input
+              id="zip"
+              type="number"
+              v-model="brewery.address_zip"
+              required
+              placeholder="Enter a Zipcode"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label-size="sm" id="phone" label-for="phone">
+            <b-form-input
+              id="phone"
+              type="number"
+              v-model="brewery.phone_number"
+              required
+              placeholder="Enter a Phone Number"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <b-card-text>
+        <b-row>
+          <b-form-textarea
+          class="description"
+            label-size="sm"
+            id="Description"
+            v-model="brewery.history"
+            placeholder="Enter a description..."
+            rows="3"
+            max-rows="6"
+          ></b-form-textarea>
+        </b-row>
+      </b-card-text>
+      <b-row>
+        <b-card-text class="new-brewry-button">
+          <b-button type="submit" size="lg" variant="warning">Submit</b-button>
+        </b-card-text>
+      </b-row>
+    </b-form>
+  </b-container>
 </template>
 
 <script>
-import BreweryService from "@/services/BreweryService.js"; 
-import UserService from "@/services/UserService.js"
+import BreweryService from "@/services/BreweryService.js";
+import UserService from "@/services/UserService.js";
 
 export default {
   data() {
@@ -114,33 +150,52 @@ export default {
         address_state: "",
         address_zip: "",
         phone_number: "",
-        history: ""
+        history: "",
       },
-      brewers: [
-
-      ]
-    }
+      brewers: [],
+    };
   },
   methods: {
     submitUpdatedBrewery() {
-      BreweryService.updateBrewer(this.brewery).then(response => {
-        if(response.status == 200){
+      BreweryService.updateBrewer(this.brewery).then((response) => {
+        if (response.status == 200) {
           location.reload();
         }
-      })
-    }
+      });
+    },
   },
   created() {
-      UserService.getBrewers().then((response) => {
-        this.brewers = response.data;
-      });
-    }
+    UserService.getBrewers().then((response) => {
+      this.brewers = response.data;
+    });
+  },
 };
 </script>
 
 <style scoped>
 
-.container {
+.new-brewery-title {
+  background-color: #29abe2;
+  width: 33%;
+  padding: 5px 20px 5px 20px;
+  border-radius: 12px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.newBreweryContainer {
+  padding: 50px 0 50px 0;
+}
+
+h1 {
+  padding: 20px 0;
+}
+
+.form-control {
+  border-radius: 0px;
+  font-size: 15px;
+}
+
+/* .container {
   margin: 20px;
   margin-bottom: 200px;
   height: 100vh;
@@ -219,11 +274,11 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
+/* Clear floats after the columns
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 </style>
 
