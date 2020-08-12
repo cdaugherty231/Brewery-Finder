@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid id="login" class="text-center container">
+  <b-container fluid id="login" class="text-center log-container">
     <content>
       <form class="form-signin" @submit.prevent="login">
         <!-- <h1 class="h3 mb-3 font-weight-normal please-sign-in login-box">Please Sign In</h1> -->
@@ -93,7 +93,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .container {
   height: 100vh;
   display: grid;

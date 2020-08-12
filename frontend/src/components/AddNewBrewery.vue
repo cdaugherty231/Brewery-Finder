@@ -1,13 +1,9 @@
 <template>
-  <b-container class="container">
-    <b-card-text></b-card-text>
-    <b-form @submit="submitUpdatedBrewery">
-     <h1>Add New Brewery</h1>
+  <b-container>
+    <b-form @submit="submitUpdatedBrewery" class="newBreweryContainer">
+     <h1 class="new-brewery-title">Add New Brewery</h1>
       <b-row>
         <b-col>
-          <b-card-text>
-            Brewery Name
-          </b-card-text>
           <b-form-group
             label-size="sm"
             id="breweryNameLabel"
@@ -22,7 +18,7 @@
           </b-form-group>
         </b-col>
         <b-col>
-          <b-form-group label-size="sm" id="brewerNameLabel" label="Brewer" label-for="brewerName">
+          <b-form-group label-size="sm" id="brewerNameLabel" label-for="brewerName">
             <b-form-select
               id="brewerName"
               v-model="brewery.brewer_username"
@@ -36,7 +32,7 @@
 
       <b-row>
         <b-col>
-          <b-form-group label-size="sm" id="hrsOfOps" label="Hours of Opertation" label-for="Hours">
+          <b-form-group label-size="sm" id="hrsOfOps" label-for="Hours">
             <b-form-input
               id="Hours"
               v-model="brewery.hours_operation"
@@ -47,7 +43,7 @@
         </b-col>
 
         <b-col>
-          <b-form-group label-size="sm" id="daysOfOps" label="Days of Opertation" label-for="Days">
+          <b-form-group label-size="sm" id="daysOfOps" label-for="Days">
             <b-form-input
               id="Days"
               v-model="brewery.days_operation"
@@ -60,7 +56,7 @@
 
       <b-row>
         <b-col>
-          <b-form-group label-size="sm" id="address" label="Address" label-for="address">
+          <b-form-group label-size="sm" id="address" label-for="address">
             <b-form-input
               id="address"
               v-model="brewery.address_street"
@@ -71,7 +67,7 @@
         </b-col>
 
         <b-col>
-          <b-form-group label-size="sm" id="city" label="City" label-for="city">
+          <b-form-group label-size="sm" id="city" label-for="city">
             <b-form-input
               id="city"
               v-model="brewery.address_city"
@@ -82,7 +78,7 @@
         </b-col>
 
         <b-col>
-          <b-form-group label-size="sm" id="state" label="State" label-for="state">
+          <b-form-group label-size="sm" id="state" label-for="state">
             <b-form-input
               id="state"
               v-model="brewery.address_state"
@@ -93,7 +89,7 @@
         </b-col>
 
         <b-col>
-          <b-form-group label-size="sm" id="zip" label="ZipCode" label-for="zip">
+          <b-form-group label-size="sm" id="zip" label-for="zip">
             <b-form-input
               id="zip"
               type="number"
@@ -104,7 +100,7 @@
           </b-form-group>
         </b-col>
         <b-col>
-          <b-form-group label-size="sm" id="phone" label="Contact Number" label-for="phone">
+          <b-form-group label-size="sm" id="phone" label-for="phone">
             <b-form-input
               id="phone"
               type="number"
@@ -117,8 +113,8 @@
       </b-row>
       <b-card-text>
         <b-row>
-          <label for="Description">Description</label>
           <b-form-textarea
+          class="description"
             label-size="sm"
             id="Description"
             v-model="brewery.history"
@@ -129,102 +125,10 @@
         </b-row>
       </b-card-text>
       <b-row>
-        <b-card-text>
-          <b-button type="submit" size="lg" variant="primary">Submit</b-button>
+        <b-card-text class="new-brewry-button">
+          <b-button type="submit" size="lg" variant="warning">Submit</b-button>
         </b-card-text>
       </b-row>
-
-      <!-- <div>
-        <form>
-          <label for="name">Brewery Name</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="name" placeholder="Enter Brewery Name" v-model="brewery.name" />
-          </div>
-          </div>-->
-          <!-- <div class="row">
-          <div class="col-25">
-            <label for="brewerName">Brewer Name</label>
-          </div>
-              <div class="col-75">
-                <select id="brewerName" v-model="brewery.brewer_username">
-                  <option disabled value>Select Brewer</option>
-                  <option v-for="brewebrewery in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
-                </select>
-              </div>
-          </div>-->
-          <!-- <div class="row">
-          <div class="col-25">
-              <label for="hours-operation">Hours of Operation</label>
-          </div>
-          <div class="col-75"> 
-            <input type="text" name="hours-opertation" placeholder="10:00AM-11:00PM"
-                v-model="brewery.hours_operation" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="days-operation">Days of Operation</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="days-opertation" placeholder="Mon-Sun"
-                v-model="brewery.days_operation" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="address">Street</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="address" placeholder="Address" v-model="brewery.address_street" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="city">City</label>
-          </div>
-          <div class="col-75">
-          <input type="text" name="city" placeholder="City" v-model="brewery.address_city" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="state">State</label>
-          </div>
-          <div class="col-75">
-          <input type="text" name="state" placeholder="State" v-model="brewery.address_state" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="zipcode">Zipcode</label>
-          </div>
-          <div class="col-75">
-          <input type="text" name="zipcode" placeholder="Zipcode" v-model="brewery.address_zip" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-25">
-            <label for="contact-info">Phone</label>
-          </div>
-          <div class="col-75">
-            <input type="text" name="contact-info" placeholder="Phone Number" v-model="brewery.phone_number"/>
-          </div>
-        </div>
-          <div class="row">
-          <div class="col-25">
-            <label for="history">Description</label>
-          </div>
-          <div class="col-75">
-            <textarea type="text-area" name="history" placeholder="Description" v-model="brewery.history" />
-          </div>
-          </div>
-          <button
-        class="btn btn-lg btn-primary btn-block"
-        type="submit"
-          >Enter</button>
-        </form>
-      </div>-->
     </b-form>
   </b-container>
 </template>
@@ -270,9 +174,20 @@ export default {
 
 <style scoped>
 
-label, b-form-group {
-  font-weight: bold;
-  font-size: 30px;
+.new-brewery-title {
+  background-color: #29abe2;
+  width: 33%;
+  padding: 5px 20px 5px 20px;
+  border-radius: 12px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.newBreweryContainer {
+  padding: 50px 0 50px 0;
+}
+
+h1 {
+  padding: 20px 0;
 }
 
 .form-control {
