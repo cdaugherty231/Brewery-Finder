@@ -1,6 +1,6 @@
 <template>
   <div class="brewery-list-page">
-    <table class="table-full">
+    <table align="center" class="table-full">
       <thead>
         <tr class="table-header">
           <th>Brewery</th>
@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 
 export default {
   data() {

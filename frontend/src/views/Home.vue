@@ -57,6 +57,7 @@
             </b-card>
           </b-col>
         </b-row>
+
       </div>
     </b-container>
 
@@ -69,7 +70,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import AddNewBrewery from "@/components/AddNewBrewery.vue";
 import BreweryList from "@/components/BreweryList.vue";
 //import BreweryUpdate from "@/components/BreweryUpdate.vue";
@@ -88,7 +89,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .home {
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(rgba(255, 216, 155, 0.4), rgba(25, 84, 123, 0.8)),
