@@ -1,23 +1,16 @@
 <template>
   <div class="home">
+    <b-container class="bv-admin-home" fluid>
       <div
         class="Admin"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')"
         >
         <b-row align-v="center" align-h="start">
-          <b-col>
-          
-              <brewery-list></brewery-list>
-        
-          </b-col>
-
-          <b-col>
-        
-              <add-new-brewery></add-new-brewery>
-         
-          </b-col>
+          <b-col> <brewery-list></brewery-list> </b-col>
+          <b-col><add-new-brewery></add-new-brewery></b-col>
         </b-row>
       </div>
+      </b-container>
     
 
     <div
