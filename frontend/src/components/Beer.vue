@@ -24,12 +24,13 @@
       <b-row no-gutters>
     <div class="profile-image"></div>
     <b-col md="6">
-      <b-card-body title=beer.beer_name>
-      <!-- <h3>{{ beer.beer_name }}</h3> -->
+      <img src="@/img/001rhinegeisttruth.jpg" alt="Image" class="rounded-0">
+    </b-col>
+    <b-col md="6">
+      <b-card-body v-bind:title=beer.beer_name>
        <b-card-text>{{ beer.beer_description }}</b-card-text>
-
-      <p class="beer-specs">{{ beer.abv }}</p>
-      <p class="beer-type">{{ beer.beer_type }}</p>
+       <b-card-text>{{ beer.abv }}</b-card-text>
+       <b-card-text>{{ beer.beer_type }}</b-card-text>
       </b-card-body>
     </b-col>
     <div></div>

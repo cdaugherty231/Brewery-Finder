@@ -1,5 +1,5 @@
 <template>
-  <b-container id="register" class="text-center container">
+  <b-container id="register" class="text-center container" fluid="xl">
     <content>
       <form class="form-register" @submit.prevent="register">
         
@@ -131,7 +131,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+/*.container {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -142,25 +142,17 @@ export default {
     "header "
     "content"
     "footer";
-}
+} */
 
-content {
-  grid-area: content;
-}
-
-/* #register {
-   background: lightblue; 
+ /*#register {
   font-family: 'Noto Sans', sans-serif;
    background: 
       linear-gradient(
-      rgba(27, 27, 26, 0.45), 
-      rgba(39, 39, 36, 0.45)
-    ), url(https://c4.wallpaperflare.com/wallpaper/97/512/27/a-glass-of-beer-wallpaper-preview.jpg) no-repeat center center fixed;
-  background-size: cover;
-  height: 100%;
-  text-indent: -9999px;
-    height: 100vh;
-  width: 100vw;
+      rgba(92, 55, 55, 0.45), 
+      rgba(19, 19, 18, 0.45)
+    ),  url(https://www.wvxu.Student/sites/wvxu/files/201409/Beer.JPG) repeat center center fixed;
+  height: 100vh;
+  width: 100%;
 
 } */
 
