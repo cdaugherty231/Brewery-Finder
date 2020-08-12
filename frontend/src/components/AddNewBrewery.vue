@@ -1,29 +1,159 @@
 <template>
-  <div class="container">
-    <header><h1 class="header">Enter the information for a new brewery below:</h1></header>
-    <content>
-    <form class="form-style">
-      <div>
-        <div class="row">
-          <div class="col-25">
-            <label for="name">Brewery Name</label>
+  <b-container class="container">
+    <b-card-text></b-card-text>
+    <b-form @submit="submitUpdatedBrewery">
+     <h1>Add New Brewery</h1>
+      <b-row>
+        <b-col>
+          <b-card-text>
+            Brewery Name
+          </b-card-text>
+          <b-form-group
+            label-size="sm"
+            id="breweryNameLabel"
+            label-for="breweryName"
+          >
+            <b-form-input
+              id="breweryName"
+              v-model="brewery.name"
+              required
+              placeholder="Enter Brewery Name"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label-size="sm" id="brewerNameLabel" label="Brewer" label-for="brewerName">
+            <b-form-select
+              id="brewerName"
+              v-model="brewery.brewer_username"
+              :options="brewers"
+              required
+              placeholder="Selct the Brewer for this Brewery"
+            ></b-form-select>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
+          <b-form-group label-size="sm" id="hrsOfOps" label="Hours of Opertation" label-for="Hours">
+            <b-form-input
+              id="Hours"
+              v-model="brewery.hours_operation"
+              required
+              placeholder="Enter Hours of Operation"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="daysOfOps" label="Days of Opertation" label-for="Days">
+            <b-form-input
+              id="Days"
+              v-model="brewery.days_operation"
+              required
+              placeholder="Enter Days of Operation"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+      </b-row>
+
+      <b-row>
+        <b-col>
+          <b-form-group label-size="sm" id="address" label="Address" label-for="address">
+            <b-form-input
+              id="address"
+              v-model="brewery.address_street"
+              required
+              placeholder="Enter a Street Address"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="city" label="City" label-for="city">
+            <b-form-input
+              id="city"
+              v-model="brewery.address_city"
+              required
+              placeholder="Enter a City"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="state" label="State" label-for="state">
+            <b-form-input
+              id="state"
+              v-model="brewery.address_state"
+              required
+              placeholder="Enter a State"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+
+        <b-col>
+          <b-form-group label-size="sm" id="zip" label="ZipCode" label-for="zip">
+            <b-form-input
+              id="zip"
+              type="number"
+              v-model="brewery.address_zip"
+              required
+              placeholder="Enter a Zipcode"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+        <b-col>
+          <b-form-group label-size="sm" id="phone" label="Contact Number" label-for="phone">
+            <b-form-input
+              id="phone"
+              type="number"
+              v-model="brewery.phone_number"
+              required
+              placeholder="Enter a Phone Number"
+            ></b-form-input>
+          </b-form-group>
+        </b-col>
+      </b-row>
+      <b-card-text>
+        <b-row>
+          <label for="Description">Description</label>
+          <b-form-textarea
+            label-size="sm"
+            id="Description"
+            v-model="brewery.history"
+            placeholder="Enter a description..."
+            rows="3"
+            max-rows="6"
+          ></b-form-textarea>
+        </b-row>
+      </b-card-text>
+      <b-row>
+        <b-card-text>
+          <b-button type="submit" size="lg" variant="primary">Submit</b-button>
+        </b-card-text>
+      </b-row>
+
+      <!-- <div>
+        <form>
+          <label for="name">Brewery Name</label>
           </div>
           <div class="col-75">
             <input type="text" name="name" placeholder="Enter Brewery Name" v-model="brewery.name" />
           </div>
-        </div>
-        <div class="row">
+          </div>-->
+          <!-- <div class="row">
           <div class="col-25">
             <label for="brewerName">Brewer Name</label>
           </div>
               <div class="col-75">
                 <select id="brewerName" v-model="brewery.brewer_username">
                   <option disabled value>Select Brewer</option>
-                  <option v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
+                  <option v-for="brewebrewery in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
                 </select>
               </div>
-          </div>
-        <div class="row">
+          </div>-->
+          <!-- <div class="row">
           <div class="col-25">
               <label for="hours-operation">Hours of Operation</label>
           </div>
@@ -88,18 +218,20 @@
           <div class="col-75">
             <textarea type="text-area" name="history" placeholder="Description" v-model="brewery.history" />
           </div>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit" v-on:click.prevent="submitNewBrewery()">Enter</button>
-      </div>
-    </form>
-    </content>
-    <footer></footer>
-  </div>
+          </div>
+          <button
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+          >Enter</button>
+        </form>
+      </div>-->
+    </b-form>
+  </b-container>
 </template>
 
 <script>
-import BreweryService from "@/services/BreweryService.js"; 
-import UserService from "@/services/UserService.js"
+import BreweryService from "@/services/BreweryService.js";
+import UserService from "@/services/UserService.js";
 
 export default {
   data() {
@@ -114,33 +246,41 @@ export default {
         address_state: "",
         address_zip: "",
         phone_number: "",
-        history: ""
+        history: "",
       },
-      brewers: [
-
-      ]
-    }
+      brewers: [],
+    };
   },
   methods: {
     submitUpdatedBrewery() {
-      BreweryService.updateBrewer(this.brewery).then(response => {
-        if(response.status == 200){
+      BreweryService.updateBrewer(this.brewery).then((response) => {
+        if (response.status == 200) {
           location.reload();
         }
-      })
-    }
+      });
+    },
   },
   created() {
-      UserService.getBrewers().then((response) => {
-        this.brewers = response.data;
-      });
-    }
+    UserService.getBrewers().then((response) => {
+      this.brewers = response.data;
+    });
+  },
 };
 </script>
 
 <style scoped>
 
-.container {
+label, b-form-group {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.form-control {
+  border-radius: 0px;
+  font-size: 15px;
+}
+
+/* .container {
   margin: 20px;
   margin-bottom: 200px;
   height: 100vh;
@@ -219,11 +359,11 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
-/* Clear floats after the columns */
+/* Clear floats after the columns
 .row:after {
   content: "";
   display: table;
   clear: both;
-}
+} */
 </style>
 

@@ -4,19 +4,8 @@
         class="Admin"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')"
         >
-        <b-row align-v="center" align-h="start">
-          <b-col>
-          
               <brewery-list></brewery-list>
-        
-          </b-col>
-
-          <b-col>
-        
               <add-new-brewery></add-new-brewery>
-         
-          </b-col>
-        </b-row>
       </div>
     
 
@@ -36,7 +25,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import AddNewBrewery from "@/components/AddNewBrewery.vue";
 import BreweryList from "@/components/BreweryList.vue";
 //import BreweryUpdate from "@/components/BreweryUpdate.vue";
@@ -55,7 +44,7 @@ export default {
  },
 };
 </script>
-<style scope>
+<style scoped>
 .Admin-add-brewery-card {
   background-color: lightblue;
 }
