@@ -7,6 +7,7 @@ public class BeerProduct {
 	private String beer_description;
 	private String abv;
 	private String beer_type;
+	private String beer_image;
 	
 	public BeerProduct() {
 		
@@ -58,6 +59,14 @@ public class BeerProduct {
 
 	public void setIsactive(boolean isactive) {
 		this.isactive = isactive;
+	}
+
+	public String getBeer_image() {
+		return beer_image;
+	}
+
+	public void setBeer_image(String beer_image) {
+		this.beer_image = beer_image;
 	}
 
 }
