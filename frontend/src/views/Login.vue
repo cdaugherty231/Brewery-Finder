@@ -139,7 +139,7 @@ body {
   box-shadow: 0 15px 8px 5px rgba(0,0,0,0.2);
   transition: 0.3s;
   height: 400px;
-  background-color: blue;
+  /*background-color: blue;*/
   border-radius: 25px;
 }
 .card:hover {
