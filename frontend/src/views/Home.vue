@@ -37,7 +37,7 @@ export default {
     AddNewBrewery,
     BreweryList,
     //BreweryUpdate
-  },
+ },
 };
 </script>
 <style scope>

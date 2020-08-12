@@ -16,7 +16,7 @@
         <b-row>
           <b-col></b-col>
           <b-col>
-          <div class="card">
+         
           <p class="title">Login</p>
           <!-- <b-card bg-variant="dark" title="Login" text-variant="white" style="max-width: 20rem" class="mb-2"> -->
             <b-card-text>
@@ -41,15 +41,15 @@
                 required
               />
             </b-card-text>
-            <b-card-tex>
+            <b-card-text class="accountLink">
               <router-link class="white-txt" :to="{ name: 'register' }">Need an account?</router-link>
-            </b-card-tex>
+            </b-card-text>
 
-            <div class="login-box">
-              <button class="login-btn" type="submit">Login</button>
-            </div>
+              <!-- <button class="login-btn" type="submit">Login</button> -->
+              <b-button type="submit" size="lg" variant="primary">Login</b-button>
+            
           <!-- </b-card> -->
-          </div>
+          
           </b-col>
           <b-col></b-col>
         </b-row>
@@ -121,7 +121,10 @@ body {
   /* background: url(https://c4.wallpaperflare.com/wallpaper/97/512/27/a-glass-of-beer-wallpaper-preview.jpg) */
     /* no-repeat center center fixed; */
   /*background: url(https://c4.wallpaperflare.com/wallpaper/240/999/697/futurama-cartoon-bender-the-simpsons-wallpaper-preview.jpg) no-repeat center center fixed;*/
-  background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
+  /* background: url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed; */
+  /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color.jpg); */
+  /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_gray.jpg); */
+  background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_gray2.jpg);
 
   background-size: cover;
 }
@@ -133,7 +136,7 @@ body {
 }*/
 
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 15px 8px 5px rgba(0,0,0,0.2);
   transition: 0.3s;
   height: 400px;
   background-color: blue;
@@ -143,12 +146,22 @@ body {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+.accountLink {
+  margin-left: 15%;
+  width: 70%;
+  transition: 0.3s;
+  border-radius: 25px;
+  background-color: #fbb03b;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .please-sign-in {
   color: white;
 }
 
 .title{
   font-size: 30px;
+  color: white;
 }
 
 
