@@ -7,7 +7,7 @@
           <h1 id="white-txt">Add New Beer to {{breweryName.name}}'s Beer List</h1>
         </b-row>
         <b-row>
-          <b-form id="newBeerContainer">
+          <b-form @submit="submitNewBeer" id="newBeerContainer">
             <b-form-group label-size="lg">
               <b-form-input
                 id="input"
@@ -52,7 +52,7 @@
                 v-model="newBeer.beer_image"
               ></b-form-input>
               <b-card-text>
-                <b-button type="submit" v-on:click="subtmiNewBeer" size="lg" variant="warning">Submit New Beer</b-button>
+                <b-button type="submit" size="lg" variant="warning">Submit New Beer</b-button>
               </b-card-text>
             </b-form-group>
           </b-form>
