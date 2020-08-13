@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     submitUpdatedBrewery() {
-      BreweryService.updateBrewer(this.brewery).then((response) => {
+      BreweryService.addNewBrewery(this.brewery).then((response) => {
         if (response.status == 200) {
           location.reload();
         }
