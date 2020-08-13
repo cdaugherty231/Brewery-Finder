@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div>
-  <b-navbar toggleable="lg" type="dark" variant="warning">
+  <b-navbar id="navbar" toggleable="lg" type="dark" variant="warning">
+    <b-img id="beerImg" src="./img/OhioBeer14.png" fluid></b-img>
     <b-navbar-brand href="/">OHIO BREWERY FINDER</b-navbar-brand>
     <!-- <img src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/OhioBeer14.png" width="10" height="10" class="d-inline-block align-top" alt="" -->
 
@@ -11,7 +12,7 @@
           <b-dropdown-item href="logout">Logout</b-dropdown-item>
       </b-navbar-nav>
   </b-navbar>
-  
+
 </div>
     <!-- <div id="nav" v-if="$store.state.token != ''">
       <router-link v-bind:to="{ name: 'home' }" v-if="$store.state.token != ''">Home</router-link>&nbsp;|&nbsp; 
@@ -45,6 +46,15 @@ export default {
 }
 </script>
 <style>
+
+#beerImg {
+  padding: 0 2% 0 1%;
+  height: 80px;
+}
+
+#navbar {
+  height: 100px;
+}
 
   b-dropdown-item {
     padding: 0 20px 0 0;

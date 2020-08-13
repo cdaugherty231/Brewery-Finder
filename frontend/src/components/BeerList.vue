@@ -1,6 +1,6 @@
 <template>
   <div id="beer-card-list">
-    <h2 id="brewery-ttl"> {{breweryName}}'s Beer List</h2>
+    <h2> <span id="brewery-ttl"> {{breweryName}}'s Beer List</span></h2>
     <!-- <img src="@/img/001rhinegeisttruth.jpg"> -->
     <b-card-group columns>
     <beer v-for="currentBeer in getBeerList" :key="currentBeer.beer_name" v-bind:beer="currentBeer"></beer>
@@ -38,12 +38,14 @@ export default {
 <style scoped>
 
 #brewery-ttl {
- padding: 10px 0 10px 5px;
+ padding: 10px;
  font-weight:bolder;
  background-color: #fbb03b;
- margin-right: 1000px;
- margin-bottom: 30px;
  border-radius: 10px;
+}
+
+h2 {
+    margin-bottom: 40px;
 }
 
 #beer-card-list {

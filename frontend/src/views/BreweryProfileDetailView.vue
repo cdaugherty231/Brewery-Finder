@@ -4,19 +4,29 @@
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN') 
       || $store.state.user.username == displayedBrewery.brewer_username"
     >
-      <h3>CURRENT USER IS AN ADMIN OR BREWER</h3>
-      <router-link
-        :to="{name: 'addNewBeer',
-                         params: {brewery_id: displayedBrewery.brewery_id}}"
-      >Add New Beer</router-link>
-      <router-link
-        :to="{name: 'updateBrewery',
-                         params: {brewery_id: displayedBrewery.brewery_id}}"
-      >Update Brewery Info</router-link>
-    </div>
 
     <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
+    <b-row id="buttons">
+      <b-button id="addBeer" variant="light">
+        <router-link
+          :to="{name: 'addNewBeer', params: {brewery_id: displayedBrewery.brewery_id}}"
+        >Add New Beer</router-link>
+      </b-button>
+      <b-button id="updateBrwry" variant="light">
+        <router-link
+          :to="{name: 'updateBrewery', params: {brewery_id: displayedBrewery.brewery_id}}"
+        >Update Brewery Info</router-link>
+      </b-button>
+    </b-row>
     <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
+    </div>
+
+
+    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
+    >
+        <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
+        <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
+    </div>
   </div>
 </template>
 
@@ -42,9 +52,28 @@ export default {
 </script>
 
 <style scoped>
+
+#addBeer {
+margin: 0 20px 50px 115px;
+padding: 15px;
+color: #29abe2;
+font-family: Arial, Helvetica, sans-serif;
+font-weight: bolder;
+}
+
+#updateBrwry {
+  margin: 0 20px 50px 0;
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+
 .main {
   color: white;
 }
 
-
+/* colors: 
+yellow = #fcee21 
+ornage = #fbb03b
+blue = #29abe2*/
 </style>

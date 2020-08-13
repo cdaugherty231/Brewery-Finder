@@ -1,33 +1,65 @@
 <template>
-  <div class="main container">
-    <h1 class="white-text">Add New Beer to {{breweryName}}'s Beer List</h1>
+  <div>
+    <b-row>
+      <b-col></b-col>
+      <b-col>
+        <b-row>
+          <h1 id="white-txt">Add New Beer to {{breweryName.name}}'s Beer List</h1>
+        </b-row>
+        <b-row>
+          <b-form id="newBeerContainer">
+            <b-form-group label-size="lg">
+              <b-form-input
+                id="input"
+                type="text"
+                name="beer_name"
+                placeholder="New Beer Name"
+                v-model="newBeer.beer_name"
+                label-size="sm"
+              ></b-form-input>
 
-    <form class="form-control">
-      <li class="register-box">
-        <input type="text" name="beer_name" placeholder="New Beer Name" v-model="newBeer.beer_name" />
-      </li>
-      <li class="register-box">
-        <input
-          type="text-area"
-          rows="4"
-          cols="30"
-          name="beer_description"
-          placeholder="Describe your new beer"
-          v-model="newBeer.beer_description"
-        />
-      </li>
-      <li class="register-box">
-        <input type="text" name="abv" placeholder="Alchohol by Volume" v-model="newBeer.abv" />
-      </li>
-      <li class="register-box">
-        <input type="text" name="beer_type" placeholder="Beer Type" v-model="newBeer.beer_type" />
-      </li>
-      <li class="register-box">
-        <input type="text" name="beer_image" placeholder="Image Link" v-model="newBeer.beer_image" />
-      </li>
+              <b-form-input
+                id="input"
+                type="text-area"
+                rows="4"
+                cols="30"
+                name="beer_description"
+                placeholder="Describe your new beer"
+                v-model="newBeer.beer_description"
+              ></b-form-input>
 
-      <button class="btn" type="submit" v-on:click.prevent="submitNewBeer()">Submit New Beer</button>
-    </form>
+              <b-form-input
+                id="input"
+                type="text"
+                name="abv"
+                placeholder="Alchohol by Volume"
+                v-model="newBeer.abv"
+              ></b-form-input>
+
+              <b-form-input
+                id="input"
+                type="text"
+                name="beer_type"
+                placeholder="Beer Type"
+                v-model="newBeer.beer_type"
+              ></b-form-input>
+
+              <b-form-input
+                id="input"
+                type="text"
+                name="beer_image"
+                placeholder="Image Link"
+                v-model="newBeer.beer_image"
+              ></b-form-input>
+              <b-card-text>
+                <b-button type="submit" v-on:click="subtmiNewBeer" size="lg" variant="warning">Submit New Beer</b-button>
+              </b-card-text>
+            </b-form-group>
+          </b-form>
+        </b-row>
+      </b-col>
+      <b-col></b-col>
+    </b-row>
   </div>
 </template>
 
@@ -40,7 +72,6 @@ export default {
     return {
       newBeer: {
         beer_name: "",
-        is_active: Boolean,
         beer_description: "",
         abv: "",
         beer_type: "",
@@ -83,11 +114,37 @@ export default {
     breweryName() {
       return this.$store.state.breweries.find((brewery) => {
         return brewery.brewery_id == this.$route.params.brewery_id;
-      }).name;
+      });
     },
   },
 };
 </script>
 
-<style>
+<style scoped>
+#input {
+  margin: 20px;
+}
+
+#newBeerContainer {
+  padding: 10px 0 50px 0;
+}
+
+.form-control {
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+#white-txt {
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  background-color: #29abe2;
+  border-radius: 8px;
+}
+
+/* colors: 
+yellow = #fcee21 
+ornage = #fbb03b
+blue = #29abe2*/
 </style>

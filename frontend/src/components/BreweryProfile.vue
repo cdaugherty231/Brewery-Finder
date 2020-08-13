@@ -3,9 +3,9 @@
     <h1 class="brewery-name">{{ currentBrewery.name }}</h1>
     <div class="profile-image"></div>
     <div>
-      <p class="brewery-address">{{ currentBrewery.address_street }} {{ currentBrewery.address_city }}</p>
-      <p class="brewery-address">{{ currentBrewery.address_state }} {{ currentBrewery.address_zip }}</p>
-      <p class="brewery-phone">{{ currentBrewery.phone_number }}</p>
+      <p> <span class="brewery-address">{{ currentBrewery.address_street }} {{ currentBrewery.address_city }}</span></p>
+      <p> <span class="brewery-address">{{ currentBrewery.address_state }} {{ currentBrewery.address_zip }}</span></p>
+      <p> <span class="brewery-phone">{{ currentBrewery.phone_number }}</span></p>
       <p class="history-bio">{{ currentBrewery.history }}</p>
     </div>
     <div></div>
@@ -51,9 +51,8 @@ export default {
 .brewery-phone {
   border-radius: 8px;
   background-color: #fbb03b;
-  margin-right: 1110px;
   font-size: 30px;
-  padding-left: 20px;
+  padding: 10px;
 }
 
 #brewery-prfl {

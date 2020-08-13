@@ -11,8 +11,8 @@
         </b-col>
       </div>
     </b-container>
-    
-    <b-container class="bv-brewer-home" fluid>
+
+    <b-container id="bv-brewer-home" fluid>
       <div
         class="Brewer"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
@@ -115,6 +115,11 @@ export default {
 };
 </script>
 <style scoped>
+
+.Beer-Lover {
+  margin-top: 5%;
+}
+
 .Admin-add-brewery-card {
   background-color: lightblue;
 }
