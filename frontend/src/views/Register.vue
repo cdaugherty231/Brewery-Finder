@@ -1,6 +1,6 @@
 <template>
   <b-container id="register" class="text-center container" fluid="xl">
-    <content>
+    <header></header>
       <form class="form-register" @submit.prevent="register">
         
         <div
@@ -9,7 +9,7 @@
           v-if="registrationErrors"
         >{{ registrationErrorMsg }}</div>
 
-        <b-row>
+        <b-row id="register-box">
           <b-col></b-col>
           <b-col>
             <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -59,11 +59,11 @@
               >Check if you are a brewery?</b-form-checkbox>
             </b-card-text>
             <!-- <div class="check-box">
-      <input type="checkbox" id="Brewer Check" class="form-control check" v-model="user.role" 
-          true-value="Brewer" false-value=""
-      />
-      <label class="white-txt" for="Brewer Check">Check if you are a brewer?  </label> 
-            </div>-->
+            <input type="checkbox" id="Brewer Check" class="form-control check" v-model="user.role" 
+                true-value="Brewer" false-value=""
+            />
+            <label class="white-txt" for="Brewer Check">Check if you are a brewer?  </label> 
+                  </div>-->
 
             <b-card-text class="hasAccountAlready">
               <router-link class="white-txt" :to="{ name: 'login' }">Have an account?</router-link>
@@ -76,7 +76,7 @@
           <b-col></b-col>
         </b-row>
       </form>
-    </content>
+
   </b-container>
 </template>
 
@@ -142,9 +142,9 @@ export default {
     "header "
     "content"
     "footer";
-} */
+}
 
- /*#register {
+ #register {
   font-family: 'Noto Sans', sans-serif;
    background: 
       linear-gradient(
@@ -161,6 +161,11 @@ body {
     background-size: cover;
 }
 
+#register-box {
+  padding: 5% 0 0 0;
+}
+
+
 .hasAccountAlready {
   margin-left: 15%;
   height: 7%;
@@ -169,15 +174,6 @@ body {
   border-radius: 25px;
   background-color: #fbb03b;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.register-box,
-.h3 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 20px 0;
-  padding: 10px;
 }
 
 .check {

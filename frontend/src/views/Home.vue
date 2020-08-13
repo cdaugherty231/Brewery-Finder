@@ -5,106 +5,29 @@
         class="Admin"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')"
       >
-        <b-row align-v="center" align-h="center">
-          <b-col>
-            <brewery-list></brewery-list>
-          </b-col>
-
-          <b-col>
-            <add-new-brewery></add-new-brewery>
-          </b-col>
-        </b-row>
+        <b-col>
+          <add-new-brewery></add-new-brewery>
+          <brewery-list></brewery-list>
+        </b-col>
       </div>
     </b-container>
 
-    <b-container class="bv-brewer-home" fluid>
+    <b-container class="bv-brewer-home" fluid="xl">
       <div
         class="Brewer"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
       >
         <!--<brewery-update></brewery-update> Tien's Change-->
-        <b-row align-h="center">
-          <b-col align-self="start"  col lg="2">
-            <b-card
-              footer="Brewery of the Month"
-              title="Braxton"
-              img-src="http://www.braxtonbrewing.com/wp-content/uploads/2019/07/Rooftop-Hero-Image-Living-Wall-1-2280x1520.jpg"
-              img-alt="Image"
-              img-top
-              tag="article"
-              style="max-width: 20rem;"
-              class="mb-2"
-            >
-              <b-card-text>Nested in historic Covington, enjoy a refreshing beer at one of the best rooftop patios.</b-card-text>
-            </b-card>
-          </b-col>
-
-          <b-col cols="12" md="auto">
-            <brewery-list></brewery-list>
-          </b-col>
-
-          <b-col align-self="end"  col lg="2">
-            <b-card
-              header= "Featured Beer"
-              title="Haven"
-              img-src="https://i.pinimg.com/564x/f4/aa/85/f4aa8513c8ace0b71784d970bea87cd5.jpg"
-              img-alt="Image"
-              img-bottom
-              tag="article"
-              style="max-width: 20rem;"
-              class="mb-2"
-            >
-              <b-card-text>A medium bodied, full flavored and easy drinking wheat.</b-card-text>
-            </b-card>
-          </b-col>
-        </b-row>
-
+        <brewery-list></brewery-list>
       </div>
     </b-container>
 
-    <b-container class="bv-beer-lover-home" fluid>
     <div
       class="Beer-Lover"
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
     >
-         <b-row align-h="center">
-          <b-col align-self="start"  col lg="2">
-            <b-card
-              footer="Brewery of the Month"
-              title="Braxton"
-              img-src="http://www.braxtonbrewing.com/wp-content/uploads/2019/07/Rooftop-Hero-Image-Living-Wall-1-2280x1520.jpg"
-              img-alt="Image"
-              img-top
-              tag="article"
-              style="max-width: 20rem;"
-              class="mb-2"
-            >
-              <b-card-text>Nested in historic Covington, enjoy a refreshing beer at one of the best rooftop patios.</b-card-text>
-            </b-card>
-          </b-col>
-
-          <b-col cols="12" md="auto">
       <brewery-list></brewery-list>
-       </b-col>
-
-       <b-col align-self="end"  col lg="2">
-            <b-card
-              header= "Featured Beer"
-              title="Haven"
-              img-src="https://i.pinimg.com/564x/f4/aa/85/f4aa8513c8ace0b71784d970bea87cd5.jpg"
-              img-alt="Image"
-              img-bottom
-              tag="article"
-              style="max-width: 20rem;"
-              class="mb-2"
-            >
-              <b-card-text>A medium bodied, full flavored and easy drinking wheat.</b-card-text>
-            </b-card>
-          </b-col>
-        </b-row>
     </div>
-    </b-container>
-    
   </div>
 </template>
 
@@ -128,6 +51,10 @@ export default {
 };
 </script>
 <style scoped>
+.Admin-add-brewery-card {
+  background-color: lightblue;
+}
+
 .home {
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(rgba(255, 216, 155, 0.4), rgba(25, 84, 123, 0.8)),
@@ -135,8 +62,8 @@ export default {
       center fixed;
   background-size: 100% 100%;
   position: absolute;
-  height: 100vh; /* Makes background full size- do not touch!*/
-  width: 100vw;
+  height: 200%; /* Makes background full size per page- do not touch!!!!*/
+  width: 100%;
 }
 </style>
 
