@@ -9,6 +9,7 @@ import BreweryProfileDetailView from '../views/BreweryProfileDetailView.vue'
 import BreweryProfileDetailViewEdit from '../views/BreweryProfileDetailViewEdit.vue'
 import AddNewBeer from '../components/AddNewBeer.vue'
 import BreweryUpdate from '../components/BreweryUpdate.vue'
+import UserProfile from '../components/UserProfile.vue'
 
 Vue.use(Router)
 
@@ -89,6 +90,15 @@ const router = new Router({
       path: '/updateBrewery',
       name: 'updateBrewery',
       component: BreweryUpdate,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+    {
+      path: '/userProfile/:username',
+      name: 'userProfile',
+      component: UserProfile,
       meta: {
         requiresAuth: true
       }

@@ -1,6 +1,6 @@
 <template>
-  <div class="brewery-list-page">
-    <table class="table-full">
+  <div class="brewery-list-container">
+    <table align="center" class="table-full">
       <thead>
         <tr class="table-header">
           <th>Brewery</th>
@@ -29,7 +29,7 @@
           </td>
         </tr>
         <tr class="brewery-tbl" v-for="brewery in filteredList" :key="brewery.name">
-          <td> <router-link :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
+          <td> <router-link class="link" :to="{name: 'breweryProfileView', params: {brewery_id: brewery.brewery_id}}" >{{brewery.name}}</router-link></td>
           <td>{{brewery.days_operation}}</td>
           <td>{{brewery.hours_operation}}</td>
           <td>{{brewery.address_city}}</td>
@@ -40,7 +40,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 
 export default {
   data() {
@@ -89,20 +89,11 @@ export default {
 };
 </script>
 
-<style scope>
+<style>
 
-
-/*.brewery-list-page {
-  background-color: lightblue; 
-  font-family: 'Noto Sans', sans-serif; 
-  background:  linear-gradient(
-      rgba(255, 216, 155, 0.40), 
-      rgba(25, 84, 123, 0.80)
-    ), url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center center fixed;
-  background-size: 100% 100%;
-  height: 100vh;
-  width: 100vw;
-}*/
+.link {
+  color: #DFDFDF;
+}
 
 .table-full {
     margin-left: auto;
@@ -126,17 +117,20 @@ export default {
     font-weight: bold;
 }
 
+.table-header {
+  text-align: center;
+}
+
 .table-full td {  
    color: #f3ecec;
     background: #FAFAFA;
     text-align: center;
-    
 }
-tr:nth-child(even) td { background-color: rgba(70, 131, 180, 0.89); }  
+tr:nth-child(even) td { background-color: rgba(94, 156, 206, 0.89); }  
 
-tr:nth-child(odd) td { background-color: rgba(70, 131, 180, 0.644); }  
+tr:nth-child(odd) td { background-color: rgba(155, 160, 132, 0.644); }  
 
-tr td:hover { background: #666; color: #FFF; }  
+tr td:hover { background: rgb(75, 136, 194); color: #FFF;}
 
   
 </style>

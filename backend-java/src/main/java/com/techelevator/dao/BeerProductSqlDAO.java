@@ -26,6 +26,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
+				+ " beer_image,"
 				+ " beer_type"
 				+ " FROM beerproduct";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql);
@@ -67,6 +68,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 		beerProduct.setBeer_description(rs.getString("beer_description"));
 		beerProduct.setAbv(rs.getString("abv"));
 		beerProduct.setBeer_type(rs.getString("beer_type"));
+		beerProduct.setBeer_image(rs.getString("beer_image"));
 		
 		return beerProduct;
 	}
@@ -79,7 +81,8 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
-				+ " beer_type"
+				+ " beer_type,"
+				+ " beer_image"
 				+ " FROM beerproduct"
 				+ " WHERE beer_id = ?;";
 		SqlRowSet rs = jdbcTemplate.queryForRowSet(sql, beer_id);
@@ -98,6 +101,7 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				+ " beerproduct.beer_name,"
 				+ " beerproduct.beer_description,"
 				+ " beerproduct.abv,"
+				+ " beerproduct.beer_image,"
 				+ " beerproduct.beer_type"
 				+ " FROM beerproduct"
 				+ " INNER JOIN brewery_beerproduct"

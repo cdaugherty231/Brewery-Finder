@@ -1,6 +1,6 @@
 <template>
-  <b-container id="register" class="text-center container">
-    <content>
+  <b-container id="register" class="text-center container" fluid="xl">
+    <header></header>
       <form class="form-register" @submit.prevent="register">
         
         <div
@@ -9,7 +9,7 @@
           v-if="registrationErrors"
         >{{ registrationErrorMsg }}</div>
 
-        <b-row>
+        <b-row id="register-box">
           <b-col></b-col>
           <b-col>
             <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -59,11 +59,11 @@
               >Check if you are a brewery?</b-form-checkbox>
             </b-card-text>
             <!-- <div class="check-box">
-      <input type="checkbox" id="Brewer Check" class="form-control check" v-model="user.role" 
-          true-value="Brewer" false-value=""
-      />
-      <label class="white-txt" for="Brewer Check">Check if you are a brewer?  </label> 
-            </div>-->
+            <input type="checkbox" id="Brewer Check" class="form-control check" v-model="user.role" 
+                true-value="Brewer" false-value=""
+            />
+            <label class="white-txt" for="Brewer Check">Check if you are a brewer?  </label> 
+                  </div>-->
 
             <b-card-text class="hasAccountAlready">
               <router-link class="white-txt" :to="{ name: 'login' }">Have an account?</router-link>
@@ -76,7 +76,7 @@
           <b-col></b-col>
         </b-row>
       </form>
-    </content>
+
   </b-container>
 </template>
 
@@ -131,7 +131,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+/*.container {
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -144,25 +144,27 @@ export default {
     "footer";
 }
 
-content {
-  grid-area: content;
-}
-
-/* #register {
-   background: lightblue; 
+ #register {
   font-family: 'Noto Sans', sans-serif;
    background: 
       linear-gradient(
-      rgba(27, 27, 26, 0.45), 
-      rgba(39, 39, 36, 0.45)
-    ), url(https://c4.wallpaperflare.com/wallpaper/97/512/27/a-glass-of-beer-wallpaper-preview.jpg) no-repeat center center fixed;
-  background-size: cover;
-  height: 100%;
-  text-indent: -9999px;
-    height: 100vh;
-  width: 100vw;
+      rgba(92, 55, 55, 0.45), 
+      rgba(19, 19, 18, 0.45)
+    ),  url(https://www.wvxu.Student/sites/wvxu/files/201409/Beer.JPG) repeat center center fixed;
+  height: 100vh;
+  width: 100%;
 
 } */
+
+body {
+    background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color.jpg); 
+    background-size: cover;
+}
+
+#register-box {
+  padding: 5% 0 0 0;
+}
+
 
 .hasAccountAlready {
   margin-left: 15%;
@@ -172,15 +174,6 @@ content {
   border-radius: 25px;
   background-color: #fbb03b;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.register-box,
-.h3 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  margin: 20px 0;
-  padding: 10px;
 }
 
 .check {

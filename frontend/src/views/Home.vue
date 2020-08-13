@@ -1,32 +1,27 @@
 <template>
   <div class="home">
+    <b-container fluid>
       <div
         class="Admin"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')"
-        >
-        <b-row align-v="center" align-h="start">
-          <b-col>
-          
-              <brewery-list></brewery-list>
-        
-          </b-col>
-
-          <b-col>
-        
-              <add-new-brewery></add-new-brewery>
-         
-          </b-col>
-        </b-row>
+      >
+        <b-col>
+          <add-new-brewery></add-new-brewery>
+          <brewery-list></brewery-list>
+        </b-col>
       </div>
-    
+    </b-container>
 
-    <div
-      class="Brewer"
-      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
-    >
-      <!--<brewery-update></brewery-update> Tien's Change-->
-      <brewery-list></brewery-list>
-    </div>
+    <b-container class="bv-brewer-home" fluid="xl">
+      <div
+        class="Brewer"
+        v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
+      >
+        <!--<brewery-update></brewery-update> Tien's Change-->
+        <brewery-list></brewery-list>
+      </div>
+    </b-container>
+
     <div
       class="Beer-Lover"
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
@@ -36,7 +31,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
 import AddNewBrewery from "@/components/AddNewBrewery.vue";
 import BreweryList from "@/components/BreweryList.vue";
 //import BreweryUpdate from "@/components/BreweryUpdate.vue";
@@ -52,22 +47,22 @@ export default {
     AddNewBrewery,
     BreweryList,
     //BreweryUpdate
- },
+  },
 };
 </script>
-<style scope>
+<style scoped>
 .Admin-add-brewery-card {
   background-color: lightblue;
 }
 
 .home {
-  background-color: lightblue;
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(rgba(255, 216, 155, 0.4), rgba(25, 84, 123, 0.8)),
     url(https://www.wvxu.org/sites/wvxu/files/201409/Beer.JPG) no-repeat center
       center fixed;
   background-size: 100% 100%;
-  height: 100%;
+  position: absolute;
+  height: 200%; /* Makes background full size per page- do not touch!!!!*/
   width: 100%;
 }
 </style>

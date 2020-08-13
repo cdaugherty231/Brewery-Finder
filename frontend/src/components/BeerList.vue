@@ -1,6 +1,7 @@
 <template>
   <div>
     <h2> {{breweryName}}'s Beer List</h2>
+    <!-- <img src="@/img/001rhinegeisttruth.jpg"> -->
     <beer v-for="currentBeer in getBeerList" :key="currentBeer.beer_name" v-bind:beer="currentBeer"></beer>
   </div>
 </template>
