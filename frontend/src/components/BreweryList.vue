@@ -1,5 +1,5 @@
 <template>
-  <div class="brewery-list-container">
+  <div id="brewery-list-container">
     <table align="center" class="table-full">
       <thead>
         <tr class="table-header">
@@ -90,6 +90,7 @@ export default {
 </script>
 
 <style>
+
 
 .link {
   color: #DFDFDF;

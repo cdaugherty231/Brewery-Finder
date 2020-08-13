@@ -23,10 +23,10 @@
     <b-card id="card-box" no-body class="overflow-hidden">
       <b-row no-gutters>
     <div class="profile-image"></div>
-    <b-col md="6">
+    <b-col md="5">
       <b-card-img :src="imagePath" alt="Image" class="rounded-0"></b-card-img> 
     </b-col>
-    <b-col md="6">
+    <b-col md="7">
       <b-card-body id="info-box"  v-bind = beer.beer_name>
        <b-card-text id="beer-title">{{beer.beer_name}}</b-card-text>
        <b-card-text id="beer-description">{{ beer.beer_description }}</b-card-text>
