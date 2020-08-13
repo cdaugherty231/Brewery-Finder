@@ -62,7 +62,8 @@ export default new Vuex.Store({
 
     FILL_REVIEWS(state, reviewsList){
       state.reviews = reviewsList;
-    }
+    },
+
 
   }
 })

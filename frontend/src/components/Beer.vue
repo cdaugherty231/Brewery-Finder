@@ -61,8 +61,8 @@ export default {
         let images = require.context('../assets/beer_assets', false, /\.jpg$/)
         return images('./' + this.beer.beer_image)
       } else {
-        let images = require.context('../assets/beer_assets', false, /\.jpeg$/)
-        return images('./' + "001truth" + ".jpeg")
+        let images = require.context('../assets/beer_assets', false, /\.jpg$/)
+        return images('./image_unavailable.jpg')
       }
     }
   }
