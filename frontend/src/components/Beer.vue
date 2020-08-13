@@ -19,25 +19,25 @@
 </div> -->
 
 
-  <div class="beer-card">
-    <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+  <div>
+    <b-card id="card-box" no-body class="overflow-hidden">
       <b-row no-gutters>
     <div class="profile-image"></div>
     <b-col md="6">
-      <b-card-img :src="imagePath" alt="Image" class="rounded-0"></b-card-img>
- 
+      <b-card-img :src="imagePath" alt="Image" class="rounded-0"></b-card-img> 
     </b-col>
     <b-col md="6">
-      <b-card-body v-bind:title=beer.beer_name>
-       <b-card-text>{{ beer.beer_description }}</b-card-text>
-       <b-card-text>{{ beer.abv }}</b-card-text>
-       <b-card-text>{{ beer.beer_type }}</b-card-text>
+      <b-card-body id="info-box"  v-bind = beer.beer_name>
+       <b-card-text id="beer-title">{{beer.beer_name}}</b-card-text>
+       <b-card-text id="beer-description">{{ beer.beer_description }}</b-card-text>
+       <b-card-text id="beer-abv">{{ beer.abv }}</b-card-text>
+       <b-card-text id="beer-type">{{ beer.beer_type }}</b-card-text>
       </b-card-body>
     </b-col>
     <div></div>
       </b-row>
     </b-card>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -73,13 +73,30 @@ export default {
 
 <style>
 
-.beer-card {
-  background: #e8e479;
-  border-radius: 0.25rem;
-  padding: 10px;
-  border: 1px;
-  /*box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);*/
-  margin-bottom: 10px;
+#card-box {
+  padding: 20px 30px 20px 30px;
+}
+
+#beer-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 770;
+  font-size: 30px;
+}
+
+#beer-description {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#beer-abv {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 30px;
+}
+
+#beer-type {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
 }
 
 </style>
