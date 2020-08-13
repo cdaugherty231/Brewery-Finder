@@ -12,13 +12,44 @@
       </div>
     </b-container>
 
-    <b-container class="bv-brewer-home" fluid="xl">
+    <b-container class="bv-brewer-home" fluid>
       <div
         class="Brewer"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
       >
-        <!--<brewery-update></brewery-update> Tien's Change-->
-        <brewery-list></brewery-list>
+        <b-row align-h="center">
+          <b-col align-self="start" col lg="2">
+            <b-card
+              footer="Brewery of the Month"
+              title="Braxton"
+              img-src="http://www.braxtonbrewing.com/wp-content/uploads/2019/07/Rooftop-Hero-Image-Living-Wall-1-2280x1520.jpg"
+              img-alt="Image"
+              img-top
+              tag="article"
+              style="max-width: 20rem;"
+              class="mb-2"
+            >
+              <b-card-text>Nested in historic Covington, enjoy a refreshing beer at one of the best rooftop patios.</b-card-text>
+            </b-card>
+          </b-col>
+          <b-col cols="12" md="auto">
+            <brewery-list></brewery-list>
+          </b-col>
+          <b-col align-self="end" col lg="2">
+            <b-card
+              header="Featured Beer"
+              title="Haven"
+              img-src="https://i.pinimg.com/564x/f4/aa/85/f4aa8513c8ace0b71784d970bea87cd5.jpg"
+              img-alt="Image"
+              img-bottom
+              tag="article"
+              style="max-width: 20rem;"
+              class="mb-2"
+            >
+              <b-card-text>A medium bodied, full flavored and easy drinking wheat.</b-card-text>
+            </b-card>
+          </b-col>
+        </b-row>
       </div>
     </b-container>
 
@@ -26,7 +57,40 @@
       class="Beer-Lover"
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
     >
-      <brewery-list></brewery-list>
+      <b-row align-h="center">
+        <b-col align-self="start" col lg="2">
+          <b-card
+            footer="Brewery of the Month"
+            title="Braxton"
+            img-src="http://www.braxtonbrewing.com/wp-content/uploads/2019/07/Rooftop-Hero-Image-Living-Wall-1-2280x1520.jpg"
+            img-alt="Image"
+            img-top
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>Nested in historic Covington, enjoy a refreshing beer at one of the best rooftop patios.</b-card-text>
+          </b-card>
+        </b-col>
+        <b-col cols="12" md="auto">
+          <brewery-list></brewery-list>
+        </b-col>
+
+        <b-col align-self="end" col lg="2">
+          <b-card
+            header="Featured Beer"
+            title="Haven"
+            img-src="https://i.pinimg.com/564x/f4/aa/85/f4aa8513c8ace0b71784d970bea87cd5.jpg"
+            img-alt="Image"
+            img-bottom
+            tag="article"
+            style="max-width: 20rem;"
+            class="mb-2"
+          >
+            <b-card-text>A medium bodied, full flavored and easy drinking wheat.</b-card-text>
+          </b-card>
+        </b-col>
+      </b-row>
     </div>
   </div>
 </template>

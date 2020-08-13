@@ -26,7 +26,7 @@ export default {
     computed: {
         getBeerList(){
             return this.$store.state.breweries.find((brewery) => {
-                return brewery.name = this.breweryName;
+                return brewery.name == this.breweryName;
             }).beerList;
         }
     }
