@@ -2,11 +2,12 @@
   <div id="app">
     <div>
   <b-navbar toggleable="lg" type="dark" variant="warning">
-    <b-navbar-brand href="home"> <img src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/OhioBeer14.png" width="10" height="10" class="d-inline-block align-top" alt=""> Beer Finder</b-navbar-brand>
+    <b-navbar-brand href="/"> <img src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/OhioBeer14.png" width="10" height="10" class="d-inline-block align-top" alt=""> Beer Finder</b-navbar-brand>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-dropdown-item href="logout">Logout</b-dropdown-item>
+          <b-dropdown-item href="userProfile">Profile</b-dropdown-item>
+          <b-dropdown-item href="logout">Logout</b-dropdown-item>
       </b-navbar-nav>
   </b-navbar>
 </div>
@@ -43,6 +44,11 @@ export default {
 </script>
 <style>
 
+  b-dropdown-item {
+    padding: 0 20px 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+  }
 
 /* colors: 
 yellow = #fcee21 

@@ -13,7 +13,7 @@
               id="breweryName"
               v-model="brewery.name"
               required
-              placeholder="Enter Brewery Name"
+              placeholder="Brewery Name"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -22,10 +22,12 @@
             <b-form-select
               id="brewerName"
               v-model="brewery.brewer_username"
-              :options="brewers"
               required
-              placeholder="Selct the Brewer for this Brewery"
-            ></b-form-select>
+              placeholder="Select a Brewer"
+            >
+            <b-form-select-option :value="null">Select a Brewer</b-form-select-option>
+            <b-form-select-option value v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</b-form-select-option>
+            </b-form-select>
           </b-form-group>
         </b-col>
       </b-row>
@@ -37,7 +39,7 @@
               id="Hours"
               v-model="brewery.hours_operation"
               required
-              placeholder="Enter Hours of Operation"
+              placeholder="10:00AM - 11:00PM"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -48,7 +50,7 @@
               id="Days"
               v-model="brewery.days_operation"
               required
-              placeholder="Enter Days of Operation"
+              placeholder="Mon-Sun"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -61,7 +63,7 @@
               id="address"
               v-model="brewery.address_street"
               required
-              placeholder="Enter a Street Address"
+              placeholder="Street Address"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -72,7 +74,7 @@
               id="city"
               v-model="brewery.address_city"
               required
-              placeholder="Enter a City"
+              placeholder="City"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -83,7 +85,7 @@
               id="state"
               v-model="brewery.address_state"
               required
-              placeholder="Enter a State"
+              placeholder="State"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -95,7 +97,7 @@
               type="number"
               v-model="brewery.address_zip"
               required
-              placeholder="Enter a Zipcode"
+              placeholder="Zipcode"
             ></b-form-input>
           </b-form-group>
         </b-col>
@@ -106,7 +108,7 @@
               type="number"
               v-model="brewery.phone_number"
               required
-              placeholder="Enter a Phone Number"
+              placeholder="Phone#"
             ></b-form-input>
           </b-form-group>
         </b-col>

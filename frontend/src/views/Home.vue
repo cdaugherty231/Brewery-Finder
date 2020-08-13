@@ -62,7 +62,7 @@ export default {
       center fixed;
   background-size: 100% 100%;
   position: absolute;
-  height: 180%; /* Makes background full size per page- do not touch!!!!*/
+  height: 200%; /* Makes background full size per page- do not touch!!!!*/
   width: 100%;
 }
 </style>
