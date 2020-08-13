@@ -103,6 +103,7 @@ VALUES ('DogBerry Brewing', 'sjenkins', '9964 Crescent Park Dr', 'West Chester',
 
 SELECT *
 FROM beerproduct
+WHERE (name = 'Braxton');
 
 DELETE FROM beerproduct
 WHERE beer_id > 0;

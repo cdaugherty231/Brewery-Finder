@@ -112,9 +112,6 @@ REFERENCES beerreview(review_id);
 INSERT INTO brewery(isactive, name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
 VALUES (TRUE, 'Braxton','Cincy Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600', 'Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','https://images.squarespace-cdn.com/content/v1/56bc856f37013b1b46f58914/1575937608540-BOQK49AKM0U2PVVVS0OM/ke17ZwdGBToddI8pDm48kCvp9wUojcKRXNLZnuWdJbxZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PIq7Wb5dtC4qoJ6CEJp3okJIUgQ1b_-LUh8rmXwLlAs0MKMshLAGzx4R3EDFOm1kBS/72189940_807006633050419_5757390238515200000_n.jpg');
 
-INSERT INTO brewery(isactive,name, brewer_username, address_street , address_city, address_state,  address_zip, phone_number, history, days_operation, hours_operation, brewery_image) 
-VALUES (TRUE,'Best Beer Co','USA Brewer','27 W', 'Covington', 'KY', 41011, '859-261-5600','Two Story Brewery in the heart of Covington', 'Mon-Sun', '10:00am - 12:00pm','');
-
 INSERT INTO brewery(isactive,name, brewer_username, address_street, address_city, address_state, address_zip, phone_number, history, days_operation,  hours_operation, brewery_image) 
 VALUES (TRUE,'Humble Monk Brewing Co', 'msmith', '1641 Blue Rock St', 'Cincinnati', 'OH', 45223, '(513) 510-4615', 'Pet Friendly', 'Mon-Sun', '4:00pm - 11:00pm','');
 
@@ -174,7 +171,6 @@ VALUES (TRUE, 'Cheetah', 'It has a brilliant malt character, balanced yet dry wi
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Knowledge', 'It has a brilliant malt character, balanced yet dry with crystal and bravo hops.', '4.8', 'Golden Ale','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\093RhinKnowledge.jpg');
 
-
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Psychopathy IPA', 'Blend of citrus, bright, and floral aromas; citrus flavors follow a smooth bitterness.', '6.9', 'IPA','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\094MadPyschopathy.jpg');
 
@@ -186,7 +182,6 @@ VALUES (TRUE, 'Gnarly Brown', 'Malts bring hints of brown sugar and vanilla; roa
 
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Lift', 'A crisp refreshing beer with a hint of orange will lift your spirits high.', '4.7', 'Kolsch','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\097MadLift.jpg');
-
 
 INSERT INTO beerproduct(isactive, beer_name, beer_description, abv, beer_type, beer_image) 
 VALUES (TRUE, 'Rapture', 'A well balanced belgian style imperial with chocolatey notes.', '9.7', 'Stout','C:\Users\Student\workspace\plorenz-java\brewery-finder-capstone-java\backend-java\database\beer_photos\030HMRapture.jpg');
