@@ -7,7 +7,7 @@
           <h1 id="white-txt">Add New Beer to {{breweryName.name}}'s Beer List</h1>
         </b-row>
         <b-row>
-          <b-form @submit="submitNewBeer" id="newBeerContainer">
+          <b-form id="newBeerContainer" @submit.prevent="submitNewBeer">
             <b-form-group label-size="lg">
               <b-form-input
                 id="input"
@@ -83,7 +83,7 @@ export default {
 
   methods: {
     submitNewBeer() {
-      BreweryService.addNewBeer(this.newBeer, this.breweryName).then(
+      BreweryService.addNewBeer(this.newBeer, this.breweryName.name).then(
         (response) => {
           if (response.status == 200) {
             this.refresh_data();

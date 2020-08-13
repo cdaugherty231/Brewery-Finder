@@ -114,8 +114,8 @@ body {
   /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color.jpg); */
   /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_gray.jpg); */
   /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color2.jpg); */
-  /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_best.jpg); */
-  background: url('../img/brewery_artboard_color_many-100.jpg');
+  background: url('../img/brewery_artboard_color_best.jpg');
+  background-size: cover;
 }
 
 .accountLink {
