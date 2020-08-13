@@ -20,6 +20,13 @@
     </b-row>
     <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
     </div>
+
+
+    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
+    >
+        <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
+        <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
+    </div>
   </div>
 </template>
 

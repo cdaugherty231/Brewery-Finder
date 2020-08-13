@@ -4,10 +4,10 @@
       <b-col></b-col>
       <b-col>
         <b-row>
-          <h1 id="white-txt">Add New Beer to {{breweryName}}'s Beer List</h1>
+          <h1 id="white-txt">Add New Beer to {{breweryName.name}}'s Beer List</h1>
         </b-row>
         <b-row>
-          <b-form @submit="submitNewBeer" id="newBeerContainer">
+          <b-form id="newBeerContainer">
             <b-form-group label-size="lg">
               <b-form-input
                 id="input"
@@ -52,7 +52,7 @@
                 v-model="newBeer.beer_image"
               ></b-form-input>
               <b-card-text>
-                <b-button type="submit" size="lg" variant="warning">Submit New Beer</b-button>
+                <b-button type="submit" v-on:click="subtmiNewBeer" size="lg" variant="warning">Submit New Beer</b-button>
               </b-card-text>
             </b-form-group>
           </b-form>
@@ -72,7 +72,6 @@ export default {
     return {
       newBeer: {
         beer_name: "",
-        is_active: Boolean,
         beer_description: "",
         abv: "",
         beer_type: "",
@@ -115,7 +114,7 @@ export default {
     breweryName() {
       return this.$store.state.breweries.find((brewery) => {
         return brewery.brewery_id == this.$route.params.brewery_id;
-      }).name;
+      });
     },
   },
 };
