@@ -5,23 +5,6 @@
         class="Admin"
         v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN')"
       >
-<<<<<<< HEAD
-        <b-col>
-          <add-new-brewery></add-new-brewery>
-          <brewery-list></brewery-list>
-          
-        </b-col>
-      </div>
-    </b-container>
-
-    <b-container class="bv-brewer-home" fluid="xl">
-      <div
-        class="Brewer"
-        v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_BREWER')"
-      >
-        <!--<brewery-update></brewery-update> Tien's Change-->
-        <brewery-list></brewery-list>
-=======
         <b-row align-v="center" align-h="center">
           <b-col>
             <brewery-list></brewery-list>
@@ -31,7 +14,6 @@
             <add-new-brewery></add-new-brewery>
           </b-col>
         </b-row>
->>>>>>> 31a53ae6472e23f5f679e5686117d00ae4e4ec50
       </div>
     </b-container>
 
@@ -146,13 +128,6 @@ export default {
 };
 </script>
 <style scoped>
-<<<<<<< HEAD
-.Admin-add-brewery-card {
-  background-color: lightblue;
-}
-
-=======
->>>>>>> 31a53ae6472e23f5f679e5686117d00ae4e4ec50
 .home {
   font-family: "Noto Sans", sans-serif;
   background: linear-gradient(rgba(255, 216, 155, 0.4), rgba(25, 84, 123, 0.8)),
@@ -160,13 +135,8 @@ export default {
       center fixed;
   background-size: 100% 100%;
   position: absolute;
-<<<<<<< HEAD
-  height: 180%; /* Makes background full size per page- do not touch!!!!*/
-  width: 100%;
-=======
   height: 100vh; /* Makes background full size- do not touch!*/
   width: 100vw;
->>>>>>> 31a53ae6472e23f5f679e5686117d00ae4e4ec50
 }
 </style>
 
