@@ -11,7 +11,7 @@
         </b-col>
       </div>
     </b-container>
-
+    
     <b-container class="bv-brewer-home" fluid>
       <div
         class="Brewer"
