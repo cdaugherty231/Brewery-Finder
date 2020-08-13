@@ -2,14 +2,12 @@
   <div id="app">
     <div>
   <b-navbar toggleable="lg" type="dark" variant="warning">
-    <b-navbar-brand href="home"> <img src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/web beer.svg" width="10" height="10" class="d-inline-block align-top" alt=""> Beer Finder</b-navbar-brand>
-    <b-collapse id="nav-collapse" is-nav>
+    <b-navbar-brand href="home"> <img src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/OhioBeer14.png" width="10" height="10" class="d-inline-block align-top" alt=""> Beer Finder</b-navbar-brand>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-        <b-dropdown-item href="logout">Sign Out</b-dropdown-item>
+        <b-dropdown-item href="logout">Logout</b-dropdown-item>
       </b-navbar-nav>
-    </b-collapse>
   </b-navbar>
 </div>
     <!-- <div id="nav" v-if="$store.state.token != ''">
