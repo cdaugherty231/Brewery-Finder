@@ -37,7 +37,8 @@ computed: {
 body {
   background: lightblue;
   font-family: "Noto Sans", sans-serif;
-  background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color.jpg);
+  /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color.jpg); */
+  background: url("C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_manywhite-100.jpg");
   /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_gray.jpg); */
   /* background: url(C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/brewery_artboard_color_gray2.jpg); */
   background-size: cover;

@@ -116,6 +116,10 @@ export default {
 </script>
 <style scoped>
 
+.Beer-Lover {
+  margin-top: 5%;
+}
+
 .Admin-add-brewery-card {
   background-color: lightblue;
 }

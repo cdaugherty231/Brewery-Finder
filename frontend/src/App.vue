@@ -2,7 +2,7 @@
   <div id="app">
     <div>
   <b-navbar id="navbar" toggleable="lg" type="dark" variant="warning">
-    <b-img id="beerImg" src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/ohiobeer.jpg" fluid></b-img>
+    <b-img id="beerImg" src="./img/OhioBeer14.png" fluid></b-img>
     <b-navbar-brand href="/">OHIO BREWERY FINDER</b-navbar-brand>
     <!-- <img src="C:/Users/Student/workspace/brewery-finder-capstone-java/frontend/src/img/OhioBeer14.png" width="10" height="10" class="d-inline-block align-top" alt="" -->
 
@@ -48,7 +48,8 @@ export default {
 <style>
 
 #beerImg {
-  padding: 0 3% 0 3%;
+  padding: 0 2% 0 1%;
+  height: 80px;
 }
 
 #navbar {
