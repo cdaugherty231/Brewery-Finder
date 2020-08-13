@@ -23,10 +23,8 @@
               id="brewerName"
               v-model="brewery.brewer_username"
               required
-              placeholder="Select a Brewer"
             >
-            <b-form-select-option :value="null">Select a Brewer</b-form-select-option>
-            <b-form-select-option value v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</b-form-select-option>
+            <b-form-select-option v-bind:value="brewer.username" v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</b-form-select-option>
             </b-form-select>
           </b-form-group>
         </b-col>

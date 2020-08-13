@@ -22,7 +22,7 @@
     </div>
 
 
-    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
+    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER' || auth.name == 'ROLE_BREWER')"
     >
         <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
         <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
