@@ -44,14 +44,16 @@ public class BeerProductSqlDAO implements BeerProductDAO{
 				+ " beer_name,"
 				+ " beer_description,"
 				+ " abv,"
-				+ " beer_type)"
-				+ " VALUES( ?, ?, ?, ?, ?) RETURNING beer_id";
+				+ " beer_type,"
+				+ " beer_image)"
+				+ " VALUES( ?, ?, ?, ?, ?, ?) RETURNING beer_id";
 		int resultID = jdbcTemplate.queryForObject(sql, Integer.class,
 				beerProductToAdd.getIsactive(),
 				beerProductToAdd.getBeer_name(),
 				beerProductToAdd.getBeer_description(),
 				beerProductToAdd.getAbv(),
-				beerProductToAdd.getBeer_type());
+				beerProductToAdd.getBeer_type(),
+				beerProductToAdd.getBeer_image());
 		beerProductToAdd.setBeer_id(resultID);
 		
 		addBeerToBrewery(breweryName, resultID);

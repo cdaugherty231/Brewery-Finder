@@ -161,6 +161,7 @@ export default {
     submitUpdatedBrewery() {
       BreweryService.addNewBrewery(this.brewery).then((response) => {
         if (response.status == 200) {
+          this.refresh_data();
           location.reload();
         }
       });
@@ -170,6 +171,24 @@ export default {
     UserService.getBrewers().then((response) => {
       this.brewers = response.data;
     });
+  },
+
+  refresh_data() {
+    // API call to get populate breweries list
+    BreweryService.getAllBreweries().then((response) => {
+      this.$store.commit("FILL_BREWERIES", response.data);
+
+
+      // second api call to populate each breweries beer list
+      this.$store.state.breweries.forEach(element => {
+        BreweryService.getBeersByBrewery(element.name).then((response2) => {
+          //console.log(element.name + ": " + response2.data);
+          element.beerList = response2.data;
+          //this.$store.commit("FILL_BEERS", element, "test");
+        })
+
+      });
+    })
   },
 };
 </script>
