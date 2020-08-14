@@ -22,7 +22,7 @@
         </b-button>
       </b-row>
       <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
-    </div> -->
+    </div>-->
 
     <div
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER' || auth.name == 'ROLE_BREWER' || auth.name == 'ROLE_ADMIN')"

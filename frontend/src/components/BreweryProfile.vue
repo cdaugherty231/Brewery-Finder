@@ -3,7 +3,8 @@
     <h1 class="brewery-name">{{ currentBrewery.name }}</h1>
     <div class="profile-image"></div>
     <div>
-      <p> <span class="brewery-address">{{ currentBrewery.address_street }} {{ currentBrewery.address_city }}</span></p>
+      <p> <span class="brewery-address">{{ currentBrewery.address_street }}</span></p>
+      <p> <span class="brewery-address">{{ currentBrewery.address_city }}</span></p>
       <p> <span class="brewery-address">{{ currentBrewery.address_state }} {{ currentBrewery.address_zip }}</span></p>
       <p> <span class="brewery-phone">{{ currentBrewery.phone_number }}</span></p>
       <p class="history-bio">{{ currentBrewery.history }}</p>
@@ -45,7 +46,6 @@ export default {
 
 .brewery-address {
   font-size: 20px;
-  padding-left: 20px;
 }
 
 .brewery-phone {
