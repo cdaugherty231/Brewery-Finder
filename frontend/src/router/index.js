@@ -10,6 +10,7 @@ import BreweryProfileDetailViewEdit from '../views/BreweryProfileDetailViewEdit.
 import AddNewBeer from '../components/AddNewBeer.vue'
 import BreweryUpdate from '../components/BreweryUpdate.vue'
 import UserProfile from '../components/UserProfile.vue'
+import About from '../views/About.vue'
 
 Vue.use(Router)
 
@@ -101,6 +102,15 @@ const router = new Router({
       component: UserProfile,
       meta: {
         requiresAuth: true
+      }
+    },
+
+    {
+    path: '/about',
+      name: 'about',
+      component: About,
+      meta: {
+        requiresAuth: false
       }
     }
   ]

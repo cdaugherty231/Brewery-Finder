@@ -12,6 +12,7 @@
       </div>
     </b-container>
 
+  <div class="brewer-guy">
     <b-container id="bv-brewer-home" fluid>
       <div
         class="Brewer"
@@ -52,7 +53,7 @@
         </b-row>
       </div>
     </b-container>
-
+  </div>
     <div
       class="Beer-Lover"
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER')"
@@ -73,7 +74,7 @@
           </b-card>
         </b-col>
         <b-col cols="12" md="auto">
-          <brewery-list></brewery-list>
+          <brewery-list id="user-view"></brewery-list>
         </b-col>
 
         <b-col align-self="end" col lg="2">
@@ -116,7 +117,11 @@ export default {
 </script>
 <style scoped>
 
-.Beer-Lover {
+#user-view {
+  padding-top: 50px;
+}
+
+.Beer-Lover, .brewer-guy{
   margin-top: 5%;
 }
 

@@ -1,31 +1,50 @@
 <template>
   <div>
-    <div
+    <!-- <div
       v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN') 
       || $store.state.user.username == displayedBrewery.brewer_username"
     >
+      <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
+      <b-row
+        id="buttons"
+        v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN') 
+      || $store.state.user.username == displayedBrewery.brewer_username"
+      >
+        <b-button id="addBeer" variant="light">
+          <router-link
+            :to="{name: 'addNewBeer', params: {brewery_id: displayedBrewery.brewery_id}}"
+          >Add New Beer</router-link>
+        </b-button>
+        <b-button id="updateBrwry" variant="light">
+          <router-link
+            :to="{name: 'updateBrewery', params: {brewery_id: displayedBrewery.brewery_id}}"
+          >Update Brewery Info</router-link>
+        </b-button>
+      </b-row>
+      <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
+    </div> -->
 
-    <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
-    <b-row id="buttons">
-      <b-button id="addBeer" variant="light">
-        <router-link
-          :to="{name: 'addNewBeer', params: {brewery_id: displayedBrewery.brewery_id}}"
-        >Add New Beer</router-link>
-      </b-button>
-      <b-button id="updateBrwry" variant="light">
-        <router-link
-          :to="{name: 'updateBrewery', params: {brewery_id: displayedBrewery.brewery_id}}"
-        >Update Brewery Info</router-link>
-      </b-button>
-    </b-row>
-    <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
-    </div>
-
-
-    <div v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER' || auth.name == 'ROLE_BREWER')"
+    <div
+      v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_USER' || auth.name == 'ROLE_BREWER' || auth.name == 'ROLE_ADMIN')"
     >
-        <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
-        <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
+      <brewery-profile v-bind:currentBrewery="displayedBrewery"></brewery-profile>
+      <b-row
+        id="buttons"
+        v-if="$store.state.user.authorities.find(auth => auth.name == 'ROLE_ADMIN') 
+      || $store.state.user.username == displayedBrewery.brewer_username"
+      >
+        <b-button id="addBeer" variant="light">
+          <router-link
+            :to="{name: 'addNewBeer', params: {brewery_id: displayedBrewery.brewery_id}}"
+          >Add New Beer</router-link>
+        </b-button>
+        <b-button id="updateBrwry" variant="light">
+          <router-link
+            :to="{name: 'updateBrewery', params: {brewery_id: displayedBrewery.brewery_id}}"
+          >Update Brewery Info</router-link>
+        </b-button>
+      </b-row>
+      <beer-list v-bind:breweryName="displayedBrewery.name"></beer-list>
     </div>
   </div>
 </template>
@@ -52,13 +71,12 @@ export default {
 </script>
 
 <style scoped>
-
 #addBeer {
-margin: 0 20px 50px 115px;
-padding: 15px;
-color: #29abe2;
-font-family: Arial, Helvetica, sans-serif;
-font-weight: bolder;
+  margin: 0 20px 50px 115px;
+  padding: 15px;
+  color: #29abe2;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
 }
 
 #updateBrwry {

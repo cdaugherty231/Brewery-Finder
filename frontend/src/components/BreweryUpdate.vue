@@ -12,17 +12,17 @@
             <input type="text" name="name" placeholder="Enter Brewery Name" v-model="breweryToUpdate.name" />
           </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
           <div class="col-25">
             <label for="brewerName">Brewer Name</label>
           </div>
-              <!-- <div class="col-75">
+               <div class="col-75">
                 <select id="brewerName" v-model="breweryToUpdate.brewer_username">
                   <option disabled value>Select Brewer</option>
                   <option v-for="brewer in brewers" v-bind:key="brewer.username">{{brewer.username}}</option>
                 </select> -->
-              <!-- </div> -->
-          </div>
+              <!-- </div> 
+          </div>-->
         <div class="row">
           <div class="col-25">
               <label for="hours-operation">Hours of Operation</label>

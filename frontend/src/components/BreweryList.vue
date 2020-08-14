@@ -91,7 +91,6 @@ export default {
 
 <style>
 
-
 .link {
   color: #DFDFDF;
 }

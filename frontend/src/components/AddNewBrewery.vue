@@ -114,7 +114,7 @@
       <b-card-text>
         <b-row>
           <b-form-textarea
-          class="description"
+            class="description"
             label-size="sm"
             id="Description"
             v-model="brewery.history"
@@ -126,7 +126,7 @@
       </b-card-text>
       <b-row>
         <b-card-text class="new-brewry-button">
-          <b-button type="submit" size="lg" variant="warning">Submit</b-button>
+          <b-button id="submit-btn" type="submit" size="lg" variant="warning">Submit</b-button>
         </b-card-text>
       </b-row>
     </b-form>
@@ -193,10 +193,19 @@ export default {
 
 <style scoped>
 
+#submit-btn {
+  margin-left: 15px;
+}
+
+#Description {
+  margin: 0 15px 0 15px;
+}
+
 .new-brewery-title {
   background-color: #29abe2;
   width: 33%;
   padding: 5px 20px 5px 20px;
+  margin: 0 0 30px 0;
   border-radius: 12px;
   font-family:Arial, Helvetica, sans-serif;
 }
