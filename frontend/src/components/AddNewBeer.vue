@@ -146,5 +146,7 @@ export default {
 /* colors: 
 yellow = #fcee21 
 ornage = #fbb03b
-blue = #29abe2*/
+blue = #29abe2
+
+../img/092RhinCheetah.jfif*/
 </style>
